@@ -1,0 +1,78 @@
+{
+    "add_head": "1",
+    "add_licensing_template": "2",
+    "extends": "0",
+    "guid": "0a69cfc5-3223-4afb-8c9a-75f4bacf3c0e",
+    "implements": [
+        "-1"
+    ],
+    "load_selection": null,
+    "name": "User",
+    "power_version": "1.0.0",
+    "system_name": "Joomla.Gitea.Service.User",
+    "type": "class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "4a5694db-bf3c-439b-bf9c-36a487828787",
+            "as": "Usr"
+        },
+        "use_selection1": {
+            "use": "4a9e144e-7754-4d3f-9325-9ff792ce4aef",
+            "as": "default"
+        },
+        "use_selection2": {
+            "use": "af4b8b77-d773-42a7-9f54-19de463bc49b",
+            "as": "default"
+        },
+        "use_selection3": {
+            "use": "13931443-bad7-4742-b64e-c08042e7b306",
+            "as": "default"
+        },
+        "use_selection4": {
+            "use": "b1788488-f557-4746-9929-73e1d049b4a2",
+            "as": "default"
+        },
+        "use_selection5": {
+            "use": "f135ca7f-4d50-4480-a15f-feae1a7982ab",
+            "as": "default"
+        },
+        "use_selection6": {
+            "use": "c521f8c3-4e01-4c1a-8f68-f3e9d967651d",
+            "as": "default"
+        },
+        "use_selection7": {
+            "use": "fd560f3e-ce19-474f-86ca-1fb1d3af9992",
+            "as": "default"
+        },
+        "use_selection8": {
+            "use": "553b8fc5-46cc-49b7-95ce-992a3c5708f8",
+            "as": "default"
+        },
+        "use_selection9": {
+            "use": "884b61d0-1f56-4f5f-a657-acaacdb9634b",
+            "as": "default"
+        },
+        "use_selection10": {
+            "use": "b6e17249-5afc-4bc0-a4aa-8d2241c1ccaf",
+            "as": "default"
+        },
+        "use_selection11": {
+            "use": "c3dfbf28-1a28-4fd3-a0b5-12b06ecaadf3",
+            "as": "default"
+        },
+        "use_selection12": {
+            "use": "2ccb303f-b115-45fb-b3ea-08a38259681e",
+            "as": "default"
+        },
+        "use_selection13": {
+            "use": "af49b450-78fb-40bd-8165-48466ebd31a9",
+            "as": "default"
+        }
+    },
+    "namespace": "VDM\\Joomla\\Gitea\\Service.User",
+    "description": "The Gitea User Service\r\n\r\n@since 3.2.0",
+    "implements_custom": "ServiceProviderInterface",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",
+    "composer": ""
+}

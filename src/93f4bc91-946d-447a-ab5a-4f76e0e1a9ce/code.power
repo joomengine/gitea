@@ -1,0 +1,21 @@
+	/**
+	 * Get signing-key.gpg for a given repository.
+	 *
+	 * @param	string   $ownerName	The owner name.
+	 * @param	string   $repoName		The repository name.
+	 *
+	 * @return  string
+	 * @since   3.2.0
+	 **/
+	public function get(string $ownerName, string $repoName): string
+	{
+		// Build the request path.
+		$path = "/repos/{$ownerName}/{$repoName}/signing-key.gpg";
+
+		// Send the get request.
+		return $this->response->get(
+			$this->http->get(
+				$this->uri->get($path)
+			)
+		);
+	}

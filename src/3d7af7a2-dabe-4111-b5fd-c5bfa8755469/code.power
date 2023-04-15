@@ -1,0 +1,54 @@
+	/**
+	 * The Http class
+	 *
+	 * @var    Http
+	 * @since 3.2.0
+	 */
+	protected Http $http;
+
+	/**
+	 * The Uri class
+	 *
+	 * @var    Uri
+	 * @since 3.2.0
+	 */
+	protected Uri $uri;
+
+	/**
+	 * The Response class
+	 *
+	 * @var    Response
+	 * @since 3.2.0
+	 */
+	protected Response $response;
+
+	/**
+	 * Constructor.
+	 *
+	 * @param   Http        $http       The http class.
+	 * @param   Uri         $uri        The uri class.
+	 * @param   Response    $response   The response class.
+	 *
+	 * @since   3.2.0
+	 **/
+	public function __construct(Http $http, Uri $uri, Response $response)
+	{
+		$this->http = $http;
+		$this->uri = $uri;
+		$this->response = $response;
+	}
+
+	/**
+	 * Load/Reload API.
+	 *
+	 * @param   string        $url          The url.
+	 * @param   token        $token      The token.
+	 *
+	 * @return  void
+	 * @since   3.2.0
+	 **/
+	public function load_(string $url, string $token)
+	{
+		$this->uri->setUrl($url);
+		$this->http->setToken($token);
+	}

@@ -1,0 +1,38 @@
+{
+    "add_head": "1",
+    "add_licensing_template": "2",
+    "extends": "0",
+    "guid": "f4d00907-c94a-49b7-8727-d64c1fa74cf5",
+    "implements": [
+        "-1"
+    ],
+    "load_selection": null,
+    "name": "Settings",
+    "power_version": "1.0.0",
+    "system_name": "Joomla.Gitea.Service.Settings",
+    "type": "class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "5ca71a00-7b44-4c0d-9955-3af054eed43d",
+            "as": "default"
+        },
+        "use_selection1": {
+            "use": "3d4ed24c-8250-4fcf-824f-a5f1597f939e",
+            "as": "default"
+        },
+        "use_selection2": {
+            "use": "e7c16db5-bb22-421b-8789-180f6a502b62",
+            "as": "default"
+        },
+        "use_selection3": {
+            "use": "0367ac44-18d6-495d-beae-315794ffa89d",
+            "as": "default"
+        }
+    },
+    "namespace": "VDM\\Joomla\\Gitea\\Service.Settings",
+    "description": "The Gitea Settings Service\r\n\r\n@since 3.2.0",
+    "implements_custom": "ServiceProviderInterface",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",
+    "composer": ""
+}

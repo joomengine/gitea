@@ -1,0 +1,57 @@
+	/**
+	 * Gets a package.
+	 *
+	 * @param   string   $owner    The owner of the package.
+	 * @param   string   $type     The type of the package.
+	 * @param   string   $name     The name of the package.
+	 * @param   string   $version  The version of the package.
+	 *
+	 * @return  object|null
+	 * @since   3.2.0
+	 **/
+	public function get(
+		string $owner,
+		string $type,
+		string $name,
+		string $version
+	): ?object
+	{
+		// Build the request path.
+		$path = "/packages/{$owner}/{$type}/{$name}/{$version}";
+
+		// Send the get request.
+		return $this->response->get(
+			$this->http->get(
+				$this->uri->get($path)
+			)
+		);
+	}
+
+	/**
+	 * Delete a package.
+	 *
+	 * @param   string   $owner    The owner of the package.
+	 * @param   string   $type     The type of the package.
+	 * @param   string   $name     The name of the package.
+	 * @param   string   $version  The version of the package.
+	 *
+	 * @return  string
+	 * @since   3.2.0
+	 **/
+	public function delete(
+		string $owner,
+		string $type,
+		string $name,
+		string $version
+	): string
+	{
+		// Build the request path.
+		$path = "/packages/{$owner}/{$type}/{$name}/{$version}";
+
+		// Send the delete request.
+		return $this->response->get(
+			$this->http->delete(
+				$this->uri->get($path)
+			), 204, 'success'
+		);
+	}

@@ -1,0 +1,34 @@
+{
+    "add_head": "1",
+    "add_licensing_template": "2",
+    "extends": "0",
+    "guid": "808da4eb-b467-46cf-a767-e7e714f46b5a",
+    "implements": [
+        "-1"
+    ],
+    "load_selection": null,
+    "name": "Package",
+    "power_version": "1.0.0",
+    "system_name": "Joomla.Gitea.Service.Package",
+    "type": "class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "b7ec675d-3197-4458-89d6-ca5d4303af8a",
+            "as": "Pack"
+        },
+        "use_selection1": {
+            "use": "4a54c21f-ac3a-4489-b507-636835541a67",
+            "as": "default"
+        },
+        "use_selection2": {
+            "use": "b5ca512b-f667-4ec6-bc6e-914af41d344a",
+            "as": "default"
+        }
+    },
+    "namespace": "VDM\\Joomla\\Gitea\\Service.Package",
+    "description": "The Gitea Package Service\r\n\r\n@since 3.2.0",
+    "implements_custom": "ServiceProviderInterface",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",
+    "composer": ""
+}

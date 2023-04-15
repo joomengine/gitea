@@ -1,0 +1,58 @@
+	/**
+	 * Global Package Container
+	 *
+	 * @var     Container
+	 * @since 3.2.0
+	 **/
+	protected static $container = null;
+
+	/**
+	 * Get any class from the package container
+	 *
+	 * @param   string  $key  The container class key
+	 *
+	 * @return  Mixed
+	 * @since 3.2.0
+	 */
+	public static function _($key)
+	{
+		return self::getContainer()->get($key);
+	}
+
+	/**
+	 * Get the global package container
+	 *
+	 * @return  Container
+	 * @since 3.2.0
+	 */
+	public static function getContainer(): Container
+	{
+		if (!self::$container)
+		{
+			self::$container = self::createContainer();
+		}
+
+		return self::$container;
+	}
+
+	/**
+	 * Create a container object
+	 *
+	 * @return  Container
+	 * @since 3.2.0
+	 */
+	protected static function createContainer(): Container
+	{
+		return (new Container())
+			->registerServiceProvider(new Utilities())
+			->registerServiceProvider(new Jcb())
+			->registerServiceProvider(new Settings())
+			->registerServiceProvider(new Organization())
+			->registerServiceProvider(new User())
+			->registerServiceProvider(new Repository())
+			->registerServiceProvider(new Package())
+			->registerServiceProvider(new Issue())
+			->registerServiceProvider(new Notifications())
+			->registerServiceProvider(new Miscellaneous())
+			->registerServiceProvider(new Admin());
+	}

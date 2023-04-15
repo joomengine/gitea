@@ -1,0 +1,42 @@
+	/**
+	 * Returns the Person actor for a user.
+	 *
+	 * @param   string  $username  The user's username.
+	 *
+	 * @return  object|null
+	 * @since   3.2.0
+	 **/
+	public function get(string $username): ?object
+	{
+		// Build the request path.
+		$path = "/activitypub/user/{$username}";
+
+		// Send the GET request.
+		return $this->response->get(
+			$this->http->get(
+				$this->uri->get($path)
+			)
+		);
+	}
+
+	/**
+	 * Send to the user's inbox.
+	 *
+	 * @param   string  $username   The user's username.
+	 * @param   object  $postData   The post data.
+	 *
+	 * @return  string
+	 * @since   3.2.0
+	 **/
+	public function send(string $username, object $postData): string
+	{
+		// Build the request path.
+		$path = "/activitypub/user/{$username}/inbox";
+
+		// Send the POST request.
+		return $this->response->get(
+			$this->http->post(
+				$this->uri->get($path), json_encode($postData)
+			), 204, 'success'
+		);
+	}

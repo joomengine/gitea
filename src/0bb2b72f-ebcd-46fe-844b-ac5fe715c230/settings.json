@@ -1,0 +1,174 @@
+{
+    "add_head": "1",
+    "add_licensing_template": "2",
+    "extends": "0",
+    "guid": "0bb2b72f-ebcd-46fe-844b-ac5fe715c230",
+    "implements": [
+        "-1"
+    ],
+    "load_selection": null,
+    "name": "Repository",
+    "power_version": "1.0.0",
+    "system_name": "Joomla.Gitea.Service.Repository",
+    "type": "class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "eb6c050d-7100-42b8-a922-f7e7c78a08c2",
+            "as": "Repo"
+        },
+        "use_selection1": {
+            "use": "8a8fce09-a880-4364-a8c4-4ca337e7e951",
+            "as": "default"
+        },
+        "use_selection2": {
+            "use": "66f866a7-f3a0-40ac-ac94-168d60c4a643",
+            "as": "default"
+        },
+        "use_selection3": {
+            "use": "68f930bc-d24f-4ade-bcec-576f82c3c13d",
+            "as": "default"
+        },
+        "use_selection4": {
+            "use": "8fd54ec5-d93e-445c-ae27-80b6052dbddd",
+            "as": "default"
+        },
+        "use_selection5": {
+            "use": "0edb3d51-0a65-443b-883d-3d20325212bb",
+            "as": "default"
+        },
+        "use_selection6": {
+            "use": "e5d342ee-caf9-4b29-b7b6-2b81a8ef58cf",
+            "as": "default"
+        },
+        "use_selection7": {
+            "use": "daa18d45-3d4a-4280-b58c-147683e8093c",
+            "as": "default"
+        },
+        "use_selection8": {
+            "use": "8d1baef6-fcad-49a9-848f-428009cdb989",
+            "as": "default"
+        },
+        "use_selection9": {
+            "use": "7fbed5f9-54a2-4001-a0d1-4621034166ef",
+            "as": "default"
+        },
+        "use_selection10": {
+            "use": "93f4bc91-946d-447a-ab5a-4f76e0e1a9ce",
+            "as": "default"
+        },
+        "use_selection11": {
+            "use": "463ce0a3-65e0-4a08-8bd2-e3bd0a058488",
+            "as": "default"
+        },
+        "use_selection12": {
+            "use": "a11cacb2-c13a-4482-bf71-1b7d99574a98",
+            "as": "default"
+        },
+        "use_selection13": {
+            "use": "501fbf08-9f56-4aa0-96d7-5905b511be08",
+            "as": "default"
+        },
+        "use_selection14": {
+            "use": "c140a62c-ea7b-470f-b8ca-83cfbcdd13ba",
+            "as": "default"
+        },
+        "use_selection15": {
+            "use": "c0ee5592-e49f-4937-9b13-f4352afcb430",
+            "as": "default"
+        },
+        "use_selection16": {
+            "use": "0f99429a-b517-40ac-a3c1-34c3ef2f36ee",
+            "as": "default"
+        },
+        "use_selection17": {
+            "use": "f6249c33-b4bd-4598-8710-0cab230aef94",
+            "as": "default"
+        },
+        "use_selection18": {
+            "use": "403855fb-668d-464a-af45-8e30b198c9d6",
+            "as": "default"
+        },
+        "use_selection19": {
+            "use": "cf8fa194-9f83-4a2a-b52b-ede069188afe",
+            "as": "default"
+        },
+        "use_selection20": {
+            "use": "1dda1c2c-1670-4aea-a6b8-49f0bd03b41e",
+            "as": "default"
+        },
+        "use_selection21": {
+            "use": "f56114fd-6804-4ce9-8adb-1d521f023c11",
+            "as": "default"
+        },
+        "use_selection22": {
+            "use": "974d9e4c-beef-4c35-a3c6-92b1dd5b145d",
+            "as": "default"
+        },
+        "use_selection23": {
+            "use": "754d737c-3b6f-43f0-8974-2e06a3daf41e",
+            "as": "default"
+        },
+        "use_selection24": {
+            "use": "994f4ffe-6030-4bfd-a0b1-4e1aa54bb8cd",
+            "as": "default"
+        },
+        "use_selection25": {
+            "use": "65288a04-bcac-4067-ae2b-6fda9f1e3fd5",
+            "as": "default"
+        },
+        "use_selection26": {
+            "use": "6a2fffb5-63ff-4a96-b458-632a5ff90814",
+            "as": "default"
+        },
+        "use_selection27": {
+            "use": "4b355731-bbcc-430f-a451-f94ff9bb1c20",
+            "as": "default"
+        },
+        "use_selection28": {
+            "use": "5f01760a-de24-49f7-b08e-d340c847f86a",
+            "as": "default"
+        },
+        "use_selection29": {
+            "use": "caf25475-8c9e-4e07-a7f5-f606e98ec880",
+            "as": "default"
+        },
+        "use_selection30": {
+            "use": "c7b31fc2-892b-4235-beb2-3413e4432839",
+            "as": "default"
+        },
+        "use_selection31": {
+            "use": "8c82b705-04bb-4bd2-ac09-3f590fdf48c2",
+            "as": "default"
+        },
+        "use_selection32": {
+            "use": "d7b67b1c-f876-4555-9e54-0645cf519d4c",
+            "as": "default"
+        },
+        "use_selection33": {
+            "use": "7f852309-122b-42fb-b2f3-ea9e2d405a9c",
+            "as": "default"
+        },
+        "use_selection34": {
+            "use": "04adb831-c257-4657-a2c3-a17096b6b5cf",
+            "as": "default"
+        },
+        "use_selection35": {
+            "use": "78b3346f-c4cf-46b3-941c-656e2d510da0",
+            "as": "default"
+        },
+        "use_selection36": {
+            "use": "93d704d3-aed8-4ee5-a25e-e7fbfb23b5c7",
+            "as": "default"
+        },
+        "use_selection37": {
+            "use": "572b9567-1893-400b-bd34-f1a45ef7e503",
+            "as": "default"
+        }
+    },
+    "namespace": "VDM\\Joomla\\Gitea\\Service.Repository",
+    "description": "The Gitea Repository Service\r\n\r\n@since 3.2.0",
+    "implements_custom": "ServiceProviderInterface",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",
+    "composer": ""
+}

@@ -1,0 +1,18 @@
+	/**
+	 * Get instance's global settings for repositories.
+	 *
+	 * @return  object|null
+	 * @since   3.2.0
+	 **/
+	public function get(): ?object
+	{
+		// Build the request path.
+		$path = "/settings/repository";
+
+		// Send the get request.
+		return $this->response->get(
+			$this->http->get(
+				$this->uri->get($path)
+			)
+		);
+	}

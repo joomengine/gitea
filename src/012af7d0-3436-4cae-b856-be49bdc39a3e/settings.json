@@ -1,0 +1,42 @@
+{
+    "add_head": "1",
+    "add_licensing_template": "2",
+    "extends": "0",
+    "guid": "012af7d0-3436-4cae-b856-be49bdc39a3e",
+    "implements": [
+        "-1"
+    ],
+    "load_selection": null,
+    "name": "Miscellaneous",
+    "power_version": "1.0.0",
+    "system_name": "Joomla.Gitea.Service.Miscellaneous",
+    "type": "class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "9ae44ddd-9d69-4298-a50b-05129cbebb76",
+            "as": "default"
+        },
+        "use_selection1": {
+            "use": "5974503e-e56c-488b-bee3-f93b90c781df",
+            "as": "default"
+        },
+        "use_selection2": {
+            "use": "8f1a0130-e555-4e6a-9fa8-9b99e30b39fa",
+            "as": "default"
+        },
+        "use_selection3": {
+            "use": "2cc6543d-b8c7-4bb9-8845-bfae2fb7a71f",
+            "as": "default"
+        },
+        "use_selection4": {
+            "use": "7fb2cd98-a87d-4f48-9720-033924c69e34",
+            "as": "default"
+        }
+    },
+    "namespace": "VDM\\Joomla\\Gitea\\Service.Miscellaneous",
+    "description": "The Gitea Miscellaneous Service\r\n\r\n@since 3.2.0",
+    "implements_custom": "ServiceProviderInterface",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",
+    "composer": ""
+}

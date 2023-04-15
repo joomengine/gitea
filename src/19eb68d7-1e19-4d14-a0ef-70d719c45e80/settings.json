@@ -1,0 +1,27 @@
+{
+    "add_head": "1",
+    "add_licensing_template": "2",
+    "extends": "0",
+    "guid": "19eb68d7-1e19-4d14-a0ef-70d719c45e80",
+    "implements": null,
+    "load_selection": null,
+    "name": "Response",
+    "power_version": "1.0.0",
+    "system_name": "Joomla.Gitea.Utilities.Response",
+    "type": "final class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "4b225c51-d293-48e4-b3f6-5136cf5c3f18",
+            "as": "default"
+        },
+        "use_selection1": {
+            "use": "1f28cb53-60d9-4db1-b517-3c7dc6b429ef",
+            "as": "default"
+        }
+    },
+    "namespace": "VDM\\Joomla\\Gitea\\Utilities.Response",
+    "description": "The Gitea Response\r\n\r\n@since 3.2.0",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\CMS\\Http\\Response as JoomlaResponse;",
+    "composer": ""
+}

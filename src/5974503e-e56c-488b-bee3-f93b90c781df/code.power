@@ -1,0 +1,18 @@
+	/**
+	 * Get default signing-key.gpg.
+	 *
+	 * @return  string|null
+	 * @since   3.2.0
+	 **/
+	public function get(): ?string
+	{
+		// Build the request path.
+		$path = "/signing-key.gpg";
+
+		// Send the get request.
+		return $this->response->get(
+			$this->http->get(
+				$this->uri->get($path)
+			)
+		);
+	}

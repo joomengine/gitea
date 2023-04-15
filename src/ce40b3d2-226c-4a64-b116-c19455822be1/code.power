@@ -1,0 +1,50 @@
+	/**
+	 * Constructor.
+	 *
+	 * @param   string|null     $token     The Gitea API token.
+	 *
+	 * @since   3.2.0
+	 * @throws  \InvalidArgumentException
+	 **/
+	public function __construct(?string $token)
+	{
+		// setup config
+		$config = [
+			'userAgent' => 'JoomlaGitea/3.0',
+			'headers' => [
+				'Content-Type' => 'application/json'
+			]
+		];
+
+		// add the token if given
+		if (is_string($token))
+		{
+			$config['headers']['Authorization'] = 'token ' . $token;
+		}
+
+		$options = new Registry($config);
+
+		// run parent constructor
+		parent::__construct($options);
+	}
+
+	/**
+	 * Change the Token.
+	 *
+	 * @param   string     $token     The Gitea API token.
+	 *
+	 * @since   3.2.0
+	 **/
+	public function setToken(string $token)
+	{
+		// get the current headers
+		$headers = (array) $this->getOption('headers', [
+				'Content-Type' => 'application/json'
+			]
+		);
+
+		// add the token
+		$headers['Authorization'] = 'token ' . $token;
+
+		$this->setOption('headers', $headers);
+	}

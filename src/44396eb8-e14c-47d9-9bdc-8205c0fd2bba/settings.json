@@ -1,0 +1,74 @@
+{
+    "add_head": "1",
+    "add_licensing_template": "2",
+    "extends": "0",
+    "guid": "44396eb8-e14c-47d9-9bdc-8205c0fd2bba",
+    "implements": [
+        "-1"
+    ],
+    "load_selection": null,
+    "name": "Issue",
+    "power_version": "1.0.0",
+    "system_name": "Joomla.Gitea.Service.Issue",
+    "type": "class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "5c8f9038-d6e9-4788-96df-45019eafbadb",
+            "as": "Issu"
+        },
+        "use_selection1": {
+            "use": "22d65693-917d-47c7-ba5c-8e1f354dc713",
+            "as": "default"
+        },
+        "use_selection2": {
+            "use": "63fbd482-688a-4356-b3e4-a676ef357100",
+            "as": "RepoComments"
+        },
+        "use_selection3": {
+            "use": "61ddd1b9-4b74-44bd-a7ee-f743cd4c2f69",
+            "as": "default"
+        },
+        "use_selection4": {
+            "use": "ca53d4cb-7800-4ea2-b06e-7466ded91e49",
+            "as": "default"
+        },
+        "use_selection5": {
+            "use": "e819d1a2-4390-432d-be36-3421f2fa861c",
+            "as": "IssueLabels"
+        },
+        "use_selection6": {
+            "use": "f428beab-10f4-4c0d-bb9e-8c797ed7a7c9",
+            "as": "default"
+        },
+        "use_selection7": {
+            "use": "e6c2dee6-54b9-4476-8896-2bfa14a87650",
+            "as": "default"
+        },
+        "use_selection8": {
+            "use": "73b3ebfa-c52a-4a96-a8de-718ff0bbc155",
+            "as": "default"
+        },
+        "use_selection9": {
+            "use": "a68d1841-65bb-41c8-ac09-cfddf73bb822",
+            "as": "default"
+        },
+        "use_selection10": {
+            "use": "acca507d-e632-4349-9e3a-9dba5d19fbf9",
+            "as": "default"
+        },
+        "use_selection11": {
+            "use": "83bb983b-80d8-44d5-917b-03d3c13742b9",
+            "as": "default"
+        },
+        "use_selection12": {
+            "use": "d273c34e-88c1-438b-98c0-801996f58c29",
+            "as": "default"
+        }
+    },
+    "namespace": "VDM\\Joomla\\Gitea\\Service.Issue",
+    "description": "The Gitea Issue Service\r\n\r\n@since 3.2.0",
+    "implements_custom": "ServiceProviderInterface",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",
+    "composer": ""
+}

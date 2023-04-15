@@ -1,0 +1,62 @@
+{
+    "add_head": "1",
+    "add_licensing_template": "2",
+    "extends": "0",
+    "guid": "3d25ea99-4f33-489a-934c-0e42027e6114",
+    "implements": [
+        "-1"
+    ],
+    "load_selection": null,
+    "name": "Organization",
+    "power_version": "1.0.0",
+    "system_name": "Joomla.Gitea.Service.Organization",
+    "type": "class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "8efd9070-7110-4b8e-bb76-cb1a286d5af2",
+            "as": "Org"
+        },
+        "use_selection1": {
+            "use": "605d7058-345b-411e-b55d-027edc1ded83",
+            "as": "default"
+        },
+        "use_selection2": {
+            "use": "9c9ba4c4-2039-4396-9ea2-621e42e04c89",
+            "as": "default"
+        },
+        "use_selection3": {
+            "use": "c1be1e0d-479d-44de-bfe4-cfa4ded7e240",
+            "as": "default"
+        },
+        "use_selection4": {
+            "use": "2a6f99df-a327-4477-8079-f57133e6ff36",
+            "as": "PublicMembers"
+        },
+        "use_selection5": {
+            "use": "aeb42050-90e1-4169-907a-fa6cde20caa4",
+            "as": "default"
+        },
+        "use_selection6": {
+            "use": "9c886ee5-ff14-44c3-a3dd-6a30ebf32ca3",
+            "as": "default"
+        },
+        "use_selection7": {
+            "use": "d9fa532a-dbe8-445f-93dc-398a3cf01c1e",
+            "as": "TeamsMembers"
+        },
+        "use_selection8": {
+            "use": "07fce5f7-eb13-4dda-8870-77c9ad32a7bf",
+            "as": "TeamsRepository"
+        },
+        "use_selection9": {
+            "use": "b3f6728b-8c88-4ee8-9aa0-bcef400a35bf",
+            "as": "default"
+        }
+    },
+    "namespace": "VDM\\Joomla\\Gitea\\Service.Organization",
+    "description": "The Gitea Organization Service\r\n\r\n@since 3.2.0",
+    "implements_custom": "ServiceProviderInterface",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",
+    "composer": ""
+}

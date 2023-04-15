@@ -1,0 +1,50 @@
+	/**
+	 * Get specified ref or filtered repository's refs.
+	 *
+	 * @param   string  $owner  The owner name.
+	 * @param   string  $repo   The repository name.
+	 *
+	 * @return  array|null
+	 * @since   3.2.0
+	 **/
+	public function list(string $owner, string $repo): ?array
+	{
+		// Build the request path.
+		$path = "/repos/{$owner}/{$repo}/git/refs";
+
+		// Build the URI.
+		$uri = $this->uri->get($path);
+
+		// Send the get request.
+		return $this->response->get(
+			$this->http->get($uri)
+		);
+	}
+
+	/**
+	 * Get specified ref.
+	 *
+	 * @param   string  $owner  The owner name.
+	 * @param   string  $repo   The repository name.
+	 * @param   string  $ref    The ref name.
+	 *
+	 * @return  array|null
+	 * @since   3.2.0
+	 **/
+	public function get(
+		string $owner,
+		string $repo,
+		string $ref
+	): ?array
+	{
+		// Build the request path.
+		$path = "/repos/{$owner}/{$repo}/git/refs/{$ref}";
+
+		// Build the URI.
+		$uri = $this->uri->get($path);
+
+		// Send the get request.
+		return $this->response->get(
+			$this->http->get($uri)
+		);
+	}

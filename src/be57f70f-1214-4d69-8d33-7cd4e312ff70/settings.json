@@ -1,0 +1,34 @@
+{
+    "add_head": "1",
+    "add_licensing_template": "2",
+    "extends": "0",
+    "guid": "be57f70f-1214-4d69-8d33-7cd4e312ff70",
+    "implements": [
+        "-1"
+    ],
+    "load_selection": null,
+    "name": "Notifications",
+    "power_version": "1.0.0",
+    "system_name": "Joomla.Gitea.Service.Notifications",
+    "type": "class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "c8cbc9bd-ee91-403a-8633-0e8b59619a49",
+            "as": "Notifi"
+        },
+        "use_selection1": {
+            "use": "3a4ce297-4536-45be-b3cc-d93474e55528",
+            "as": "default"
+        },
+        "use_selection2": {
+            "use": "db14e345-c3d9-4dda-8534-4963cd6ca6f5",
+            "as": "default"
+        }
+    },
+    "namespace": "VDM\\Joomla\\Gitea\\Service.Notifications",
+    "description": "The Gitea Notifications Service\r\n\r\n@since 3.2.0",
+    "implements_custom": "ServiceProviderInterface",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",
+    "composer": ""
+}

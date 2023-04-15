@@ -1,0 +1,28 @@
+	/**
+	 * Gets all files of a package.
+	 *
+	 * @param   string   $owner    The owner of the package.
+	 * @param   string   $type     The type of the package.
+	 * @param   string   $name     The name of the package.
+	 * @param   string   $version  The version of the package.
+	 *
+	 * @return  object|null
+	 * @since   3.2.0
+	 **/
+	public function get(
+		string $owner,
+		string $type,
+		string $name,
+		string $version
+	): ?object
+	{
+		// Build the request path.
+		$path = "/packages/{$owner}/{$type}/{$name}/{$version}/files";
+
+		// Send the get request.
+		return $this->response->get(
+			$this->http->get(
+				$this->uri->get($path)
+			)
+		);
+	}
