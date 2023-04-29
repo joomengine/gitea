@@ -250,7 +250,6 @@ namespace VDM\Joomla\Gitea #DarkCyan {
     + heatmap() : ?array
     + keys() : ?array
     + repos() : ?array
-    + repos() : ?array
     + watched() : ?array
   }
 }

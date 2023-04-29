@@ -21,7 +21,6 @@ class User  #Gold {
   + heatmap(string $username) : ?array
   + keys(string $userName, ?string $fingerprint = null, ...) : ?array
   + repos(string $userName, int $page = 1, ...) : ?array
-  + repos(string $userName, int $page = 1, ...) : ?array
   + watched(string $userName, int $page = 1, ...) : ?array
 }
 
@@ -115,15 +114,6 @@ note right of User::keys
 end note
 
 note left of User::repos
-  List the repos that the given user has starred.
-
-  since: 3.2.0
-  return: ?array
-  
-  arguments:
-    string $userName
-    int $page = 1
-    int $limit = 10
   List the repos that the given user has starred.
 
   since: 3.2.0

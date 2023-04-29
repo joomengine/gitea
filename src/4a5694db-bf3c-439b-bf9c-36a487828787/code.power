@@ -278,36 +278,6 @@
 	}
 
 	/**
-	 * List the repos that the given user has starred.
-	 *
-	 * @param   string   $userName  The username of the user to retrieve starred repos for.
-	 * @param   int      $page      The page number of results to return (1-based).
-	 * @param   int      $limit     The page size of results.
-	 *
-	 * @return  array|null
-	 * @since   3.2.0
-	 **/
-	public function repos(
-		string $userName,
-		int $page = 1,
-		int $limit = 10
-	): ?array
-	{
-		// Build the request path.
-		$path = "/users/{$userName}/starred";
-
-		// Build the URI with query parameters.
-		$uri = $this->uri->get($path);
-		$uri->setVar('page', $page);
-		$uri->setVar('limit', $limit);
-
-		// Send the get request.
-		return $this->response->get(
-			$this->http->get($uri)
-		);
-	}
-
-	/**
 	 * List the repositories watched by a user.
 	 *
 	 * @param   string   $userName  The username of the user to retrieve watched repositories for.
