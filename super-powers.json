@@ -7,6 +7,7 @@
         "power": "src\/61e813c6-a872-4f55-8078-198241170e80\/code.power",
         "settings": "src\/61e813c6-a872-4f55-8078-198241170e80\/settings.json",
         "path": "src\/61e813c6-a872-4f55-8078-198241170e80",
+        "spk": "Uri",
         "guid": "61e813c6-a872-4f55-8078-198241170e80"
     },
     "19eb68d7-1e19-4d14-a0ef-70d719c45e80": {
@@ -17,6 +18,7 @@
         "power": "src\/19eb68d7-1e19-4d14-a0ef-70d719c45e80\/code.power",
         "settings": "src\/19eb68d7-1e19-4d14-a0ef-70d719c45e80\/settings.json",
         "path": "src\/19eb68d7-1e19-4d14-a0ef-70d719c45e80",
+        "spk": "Response",
         "guid": "19eb68d7-1e19-4d14-a0ef-70d719c45e80"
     },
     "6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c": {
@@ -27,6 +29,7 @@
         "power": "src\/6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c\/code.power",
         "settings": "src\/6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c\/settings.json",
         "path": "src\/6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c",
+        "spk": "Utilities",
         "guid": "6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c"
     },
     "ce40b3d2-226c-4a64-b116-c19455822be1": {
@@ -37,6 +40,7 @@
         "power": "src\/ce40b3d2-226c-4a64-b116-c19455822be1\/code.power",
         "settings": "src\/ce40b3d2-226c-4a64-b116-c19455822be1\/settings.json",
         "path": "src\/ce40b3d2-226c-4a64-b116-c19455822be1",
+        "spk": "Http",
         "guid": "ce40b3d2-226c-4a64-b116-c19455822be1"
     },
     "d2e997a1-bbf7-4f28-8a7c-ce5c68061cfe": {
@@ -47,6 +51,7 @@
         "power": "src\/d2e997a1-bbf7-4f28-8a7c-ce5c68061cfe\/code.power",
         "settings": "src\/d2e997a1-bbf7-4f28-8a7c-ce5c68061cfe\/settings.json",
         "path": "src\/d2e997a1-bbf7-4f28-8a7c-ce5c68061cfe",
+        "spk": "Jcb",
         "guid": "d2e997a1-bbf7-4f28-8a7c-ce5c68061cfe"
     },
     "3d7af7a2-dabe-4111-b5fd-c5bfa8755469": {
@@ -57,6 +62,7 @@
         "power": "src\/3d7af7a2-dabe-4111-b5fd-c5bfa8755469\/code.power",
         "settings": "src\/3d7af7a2-dabe-4111-b5fd-c5bfa8755469\/settings.json",
         "path": "src\/3d7af7a2-dabe-4111-b5fd-c5bfa8755469",
+        "spk": "Api",
         "guid": "3d7af7a2-dabe-4111-b5fd-c5bfa8755469"
     },
     "5ca71a00-7b44-4c0d-9955-3af054eed43d": {
@@ -67,6 +73,7 @@
         "power": "src\/5ca71a00-7b44-4c0d-9955-3af054eed43d\/code.power",
         "settings": "src\/5ca71a00-7b44-4c0d-9955-3af054eed43d\/settings.json",
         "path": "src\/5ca71a00-7b44-4c0d-9955-3af054eed43d",
+        "spk": "Api",
         "guid": "5ca71a00-7b44-4c0d-9955-3af054eed43d"
     },
     "3d4ed24c-8250-4fcf-824f-a5f1597f939e": {
@@ -77,6 +84,7 @@
         "power": "src\/3d4ed24c-8250-4fcf-824f-a5f1597f939e\/code.power",
         "settings": "src\/3d4ed24c-8250-4fcf-824f-a5f1597f939e\/settings.json",
         "path": "src\/3d4ed24c-8250-4fcf-824f-a5f1597f939e",
+        "spk": "Attachment",
         "guid": "3d4ed24c-8250-4fcf-824f-a5f1597f939e"
     },
     "e7c16db5-bb22-421b-8789-180f6a502b62": {
@@ -87,6 +95,7 @@
         "power": "src\/e7c16db5-bb22-421b-8789-180f6a502b62\/code.power",
         "settings": "src\/e7c16db5-bb22-421b-8789-180f6a502b62\/settings.json",
         "path": "src\/e7c16db5-bb22-421b-8789-180f6a502b62",
+        "spk": "Repository",
         "guid": "e7c16db5-bb22-421b-8789-180f6a502b62"
     },
     "0367ac44-18d6-495d-beae-315794ffa89d": {
@@ -97,6 +106,7 @@
         "power": "src\/0367ac44-18d6-495d-beae-315794ffa89d\/code.power",
         "settings": "src\/0367ac44-18d6-495d-beae-315794ffa89d\/settings.json",
         "path": "src\/0367ac44-18d6-495d-beae-315794ffa89d",
+        "spk": "Ui",
         "guid": "0367ac44-18d6-495d-beae-315794ffa89d"
     },
     "f4d00907-c94a-49b7-8727-d64c1fa74cf5": {
@@ -107,6 +117,7 @@
         "power": "src\/f4d00907-c94a-49b7-8727-d64c1fa74cf5\/code.power",
         "settings": "src\/f4d00907-c94a-49b7-8727-d64c1fa74cf5\/settings.json",
         "path": "src\/f4d00907-c94a-49b7-8727-d64c1fa74cf5",
+        "spk": "Settings",
         "guid": "f4d00907-c94a-49b7-8727-d64c1fa74cf5"
     },
     "8efd9070-7110-4b8e-bb76-cb1a286d5af2": {
@@ -117,6 +128,7 @@
         "power": "src\/8efd9070-7110-4b8e-bb76-cb1a286d5af2\/code.power",
         "settings": "src\/8efd9070-7110-4b8e-bb76-cb1a286d5af2\/settings.json",
         "path": "src\/8efd9070-7110-4b8e-bb76-cb1a286d5af2",
+        "spk": "Organization",
         "guid": "8efd9070-7110-4b8e-bb76-cb1a286d5af2"
     },
     "605d7058-345b-411e-b55d-027edc1ded83": {
@@ -127,6 +139,7 @@
         "power": "src\/605d7058-345b-411e-b55d-027edc1ded83\/code.power",
         "settings": "src\/605d7058-345b-411e-b55d-027edc1ded83\/settings.json",
         "path": "src\/605d7058-345b-411e-b55d-027edc1ded83",
+        "spk": "Hooks",
         "guid": "605d7058-345b-411e-b55d-027edc1ded83"
     },
     "9c9ba4c4-2039-4396-9ea2-621e42e04c89": {
@@ -137,6 +150,7 @@
         "power": "src\/9c9ba4c4-2039-4396-9ea2-621e42e04c89\/code.power",
         "settings": "src\/9c9ba4c4-2039-4396-9ea2-621e42e04c89\/settings.json",
         "path": "src\/9c9ba4c4-2039-4396-9ea2-621e42e04c89",
+        "spk": "Labels",
         "guid": "9c9ba4c4-2039-4396-9ea2-621e42e04c89"
     },
     "c1be1e0d-479d-44de-bfe4-cfa4ded7e240": {
@@ -147,6 +161,7 @@
         "power": "src\/c1be1e0d-479d-44de-bfe4-cfa4ded7e240\/code.power",
         "settings": "src\/c1be1e0d-479d-44de-bfe4-cfa4ded7e240\/settings.json",
         "path": "src\/c1be1e0d-479d-44de-bfe4-cfa4ded7e240",
+        "spk": "Members",
         "guid": "c1be1e0d-479d-44de-bfe4-cfa4ded7e240"
     },
     "2a6f99df-a327-4477-8079-f57133e6ff36": {
@@ -157,6 +172,7 @@
         "power": "src\/2a6f99df-a327-4477-8079-f57133e6ff36\/code.power",
         "settings": "src\/2a6f99df-a327-4477-8079-f57133e6ff36\/settings.json",
         "path": "src\/2a6f99df-a327-4477-8079-f57133e6ff36",
+        "spk": "PublicMembers",
         "guid": "2a6f99df-a327-4477-8079-f57133e6ff36"
     },
     "aeb42050-90e1-4169-907a-fa6cde20caa4": {
@@ -167,6 +183,7 @@
         "power": "src\/aeb42050-90e1-4169-907a-fa6cde20caa4\/code.power",
         "settings": "src\/aeb42050-90e1-4169-907a-fa6cde20caa4\/settings.json",
         "path": "src\/aeb42050-90e1-4169-907a-fa6cde20caa4",
+        "spk": "Repository",
         "guid": "aeb42050-90e1-4169-907a-fa6cde20caa4"
     },
     "9c886ee5-ff14-44c3-a3dd-6a30ebf32ca3": {
@@ -177,6 +194,7 @@
         "power": "src\/9c886ee5-ff14-44c3-a3dd-6a30ebf32ca3\/code.power",
         "settings": "src\/9c886ee5-ff14-44c3-a3dd-6a30ebf32ca3\/settings.json",
         "path": "src\/9c886ee5-ff14-44c3-a3dd-6a30ebf32ca3",
+        "spk": "Teams",
         "guid": "9c886ee5-ff14-44c3-a3dd-6a30ebf32ca3"
     },
     "d9fa532a-dbe8-445f-93dc-398a3cf01c1e": {
@@ -187,6 +205,7 @@
         "power": "src\/d9fa532a-dbe8-445f-93dc-398a3cf01c1e\/code.power",
         "settings": "src\/d9fa532a-dbe8-445f-93dc-398a3cf01c1e\/settings.json",
         "path": "src\/d9fa532a-dbe8-445f-93dc-398a3cf01c1e",
+        "spk": "Members",
         "guid": "d9fa532a-dbe8-445f-93dc-398a3cf01c1e"
     },
     "07fce5f7-eb13-4dda-8870-77c9ad32a7bf": {
@@ -197,6 +216,7 @@
         "power": "src\/07fce5f7-eb13-4dda-8870-77c9ad32a7bf\/code.power",
         "settings": "src\/07fce5f7-eb13-4dda-8870-77c9ad32a7bf\/settings.json",
         "path": "src\/07fce5f7-eb13-4dda-8870-77c9ad32a7bf",
+        "spk": "Repository",
         "guid": "07fce5f7-eb13-4dda-8870-77c9ad32a7bf"
     },
     "b3f6728b-8c88-4ee8-9aa0-bcef400a35bf": {
@@ -207,6 +227,7 @@
         "power": "src\/b3f6728b-8c88-4ee8-9aa0-bcef400a35bf\/code.power",
         "settings": "src\/b3f6728b-8c88-4ee8-9aa0-bcef400a35bf\/settings.json",
         "path": "src\/b3f6728b-8c88-4ee8-9aa0-bcef400a35bf",
+        "spk": "User",
         "guid": "b3f6728b-8c88-4ee8-9aa0-bcef400a35bf"
     },
     "3d25ea99-4f33-489a-934c-0e42027e6114": {
@@ -217,6 +238,7 @@
         "power": "src\/3d25ea99-4f33-489a-934c-0e42027e6114\/code.power",
         "settings": "src\/3d25ea99-4f33-489a-934c-0e42027e6114\/settings.json",
         "path": "src\/3d25ea99-4f33-489a-934c-0e42027e6114",
+        "spk": "Organization",
         "guid": "3d25ea99-4f33-489a-934c-0e42027e6114"
     },
     "4a5694db-bf3c-439b-bf9c-36a487828787": {
@@ -227,6 +249,7 @@
         "power": "src\/4a5694db-bf3c-439b-bf9c-36a487828787\/code.power",
         "settings": "src\/4a5694db-bf3c-439b-bf9c-36a487828787\/settings.json",
         "path": "src\/4a5694db-bf3c-439b-bf9c-36a487828787",
+        "spk": "User",
         "guid": "4a5694db-bf3c-439b-bf9c-36a487828787"
     },
     "4a9e144e-7754-4d3f-9325-9ff792ce4aef": {
@@ -237,6 +260,7 @@
         "power": "src\/4a9e144e-7754-4d3f-9325-9ff792ce4aef\/code.power",
         "settings": "src\/4a9e144e-7754-4d3f-9325-9ff792ce4aef\/settings.json",
         "path": "src\/4a9e144e-7754-4d3f-9325-9ff792ce4aef",
+        "spk": "Applications",
         "guid": "4a9e144e-7754-4d3f-9325-9ff792ce4aef"
     },
     "af4b8b77-d773-42a7-9f54-19de463bc49b": {
@@ -247,6 +271,7 @@
         "power": "src\/af4b8b77-d773-42a7-9f54-19de463bc49b\/code.power",
         "settings": "src\/af4b8b77-d773-42a7-9f54-19de463bc49b\/settings.json",
         "path": "src\/af4b8b77-d773-42a7-9f54-19de463bc49b",
+        "spk": "Emails",
         "guid": "af4b8b77-d773-42a7-9f54-19de463bc49b"
     },
     "13931443-bad7-4742-b64e-c08042e7b306": {
@@ -257,6 +282,7 @@
         "power": "src\/13931443-bad7-4742-b64e-c08042e7b306\/code.power",
         "settings": "src\/13931443-bad7-4742-b64e-c08042e7b306\/settings.json",
         "path": "src\/13931443-bad7-4742-b64e-c08042e7b306",
+        "spk": "Followers",
         "guid": "13931443-bad7-4742-b64e-c08042e7b306"
     },
     "b1788488-f557-4746-9929-73e1d049b4a2": {
@@ -267,6 +293,7 @@
         "power": "src\/b1788488-f557-4746-9929-73e1d049b4a2\/code.power",
         "settings": "src\/b1788488-f557-4746-9929-73e1d049b4a2\/settings.json",
         "path": "src\/b1788488-f557-4746-9929-73e1d049b4a2",
+        "spk": "Following",
         "guid": "b1788488-f557-4746-9929-73e1d049b4a2"
     },
     "f135ca7f-4d50-4480-a15f-feae1a7982ab": {
@@ -277,6 +304,7 @@
         "power": "src\/f135ca7f-4d50-4480-a15f-feae1a7982ab\/code.power",
         "settings": "src\/f135ca7f-4d50-4480-a15f-feae1a7982ab\/settings.json",
         "path": "src\/f135ca7f-4d50-4480-a15f-feae1a7982ab",
+        "spk": "Gpg",
         "guid": "f135ca7f-4d50-4480-a15f-feae1a7982ab"
     },
     "c521f8c3-4e01-4c1a-8f68-f3e9d967651d": {
@@ -287,6 +315,7 @@
         "power": "src\/c521f8c3-4e01-4c1a-8f68-f3e9d967651d\/code.power",
         "settings": "src\/c521f8c3-4e01-4c1a-8f68-f3e9d967651d\/settings.json",
         "path": "src\/c521f8c3-4e01-4c1a-8f68-f3e9d967651d",
+        "spk": "Keys",
         "guid": "c521f8c3-4e01-4c1a-8f68-f3e9d967651d"
     },
     "fd560f3e-ce19-474f-86ca-1fb1d3af9992": {
@@ -297,6 +326,7 @@
         "power": "src\/fd560f3e-ce19-474f-86ca-1fb1d3af9992\/code.power",
         "settings": "src\/fd560f3e-ce19-474f-86ca-1fb1d3af9992\/settings.json",
         "path": "src\/fd560f3e-ce19-474f-86ca-1fb1d3af9992",
+        "spk": "Repos",
         "guid": "fd560f3e-ce19-474f-86ca-1fb1d3af9992"
     },
     "553b8fc5-46cc-49b7-95ce-992a3c5708f8": {
@@ -307,6 +337,7 @@
         "power": "src\/553b8fc5-46cc-49b7-95ce-992a3c5708f8\/code.power",
         "settings": "src\/553b8fc5-46cc-49b7-95ce-992a3c5708f8\/settings.json",
         "path": "src\/553b8fc5-46cc-49b7-95ce-992a3c5708f8",
+        "spk": "Settings",
         "guid": "553b8fc5-46cc-49b7-95ce-992a3c5708f8"
     },
     "884b61d0-1f56-4f5f-a657-acaacdb9634b": {
@@ -317,6 +348,7 @@
         "power": "src\/884b61d0-1f56-4f5f-a657-acaacdb9634b\/code.power",
         "settings": "src\/884b61d0-1f56-4f5f-a657-acaacdb9634b\/settings.json",
         "path": "src\/884b61d0-1f56-4f5f-a657-acaacdb9634b",
+        "spk": "Starred",
         "guid": "884b61d0-1f56-4f5f-a657-acaacdb9634b"
     },
     "b6e17249-5afc-4bc0-a4aa-8d2241c1ccaf": {
@@ -327,6 +359,7 @@
         "power": "src\/b6e17249-5afc-4bc0-a4aa-8d2241c1ccaf\/code.power",
         "settings": "src\/b6e17249-5afc-4bc0-a4aa-8d2241c1ccaf\/settings.json",
         "path": "src\/b6e17249-5afc-4bc0-a4aa-8d2241c1ccaf",
+        "spk": "Subscriptions",
         "guid": "b6e17249-5afc-4bc0-a4aa-8d2241c1ccaf"
     },
     "c3dfbf28-1a28-4fd3-a0b5-12b06ecaadf3": {
@@ -337,6 +370,7 @@
         "power": "src\/c3dfbf28-1a28-4fd3-a0b5-12b06ecaadf3\/code.power",
         "settings": "src\/c3dfbf28-1a28-4fd3-a0b5-12b06ecaadf3\/settings.json",
         "path": "src\/c3dfbf28-1a28-4fd3-a0b5-12b06ecaadf3",
+        "spk": "Teams",
         "guid": "c3dfbf28-1a28-4fd3-a0b5-12b06ecaadf3"
     },
     "2ccb303f-b115-45fb-b3ea-08a38259681e": {
@@ -347,6 +381,7 @@
         "power": "src\/2ccb303f-b115-45fb-b3ea-08a38259681e\/code.power",
         "settings": "src\/2ccb303f-b115-45fb-b3ea-08a38259681e\/settings.json",
         "path": "src\/2ccb303f-b115-45fb-b3ea-08a38259681e",
+        "spk": "Times",
         "guid": "2ccb303f-b115-45fb-b3ea-08a38259681e"
     },
     "af49b450-78fb-40bd-8165-48466ebd31a9": {
@@ -357,6 +392,7 @@
         "power": "src\/af49b450-78fb-40bd-8165-48466ebd31a9\/code.power",
         "settings": "src\/af49b450-78fb-40bd-8165-48466ebd31a9\/settings.json",
         "path": "src\/af49b450-78fb-40bd-8165-48466ebd31a9",
+        "spk": "Tokens",
         "guid": "af49b450-78fb-40bd-8165-48466ebd31a9"
     },
     "0a69cfc5-3223-4afb-8c9a-75f4bacf3c0e": {
@@ -367,6 +403,7 @@
         "power": "src\/0a69cfc5-3223-4afb-8c9a-75f4bacf3c0e\/code.power",
         "settings": "src\/0a69cfc5-3223-4afb-8c9a-75f4bacf3c0e\/settings.json",
         "path": "src\/0a69cfc5-3223-4afb-8c9a-75f4bacf3c0e",
+        "spk": "User",
         "guid": "0a69cfc5-3223-4afb-8c9a-75f4bacf3c0e"
     },
     "eb6c050d-7100-42b8-a922-f7e7c78a08c2": {
@@ -377,6 +414,7 @@
         "power": "src\/eb6c050d-7100-42b8-a922-f7e7c78a08c2\/code.power",
         "settings": "src\/eb6c050d-7100-42b8-a922-f7e7c78a08c2\/settings.json",
         "path": "src\/eb6c050d-7100-42b8-a922-f7e7c78a08c2",
+        "spk": "Repository",
         "guid": "eb6c050d-7100-42b8-a922-f7e7c78a08c2"
     },
     "8a8fce09-a880-4364-a8c4-4ca337e7e951": {
@@ -387,6 +425,7 @@
         "power": "src\/8a8fce09-a880-4364-a8c4-4ca337e7e951\/code.power",
         "settings": "src\/8a8fce09-a880-4364-a8c4-4ca337e7e951\/settings.json",
         "path": "src\/8a8fce09-a880-4364-a8c4-4ca337e7e951",
+        "spk": "Archive",
         "guid": "8a8fce09-a880-4364-a8c4-4ca337e7e951"
     },
     "66f866a7-f3a0-40ac-ac94-168d60c4a643": {
@@ -397,6 +436,7 @@
         "power": "src\/66f866a7-f3a0-40ac-ac94-168d60c4a643\/code.power",
         "settings": "src\/66f866a7-f3a0-40ac-ac94-168d60c4a643\/settings.json",
         "path": "src\/66f866a7-f3a0-40ac-ac94-168d60c4a643",
+        "spk": "Assignees",
         "guid": "66f866a7-f3a0-40ac-ac94-168d60c4a643"
     },
     "68f930bc-d24f-4ade-bcec-576f82c3c13d": {
@@ -407,6 +447,7 @@
         "power": "src\/68f930bc-d24f-4ade-bcec-576f82c3c13d\/code.power",
         "settings": "src\/68f930bc-d24f-4ade-bcec-576f82c3c13d\/settings.json",
         "path": "src\/68f930bc-d24f-4ade-bcec-576f82c3c13d",
+        "spk": "Attachments",
         "guid": "68f930bc-d24f-4ade-bcec-576f82c3c13d"
     },
     "8fd54ec5-d93e-445c-ae27-80b6052dbddd": {
@@ -417,6 +458,7 @@
         "power": "src\/8fd54ec5-d93e-445c-ae27-80b6052dbddd\/code.power",
         "settings": "src\/8fd54ec5-d93e-445c-ae27-80b6052dbddd\/settings.json",
         "path": "src\/8fd54ec5-d93e-445c-ae27-80b6052dbddd",
+        "spk": "Branch",
         "guid": "8fd54ec5-d93e-445c-ae27-80b6052dbddd"
     },
     "0edb3d51-0a65-443b-883d-3d20325212bb": {
@@ -427,6 +469,7 @@
         "power": "src\/0edb3d51-0a65-443b-883d-3d20325212bb\/code.power",
         "settings": "src\/0edb3d51-0a65-443b-883d-3d20325212bb\/settings.json",
         "path": "src\/0edb3d51-0a65-443b-883d-3d20325212bb",
+        "spk": "Protection",
         "guid": "0edb3d51-0a65-443b-883d-3d20325212bb"
     },
     "e5d342ee-caf9-4b29-b7b6-2b81a8ef58cf": {
@@ -437,6 +480,7 @@
         "power": "src\/e5d342ee-caf9-4b29-b7b6-2b81a8ef58cf\/code.power",
         "settings": "src\/e5d342ee-caf9-4b29-b7b6-2b81a8ef58cf\/settings.json",
         "path": "src\/e5d342ee-caf9-4b29-b7b6-2b81a8ef58cf",
+        "spk": "Collaborator",
         "guid": "e5d342ee-caf9-4b29-b7b6-2b81a8ef58cf"
     },
     "daa18d45-3d4a-4280-b58c-147683e8093c": {
@@ -447,6 +491,7 @@
         "power": "src\/daa18d45-3d4a-4280-b58c-147683e8093c\/code.power",
         "settings": "src\/daa18d45-3d4a-4280-b58c-147683e8093c\/settings.json",
         "path": "src\/daa18d45-3d4a-4280-b58c-147683e8093c",
+        "spk": "Commits",
         "guid": "daa18d45-3d4a-4280-b58c-147683e8093c"
     },
     "8d1baef6-fcad-49a9-848f-428009cdb989": {
@@ -457,6 +502,7 @@
         "power": "src\/8d1baef6-fcad-49a9-848f-428009cdb989\/code.power",
         "settings": "src\/8d1baef6-fcad-49a9-848f-428009cdb989\/settings.json",
         "path": "src\/8d1baef6-fcad-49a9-848f-428009cdb989",
+        "spk": "Contents",
         "guid": "8d1baef6-fcad-49a9-848f-428009cdb989"
     },
     "7fbed5f9-54a2-4001-a0d1-4621034166ef": {
@@ -467,6 +513,7 @@
         "power": "src\/7fbed5f9-54a2-4001-a0d1-4621034166ef\/code.power",
         "settings": "src\/7fbed5f9-54a2-4001-a0d1-4621034166ef\/settings.json",
         "path": "src\/7fbed5f9-54a2-4001-a0d1-4621034166ef",
+        "spk": "Forks",
         "guid": "7fbed5f9-54a2-4001-a0d1-4621034166ef"
     },
     "93f4bc91-946d-447a-ab5a-4f76e0e1a9ce": {
@@ -477,6 +524,7 @@
         "power": "src\/93f4bc91-946d-447a-ab5a-4f76e0e1a9ce\/code.power",
         "settings": "src\/93f4bc91-946d-447a-ab5a-4f76e0e1a9ce\/settings.json",
         "path": "src\/93f4bc91-946d-447a-ab5a-4f76e0e1a9ce",
+        "spk": "Gpg",
         "guid": "93f4bc91-946d-447a-ab5a-4f76e0e1a9ce"
     },
     "463ce0a3-65e0-4a08-8bd2-e3bd0a058488": {
@@ -487,6 +535,7 @@
         "power": "src\/463ce0a3-65e0-4a08-8bd2-e3bd0a058488\/code.power",
         "settings": "src\/463ce0a3-65e0-4a08-8bd2-e3bd0a058488\/settings.json",
         "path": "src\/463ce0a3-65e0-4a08-8bd2-e3bd0a058488",
+        "spk": "Hooks",
         "guid": "463ce0a3-65e0-4a08-8bd2-e3bd0a058488"
     },
     "a11cacb2-c13a-4482-bf71-1b7d99574a98": {
@@ -497,6 +546,7 @@
         "power": "src\/a11cacb2-c13a-4482-bf71-1b7d99574a98\/code.power",
         "settings": "src\/a11cacb2-c13a-4482-bf71-1b7d99574a98\/settings.json",
         "path": "src\/a11cacb2-c13a-4482-bf71-1b7d99574a98",
+        "spk": "Git",
         "guid": "a11cacb2-c13a-4482-bf71-1b7d99574a98"
     },
     "501fbf08-9f56-4aa0-96d7-5905b511be08": {
@@ -507,6 +557,7 @@
         "power": "src\/501fbf08-9f56-4aa0-96d7-5905b511be08\/code.power",
         "settings": "src\/501fbf08-9f56-4aa0-96d7-5905b511be08\/settings.json",
         "path": "src\/501fbf08-9f56-4aa0-96d7-5905b511be08",
+        "spk": "Keys",
         "guid": "501fbf08-9f56-4aa0-96d7-5905b511be08"
     },
     "c140a62c-ea7b-470f-b8ca-83cfbcdd13ba": {
@@ -517,6 +568,7 @@
         "power": "src\/c140a62c-ea7b-470f-b8ca-83cfbcdd13ba\/code.power",
         "settings": "src\/c140a62c-ea7b-470f-b8ca-83cfbcdd13ba\/settings.json",
         "path": "src\/c140a62c-ea7b-470f-b8ca-83cfbcdd13ba",
+        "spk": "Languages",
         "guid": "c140a62c-ea7b-470f-b8ca-83cfbcdd13ba"
     },
     "c0ee5592-e49f-4937-9b13-f4352afcb430": {
@@ -527,6 +579,7 @@
         "power": "src\/c0ee5592-e49f-4937-9b13-f4352afcb430\/code.power",
         "settings": "src\/c0ee5592-e49f-4937-9b13-f4352afcb430\/settings.json",
         "path": "src\/c0ee5592-e49f-4937-9b13-f4352afcb430",
+        "spk": "Media",
         "guid": "c0ee5592-e49f-4937-9b13-f4352afcb430"
     },
     "0f99429a-b517-40ac-a3c1-34c3ef2f36ee": {
@@ -537,6 +590,7 @@
         "power": "src\/0f99429a-b517-40ac-a3c1-34c3ef2f36ee\/code.power",
         "settings": "src\/0f99429a-b517-40ac-a3c1-34c3ef2f36ee\/settings.json",
         "path": "src\/0f99429a-b517-40ac-a3c1-34c3ef2f36ee",
+        "spk": "Merge",
         "guid": "0f99429a-b517-40ac-a3c1-34c3ef2f36ee"
     },
     "f6249c33-b4bd-4598-8710-0cab230aef94": {
@@ -547,6 +601,7 @@
         "power": "src\/f6249c33-b4bd-4598-8710-0cab230aef94\/code.power",
         "settings": "src\/f6249c33-b4bd-4598-8710-0cab230aef94\/settings.json",
         "path": "src\/f6249c33-b4bd-4598-8710-0cab230aef94",
+        "spk": "Mirror",
         "guid": "f6249c33-b4bd-4598-8710-0cab230aef94"
     },
     "403855fb-668d-464a-af45-8e30b198c9d6": {
@@ -557,6 +612,7 @@
         "power": "src\/403855fb-668d-464a-af45-8e30b198c9d6\/code.power",
         "settings": "src\/403855fb-668d-464a-af45-8e30b198c9d6\/settings.json",
         "path": "src\/403855fb-668d-464a-af45-8e30b198c9d6",
+        "spk": "Mirrors",
         "guid": "403855fb-668d-464a-af45-8e30b198c9d6"
     },
     "cf8fa194-9f83-4a2a-b52b-ede069188afe": {
@@ -567,6 +623,7 @@
         "power": "src\/cf8fa194-9f83-4a2a-b52b-ede069188afe\/code.power",
         "settings": "src\/cf8fa194-9f83-4a2a-b52b-ede069188afe\/settings.json",
         "path": "src\/cf8fa194-9f83-4a2a-b52b-ede069188afe",
+        "spk": "Notes",
         "guid": "cf8fa194-9f83-4a2a-b52b-ede069188afe"
     },
     "1dda1c2c-1670-4aea-a6b8-49f0bd03b41e": {
@@ -577,6 +634,7 @@
         "power": "src\/1dda1c2c-1670-4aea-a6b8-49f0bd03b41e\/code.power",
         "settings": "src\/1dda1c2c-1670-4aea-a6b8-49f0bd03b41e\/settings.json",
         "path": "src\/1dda1c2c-1670-4aea-a6b8-49f0bd03b41e",
+        "spk": "Patch",
         "guid": "1dda1c2c-1670-4aea-a6b8-49f0bd03b41e"
     },
     "f56114fd-6804-4ce9-8adb-1d521f023c11": {
@@ -587,6 +645,7 @@
         "power": "src\/f56114fd-6804-4ce9-8adb-1d521f023c11\/code.power",
         "settings": "src\/f56114fd-6804-4ce9-8adb-1d521f023c11\/settings.json",
         "path": "src\/f56114fd-6804-4ce9-8adb-1d521f023c11",
+        "spk": "Pulls",
         "guid": "f56114fd-6804-4ce9-8adb-1d521f023c11"
     },
     "974d9e4c-beef-4c35-a3c6-92b1dd5b145d": {
@@ -597,6 +656,7 @@
         "power": "src\/974d9e4c-beef-4c35-a3c6-92b1dd5b145d\/code.power",
         "settings": "src\/974d9e4c-beef-4c35-a3c6-92b1dd5b145d\/settings.json",
         "path": "src\/974d9e4c-beef-4c35-a3c6-92b1dd5b145d",
+        "spk": "Refs",
         "guid": "974d9e4c-beef-4c35-a3c6-92b1dd5b145d"
     },
     "754d737c-3b6f-43f0-8974-2e06a3daf41e": {
@@ -607,6 +667,7 @@
         "power": "src\/754d737c-3b6f-43f0-8974-2e06a3daf41e\/code.power",
         "settings": "src\/754d737c-3b6f-43f0-8974-2e06a3daf41e\/settings.json",
         "path": "src\/754d737c-3b6f-43f0-8974-2e06a3daf41e",
+        "spk": "Releases",
         "guid": "754d737c-3b6f-43f0-8974-2e06a3daf41e"
     },
     "994f4ffe-6030-4bfd-a0b1-4e1aa54bb8cd": {
@@ -617,6 +678,7 @@
         "power": "src\/994f4ffe-6030-4bfd-a0b1-4e1aa54bb8cd\/code.power",
         "settings": "src\/994f4ffe-6030-4bfd-a0b1-4e1aa54bb8cd\/settings.json",
         "path": "src\/994f4ffe-6030-4bfd-a0b1-4e1aa54bb8cd",
+        "spk": "Remote",
         "guid": "994f4ffe-6030-4bfd-a0b1-4e1aa54bb8cd"
     },
     "65288a04-bcac-4067-ae2b-6fda9f1e3fd5": {
@@ -627,6 +689,7 @@
         "power": "src\/65288a04-bcac-4067-ae2b-6fda9f1e3fd5\/code.power",
         "settings": "src\/65288a04-bcac-4067-ae2b-6fda9f1e3fd5\/settings.json",
         "path": "src\/65288a04-bcac-4067-ae2b-6fda9f1e3fd5",
+        "spk": "Reviewers",
         "guid": "65288a04-bcac-4067-ae2b-6fda9f1e3fd5"
     },
     "6a2fffb5-63ff-4a96-b458-632a5ff90814": {
@@ -637,6 +700,7 @@
         "power": "src\/6a2fffb5-63ff-4a96-b458-632a5ff90814\/code.power",
         "settings": "src\/6a2fffb5-63ff-4a96-b458-632a5ff90814\/settings.json",
         "path": "src\/6a2fffb5-63ff-4a96-b458-632a5ff90814",
+        "spk": "Reviews",
         "guid": "6a2fffb5-63ff-4a96-b458-632a5ff90814"
     },
     "4b355731-bbcc-430f-a451-f94ff9bb1c20": {
@@ -647,6 +711,7 @@
         "power": "src\/4b355731-bbcc-430f-a451-f94ff9bb1c20\/code.power",
         "settings": "src\/4b355731-bbcc-430f-a451-f94ff9bb1c20\/settings.json",
         "path": "src\/4b355731-bbcc-430f-a451-f94ff9bb1c20",
+        "spk": "Stargazers",
         "guid": "4b355731-bbcc-430f-a451-f94ff9bb1c20"
     },
     "5f01760a-de24-49f7-b08e-d340c847f86a": {
@@ -657,6 +722,7 @@
         "power": "src\/5f01760a-de24-49f7-b08e-d340c847f86a\/code.power",
         "settings": "src\/5f01760a-de24-49f7-b08e-d340c847f86a\/settings.json",
         "path": "src\/5f01760a-de24-49f7-b08e-d340c847f86a",
+        "spk": "Statuses",
         "guid": "5f01760a-de24-49f7-b08e-d340c847f86a"
     },
     "caf25475-8c9e-4e07-a7f5-f606e98ec880": {
@@ -667,6 +733,7 @@
         "power": "src\/caf25475-8c9e-4e07-a7f5-f606e98ec880\/code.power",
         "settings": "src\/caf25475-8c9e-4e07-a7f5-f606e98ec880\/settings.json",
         "path": "src\/caf25475-8c9e-4e07-a7f5-f606e98ec880",
+        "spk": "Tags",
         "guid": "caf25475-8c9e-4e07-a7f5-f606e98ec880"
     },
     "c7b31fc2-892b-4235-beb2-3413e4432839": {
@@ -677,6 +744,7 @@
         "power": "src\/c7b31fc2-892b-4235-beb2-3413e4432839\/code.power",
         "settings": "src\/c7b31fc2-892b-4235-beb2-3413e4432839\/settings.json",
         "path": "src\/c7b31fc2-892b-4235-beb2-3413e4432839",
+        "spk": "Teams",
         "guid": "c7b31fc2-892b-4235-beb2-3413e4432839"
     },
     "8c82b705-04bb-4bd2-ac09-3f590fdf48c2": {
@@ -687,6 +755,7 @@
         "power": "src\/8c82b705-04bb-4bd2-ac09-3f590fdf48c2\/code.power",
         "settings": "src\/8c82b705-04bb-4bd2-ac09-3f590fdf48c2\/settings.json",
         "path": "src\/8c82b705-04bb-4bd2-ac09-3f590fdf48c2",
+        "spk": "Templates",
         "guid": "8c82b705-04bb-4bd2-ac09-3f590fdf48c2"
     },
     "d7b67b1c-f876-4555-9e54-0645cf519d4c": {
@@ -697,6 +766,7 @@
         "power": "src\/d7b67b1c-f876-4555-9e54-0645cf519d4c\/code.power",
         "settings": "src\/d7b67b1c-f876-4555-9e54-0645cf519d4c\/settings.json",
         "path": "src\/d7b67b1c-f876-4555-9e54-0645cf519d4c",
+        "spk": "Times",
         "guid": "d7b67b1c-f876-4555-9e54-0645cf519d4c"
     },
     "7f852309-122b-42fb-b2f3-ea9e2d405a9c": {
@@ -707,6 +777,7 @@
         "power": "src\/7f852309-122b-42fb-b2f3-ea9e2d405a9c\/code.power",
         "settings": "src\/7f852309-122b-42fb-b2f3-ea9e2d405a9c\/settings.json",
         "path": "src\/7f852309-122b-42fb-b2f3-ea9e2d405a9c",
+        "spk": "Topics",
         "guid": "7f852309-122b-42fb-b2f3-ea9e2d405a9c"
     },
     "04adb831-c257-4657-a2c3-a17096b6b5cf": {
@@ -717,6 +788,7 @@
         "power": "src\/04adb831-c257-4657-a2c3-a17096b6b5cf\/code.power",
         "settings": "src\/04adb831-c257-4657-a2c3-a17096b6b5cf\/settings.json",
         "path": "src\/04adb831-c257-4657-a2c3-a17096b6b5cf",
+        "spk": "Transfer",
         "guid": "04adb831-c257-4657-a2c3-a17096b6b5cf"
     },
     "78b3346f-c4cf-46b3-941c-656e2d510da0": {
@@ -727,6 +799,7 @@
         "power": "src\/78b3346f-c4cf-46b3-941c-656e2d510da0\/code.power",
         "settings": "src\/78b3346f-c4cf-46b3-941c-656e2d510da0\/settings.json",
         "path": "src\/78b3346f-c4cf-46b3-941c-656e2d510da0",
+        "spk": "Trees",
         "guid": "78b3346f-c4cf-46b3-941c-656e2d510da0"
     },
     "93d704d3-aed8-4ee5-a25e-e7fbfb23b5c7": {
@@ -737,6 +810,7 @@
         "power": "src\/93d704d3-aed8-4ee5-a25e-e7fbfb23b5c7\/code.power",
         "settings": "src\/93d704d3-aed8-4ee5-a25e-e7fbfb23b5c7\/settings.json",
         "path": "src\/93d704d3-aed8-4ee5-a25e-e7fbfb23b5c7",
+        "spk": "Watchers",
         "guid": "93d704d3-aed8-4ee5-a25e-e7fbfb23b5c7"
     },
     "572b9567-1893-400b-bd34-f1a45ef7e503": {
@@ -747,6 +821,7 @@
         "power": "src\/572b9567-1893-400b-bd34-f1a45ef7e503\/code.power",
         "settings": "src\/572b9567-1893-400b-bd34-f1a45ef7e503\/settings.json",
         "path": "src\/572b9567-1893-400b-bd34-f1a45ef7e503",
+        "spk": "Wiki",
         "guid": "572b9567-1893-400b-bd34-f1a45ef7e503"
     },
     "0bb2b72f-ebcd-46fe-844b-ac5fe715c230": {
@@ -757,6 +832,7 @@
         "power": "src\/0bb2b72f-ebcd-46fe-844b-ac5fe715c230\/code.power",
         "settings": "src\/0bb2b72f-ebcd-46fe-844b-ac5fe715c230\/settings.json",
         "path": "src\/0bb2b72f-ebcd-46fe-844b-ac5fe715c230",
+        "spk": "Repository",
         "guid": "0bb2b72f-ebcd-46fe-844b-ac5fe715c230"
     },
     "b7ec675d-3197-4458-89d6-ca5d4303af8a": {
@@ -767,6 +843,7 @@
         "power": "src\/b7ec675d-3197-4458-89d6-ca5d4303af8a\/code.power",
         "settings": "src\/b7ec675d-3197-4458-89d6-ca5d4303af8a\/settings.json",
         "path": "src\/b7ec675d-3197-4458-89d6-ca5d4303af8a",
+        "spk": "Package",
         "guid": "b7ec675d-3197-4458-89d6-ca5d4303af8a"
     },
     "4a54c21f-ac3a-4489-b507-636835541a67": {
@@ -777,6 +854,7 @@
         "power": "src\/4a54c21f-ac3a-4489-b507-636835541a67\/code.power",
         "settings": "src\/4a54c21f-ac3a-4489-b507-636835541a67\/settings.json",
         "path": "src\/4a54c21f-ac3a-4489-b507-636835541a67",
+        "spk": "Files",
         "guid": "4a54c21f-ac3a-4489-b507-636835541a67"
     },
     "b5ca512b-f667-4ec6-bc6e-914af41d344a": {
@@ -787,6 +865,7 @@
         "power": "src\/b5ca512b-f667-4ec6-bc6e-914af41d344a\/code.power",
         "settings": "src\/b5ca512b-f667-4ec6-bc6e-914af41d344a\/settings.json",
         "path": "src\/b5ca512b-f667-4ec6-bc6e-914af41d344a",
+        "spk": "Owner",
         "guid": "b5ca512b-f667-4ec6-bc6e-914af41d344a"
     },
     "808da4eb-b467-46cf-a767-e7e714f46b5a": {
@@ -797,6 +876,7 @@
         "power": "src\/808da4eb-b467-46cf-a767-e7e714f46b5a\/code.power",
         "settings": "src\/808da4eb-b467-46cf-a767-e7e714f46b5a\/settings.json",
         "path": "src\/808da4eb-b467-46cf-a767-e7e714f46b5a",
+        "spk": "Package",
         "guid": "808da4eb-b467-46cf-a767-e7e714f46b5a"
     },
     "5c8f9038-d6e9-4788-96df-45019eafbadb": {
@@ -807,6 +887,7 @@
         "power": "src\/5c8f9038-d6e9-4788-96df-45019eafbadb\/code.power",
         "settings": "src\/5c8f9038-d6e9-4788-96df-45019eafbadb\/settings.json",
         "path": "src\/5c8f9038-d6e9-4788-96df-45019eafbadb",
+        "spk": "Issue",
         "guid": "5c8f9038-d6e9-4788-96df-45019eafbadb"
     },
     "22d65693-917d-47c7-ba5c-8e1f354dc713": {
@@ -817,6 +898,7 @@
         "power": "src\/22d65693-917d-47c7-ba5c-8e1f354dc713\/code.power",
         "settings": "src\/22d65693-917d-47c7-ba5c-8e1f354dc713\/settings.json",
         "path": "src\/22d65693-917d-47c7-ba5c-8e1f354dc713",
+        "spk": "Comments",
         "guid": "22d65693-917d-47c7-ba5c-8e1f354dc713"
     },
     "63fbd482-688a-4356-b3e4-a676ef357100": {
@@ -827,6 +909,7 @@
         "power": "src\/63fbd482-688a-4356-b3e4-a676ef357100\/code.power",
         "settings": "src\/63fbd482-688a-4356-b3e4-a676ef357100\/settings.json",
         "path": "src\/63fbd482-688a-4356-b3e4-a676ef357100",
+        "spk": "Comments",
         "guid": "63fbd482-688a-4356-b3e4-a676ef357100"
     },
     "61ddd1b9-4b74-44bd-a7ee-f743cd4c2f69": {
@@ -837,6 +920,7 @@
         "power": "src\/61ddd1b9-4b74-44bd-a7ee-f743cd4c2f69\/code.power",
         "settings": "src\/61ddd1b9-4b74-44bd-a7ee-f743cd4c2f69\/settings.json",
         "path": "src\/61ddd1b9-4b74-44bd-a7ee-f743cd4c2f69",
+        "spk": "Deadline",
         "guid": "61ddd1b9-4b74-44bd-a7ee-f743cd4c2f69"
     },
     "ca53d4cb-7800-4ea2-b06e-7466ded91e49": {
@@ -847,6 +931,7 @@
         "power": "src\/ca53d4cb-7800-4ea2-b06e-7466ded91e49\/code.power",
         "settings": "src\/ca53d4cb-7800-4ea2-b06e-7466ded91e49\/settings.json",
         "path": "src\/ca53d4cb-7800-4ea2-b06e-7466ded91e49",
+        "spk": "Labels",
         "guid": "ca53d4cb-7800-4ea2-b06e-7466ded91e49"
     },
     "e819d1a2-4390-432d-be36-3421f2fa861c": {
@@ -857,6 +942,7 @@
         "power": "src\/e819d1a2-4390-432d-be36-3421f2fa861c\/code.power",
         "settings": "src\/e819d1a2-4390-432d-be36-3421f2fa861c\/settings.json",
         "path": "src\/e819d1a2-4390-432d-be36-3421f2fa861c",
+        "spk": "Labels",
         "guid": "e819d1a2-4390-432d-be36-3421f2fa861c"
     },
     "f428beab-10f4-4c0d-bb9e-8c797ed7a7c9": {
@@ -867,6 +953,7 @@
         "power": "src\/f428beab-10f4-4c0d-bb9e-8c797ed7a7c9\/code.power",
         "settings": "src\/f428beab-10f4-4c0d-bb9e-8c797ed7a7c9\/settings.json",
         "path": "src\/f428beab-10f4-4c0d-bb9e-8c797ed7a7c9",
+        "spk": "Milestones",
         "guid": "f428beab-10f4-4c0d-bb9e-8c797ed7a7c9"
     },
     "e6c2dee6-54b9-4476-8896-2bfa14a87650": {
@@ -877,6 +964,7 @@
         "power": "src\/e6c2dee6-54b9-4476-8896-2bfa14a87650\/code.power",
         "settings": "src\/e6c2dee6-54b9-4476-8896-2bfa14a87650\/settings.json",
         "path": "src\/e6c2dee6-54b9-4476-8896-2bfa14a87650",
+        "spk": "Reactions",
         "guid": "e6c2dee6-54b9-4476-8896-2bfa14a87650"
     },
     "73b3ebfa-c52a-4a96-a8de-718ff0bbc155": {
@@ -887,6 +975,7 @@
         "power": "src\/73b3ebfa-c52a-4a96-a8de-718ff0bbc155\/code.power",
         "settings": "src\/73b3ebfa-c52a-4a96-a8de-718ff0bbc155\/settings.json",
         "path": "src\/73b3ebfa-c52a-4a96-a8de-718ff0bbc155",
+        "spk": "Comment",
         "guid": "73b3ebfa-c52a-4a96-a8de-718ff0bbc155"
     },
     "a68d1841-65bb-41c8-ac09-cfddf73bb822": {
@@ -897,6 +986,7 @@
         "power": "src\/a68d1841-65bb-41c8-ac09-cfddf73bb822\/code.power",
         "settings": "src\/a68d1841-65bb-41c8-ac09-cfddf73bb822\/settings.json",
         "path": "src\/a68d1841-65bb-41c8-ac09-cfddf73bb822",
+        "spk": "Stopwatch",
         "guid": "a68d1841-65bb-41c8-ac09-cfddf73bb822"
     },
     "acca507d-e632-4349-9e3a-9dba5d19fbf9": {
@@ -907,6 +997,7 @@
         "power": "src\/acca507d-e632-4349-9e3a-9dba5d19fbf9\/code.power",
         "settings": "src\/acca507d-e632-4349-9e3a-9dba5d19fbf9\/settings.json",
         "path": "src\/acca507d-e632-4349-9e3a-9dba5d19fbf9",
+        "spk": "Subscriptions",
         "guid": "acca507d-e632-4349-9e3a-9dba5d19fbf9"
     },
     "83bb983b-80d8-44d5-917b-03d3c13742b9": {
@@ -917,6 +1008,7 @@
         "power": "src\/83bb983b-80d8-44d5-917b-03d3c13742b9\/code.power",
         "settings": "src\/83bb983b-80d8-44d5-917b-03d3c13742b9\/settings.json",
         "path": "src\/83bb983b-80d8-44d5-917b-03d3c13742b9",
+        "spk": "Timeline",
         "guid": "83bb983b-80d8-44d5-917b-03d3c13742b9"
     },
     "d273c34e-88c1-438b-98c0-801996f58c29": {
@@ -927,6 +1019,7 @@
         "power": "src\/d273c34e-88c1-438b-98c0-801996f58c29\/code.power",
         "settings": "src\/d273c34e-88c1-438b-98c0-801996f58c29\/settings.json",
         "path": "src\/d273c34e-88c1-438b-98c0-801996f58c29",
+        "spk": "Times",
         "guid": "d273c34e-88c1-438b-98c0-801996f58c29"
     },
     "44396eb8-e14c-47d9-9bdc-8205c0fd2bba": {
@@ -937,6 +1030,7 @@
         "power": "src\/44396eb8-e14c-47d9-9bdc-8205c0fd2bba\/code.power",
         "settings": "src\/44396eb8-e14c-47d9-9bdc-8205c0fd2bba\/settings.json",
         "path": "src\/44396eb8-e14c-47d9-9bdc-8205c0fd2bba",
+        "spk": "Issue",
         "guid": "44396eb8-e14c-47d9-9bdc-8205c0fd2bba"
     },
     "c8cbc9bd-ee91-403a-8633-0e8b59619a49": {
@@ -947,6 +1041,7 @@
         "power": "src\/c8cbc9bd-ee91-403a-8633-0e8b59619a49\/code.power",
         "settings": "src\/c8cbc9bd-ee91-403a-8633-0e8b59619a49\/settings.json",
         "path": "src\/c8cbc9bd-ee91-403a-8633-0e8b59619a49",
+        "spk": "Notifications",
         "guid": "c8cbc9bd-ee91-403a-8633-0e8b59619a49"
     },
     "3a4ce297-4536-45be-b3cc-d93474e55528": {
@@ -957,6 +1052,7 @@
         "power": "src\/3a4ce297-4536-45be-b3cc-d93474e55528\/code.power",
         "settings": "src\/3a4ce297-4536-45be-b3cc-d93474e55528\/settings.json",
         "path": "src\/3a4ce297-4536-45be-b3cc-d93474e55528",
+        "spk": "Repository",
         "guid": "3a4ce297-4536-45be-b3cc-d93474e55528"
     },
     "db14e345-c3d9-4dda-8534-4963cd6ca6f5": {
@@ -967,6 +1063,7 @@
         "power": "src\/db14e345-c3d9-4dda-8534-4963cd6ca6f5\/code.power",
         "settings": "src\/db14e345-c3d9-4dda-8534-4963cd6ca6f5\/settings.json",
         "path": "src\/db14e345-c3d9-4dda-8534-4963cd6ca6f5",
+        "spk": "Thread",
         "guid": "db14e345-c3d9-4dda-8534-4963cd6ca6f5"
     },
     "be57f70f-1214-4d69-8d33-7cd4e312ff70": {
@@ -977,6 +1074,7 @@
         "power": "src\/be57f70f-1214-4d69-8d33-7cd4e312ff70\/code.power",
         "settings": "src\/be57f70f-1214-4d69-8d33-7cd4e312ff70\/settings.json",
         "path": "src\/be57f70f-1214-4d69-8d33-7cd4e312ff70",
+        "spk": "Notifications",
         "guid": "be57f70f-1214-4d69-8d33-7cd4e312ff70"
     },
     "9ae44ddd-9d69-4298-a50b-05129cbebb76": {
@@ -987,6 +1085,7 @@
         "power": "src\/9ae44ddd-9d69-4298-a50b-05129cbebb76\/code.power",
         "settings": "src\/9ae44ddd-9d69-4298-a50b-05129cbebb76\/settings.json",
         "path": "src\/9ae44ddd-9d69-4298-a50b-05129cbebb76",
+        "spk": "Activitypub",
         "guid": "9ae44ddd-9d69-4298-a50b-05129cbebb76"
     },
     "5974503e-e56c-488b-bee3-f93b90c781df": {
@@ -997,6 +1096,7 @@
         "power": "src\/5974503e-e56c-488b-bee3-f93b90c781df\/code.power",
         "settings": "src\/5974503e-e56c-488b-bee3-f93b90c781df\/settings.json",
         "path": "src\/5974503e-e56c-488b-bee3-f93b90c781df",
+        "spk": "Gpg",
         "guid": "5974503e-e56c-488b-bee3-f93b90c781df"
     },
     "8f1a0130-e555-4e6a-9fa8-9b99e30b39fa": {
@@ -1007,6 +1107,7 @@
         "power": "src\/8f1a0130-e555-4e6a-9fa8-9b99e30b39fa\/code.power",
         "settings": "src\/8f1a0130-e555-4e6a-9fa8-9b99e30b39fa\/settings.json",
         "path": "src\/8f1a0130-e555-4e6a-9fa8-9b99e30b39fa",
+        "spk": "Markdown",
         "guid": "8f1a0130-e555-4e6a-9fa8-9b99e30b39fa"
     },
     "2cc6543d-b8c7-4bb9-8845-bfae2fb7a71f": {
@@ -1017,6 +1118,7 @@
         "power": "src\/2cc6543d-b8c7-4bb9-8845-bfae2fb7a71f\/code.power",
         "settings": "src\/2cc6543d-b8c7-4bb9-8845-bfae2fb7a71f\/settings.json",
         "path": "src\/2cc6543d-b8c7-4bb9-8845-bfae2fb7a71f",
+        "spk": "NodeInfo",
         "guid": "2cc6543d-b8c7-4bb9-8845-bfae2fb7a71f"
     },
     "7fb2cd98-a87d-4f48-9720-033924c69e34": {
@@ -1027,6 +1129,7 @@
         "power": "src\/7fb2cd98-a87d-4f48-9720-033924c69e34\/code.power",
         "settings": "src\/7fb2cd98-a87d-4f48-9720-033924c69e34\/settings.json",
         "path": "src\/7fb2cd98-a87d-4f48-9720-033924c69e34",
+        "spk": "Version",
         "guid": "7fb2cd98-a87d-4f48-9720-033924c69e34"
     },
     "012af7d0-3436-4cae-b856-be49bdc39a3e": {
@@ -1037,6 +1140,7 @@
         "power": "src\/012af7d0-3436-4cae-b856-be49bdc39a3e\/code.power",
         "settings": "src\/012af7d0-3436-4cae-b856-be49bdc39a3e\/settings.json",
         "path": "src\/012af7d0-3436-4cae-b856-be49bdc39a3e",
+        "spk": "Miscellaneous",
         "guid": "012af7d0-3436-4cae-b856-be49bdc39a3e"
     },
     "6e1a6731-2587-4ad5-8e70-ca83eba65ee0": {
@@ -1047,6 +1151,7 @@
         "power": "src\/6e1a6731-2587-4ad5-8e70-ca83eba65ee0\/code.power",
         "settings": "src\/6e1a6731-2587-4ad5-8e70-ca83eba65ee0\/settings.json",
         "path": "src\/6e1a6731-2587-4ad5-8e70-ca83eba65ee0",
+        "spk": "Cron",
         "guid": "6e1a6731-2587-4ad5-8e70-ca83eba65ee0"
     },
     "5d42c91a-6e4d-4c26-80d7-1b1d27cb35e0": {
@@ -1057,6 +1162,7 @@
         "power": "src\/5d42c91a-6e4d-4c26-80d7-1b1d27cb35e0\/code.power",
         "settings": "src\/5d42c91a-6e4d-4c26-80d7-1b1d27cb35e0\/settings.json",
         "path": "src\/5d42c91a-6e4d-4c26-80d7-1b1d27cb35e0",
+        "spk": "Organizations",
         "guid": "5d42c91a-6e4d-4c26-80d7-1b1d27cb35e0"
     },
     "3aba9610-cb22-48e0-b2d7-2a9e708c82e2": {
@@ -1067,6 +1173,7 @@
         "power": "src\/3aba9610-cb22-48e0-b2d7-2a9e708c82e2\/code.power",
         "settings": "src\/3aba9610-cb22-48e0-b2d7-2a9e708c82e2\/settings.json",
         "path": "src\/3aba9610-cb22-48e0-b2d7-2a9e708c82e2",
+        "spk": "Unadopted",
         "guid": "3aba9610-cb22-48e0-b2d7-2a9e708c82e2"
     },
     "e7c810a1-3d6a-42e4-b45f-bee554f259b3": {
@@ -1077,6 +1184,7 @@
         "power": "src\/e7c810a1-3d6a-42e4-b45f-bee554f259b3\/code.power",
         "settings": "src\/e7c810a1-3d6a-42e4-b45f-bee554f259b3\/settings.json",
         "path": "src\/e7c810a1-3d6a-42e4-b45f-bee554f259b3",
+        "spk": "Users",
         "guid": "e7c810a1-3d6a-42e4-b45f-bee554f259b3"
     },
     "2d29b342-cb4a-45f9-9cf1-a7347fbc0701": {
@@ -1087,6 +1195,7 @@
         "power": "src\/2d29b342-cb4a-45f9-9cf1-a7347fbc0701\/code.power",
         "settings": "src\/2d29b342-cb4a-45f9-9cf1-a7347fbc0701\/settings.json",
         "path": "src\/2d29b342-cb4a-45f9-9cf1-a7347fbc0701",
+        "spk": "Keys",
         "guid": "2d29b342-cb4a-45f9-9cf1-a7347fbc0701"
     },
     "0039c453-cf6d-468b-9232-fc3fc13ca0c2": {
@@ -1097,6 +1206,7 @@
         "power": "src\/0039c453-cf6d-468b-9232-fc3fc13ca0c2\/code.power",
         "settings": "src\/0039c453-cf6d-468b-9232-fc3fc13ca0c2\/settings.json",
         "path": "src\/0039c453-cf6d-468b-9232-fc3fc13ca0c2",
+        "spk": "Organization",
         "guid": "0039c453-cf6d-468b-9232-fc3fc13ca0c2"
     },
     "49ae84dc-4474-468f-bf99-c92433fd1cc4": {
@@ -1107,6 +1217,7 @@
         "power": "src\/49ae84dc-4474-468f-bf99-c92433fd1cc4\/code.power",
         "settings": "src\/49ae84dc-4474-468f-bf99-c92433fd1cc4\/settings.json",
         "path": "src\/49ae84dc-4474-468f-bf99-c92433fd1cc4",
+        "spk": "Repository",
         "guid": "49ae84dc-4474-468f-bf99-c92433fd1cc4"
     },
     "ddced4c5-667d-4559-873d-d716c17fd85b": {
@@ -1117,6 +1228,7 @@
         "power": "src\/ddced4c5-667d-4559-873d-d716c17fd85b\/code.power",
         "settings": "src\/ddced4c5-667d-4559-873d-d716c17fd85b\/settings.json",
         "path": "src\/ddced4c5-667d-4559-873d-d716c17fd85b",
+        "spk": "Admin",
         "guid": "ddced4c5-667d-4559-873d-d716c17fd85b"
     },
     "4612af84-5a42-4ea5-87bf-9d79cc19c330": {
@@ -1127,6 +1239,7 @@
         "power": "src\/4612af84-5a42-4ea5-87bf-9d79cc19c330\/code.power",
         "settings": "src\/4612af84-5a42-4ea5-87bf-9d79cc19c330\/settings.json",
         "path": "src\/4612af84-5a42-4ea5-87bf-9d79cc19c330",
+        "spk": "Factory",
         "guid": "4612af84-5a42-4ea5-87bf-9d79cc19c330"
     },
     "71acf8d6-32b8-4173-8277-eb9cda29fd64": {
@@ -1137,6 +1250,7 @@
         "power": "src\/71acf8d6-32b8-4173-8277-eb9cda29fd64\/code.power",
         "settings": "src\/71acf8d6-32b8-4173-8277-eb9cda29fd64\/settings.json",
         "path": "src\/71acf8d6-32b8-4173-8277-eb9cda29fd64",
+        "spk": "Gitea",
         "guid": "71acf8d6-32b8-4173-8277-eb9cda29fd64"
     }
 }
