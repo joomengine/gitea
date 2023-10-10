@@ -8,6 +8,7 @@
 ```
 # class Protection (Details)
 > namespace: **VDM\Joomla\Gitea\Repository\Branch**
+> extends: **Api**
 ```uml
 @startuml
 class Protection  #Gold {

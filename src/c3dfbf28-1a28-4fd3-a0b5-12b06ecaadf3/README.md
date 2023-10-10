@@ -8,6 +8,7 @@
 ```
 # class Teams (Details)
 > namespace: **VDM\Joomla\Gitea\User**
+> extends: **Api**
 ```uml
 @startuml
 class Teams  #Gold {

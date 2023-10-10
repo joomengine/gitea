@@ -8,6 +8,7 @@
 ```
 # class Mirrors (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Mirrors  #Gold {

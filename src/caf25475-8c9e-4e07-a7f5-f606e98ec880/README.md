@@ -8,6 +8,7 @@
 ```
 # class Tags (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Tags  #Gold {

@@ -8,6 +8,7 @@
 ```
 # class Contents (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Contents  #Gold {
@@ -97,8 +98,8 @@ note right of Contents::update
     string $filepath
     string $content
     string $message
-    string $branch = 'master'
     string $sha
+    string $branch = 'master'
     ?string $authorName = null
     ?string $authorEmail = null
     ?string $committerName = null

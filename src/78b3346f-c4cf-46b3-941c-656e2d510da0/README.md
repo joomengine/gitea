@@ -8,6 +8,7 @@
 ```
 # class Trees (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Trees  #Gold {

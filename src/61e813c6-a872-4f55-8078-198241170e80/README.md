@@ -10,7 +10,7 @@
 > namespace: **VDM\Joomla\Gitea\Utilities**
 ```uml
 @startuml
-class Uri << (F,LightGreen) >> #Green {
+class Uri << (F,LightGreen) >> #RoyalBlue {
   - string $endpoint
   - string $version
   - string $url

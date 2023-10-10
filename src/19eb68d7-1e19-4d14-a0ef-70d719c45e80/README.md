@@ -10,7 +10,7 @@
 > namespace: **VDM\Joomla\Gitea\Utilities**
 ```uml
 @startuml
-class Response << (F,LightGreen) >> #Green {
+class Response << (F,LightGreen) >> #RoyalBlue {
   + get(JoomlaResponse $response, int $expectedCode = 200, ...) : mixed
   + get_(JoomlaResponse $response, array $validate = [200 => null]) : mixed
   # body(JoomlaResponse $response, mixed $default = null) : mixed

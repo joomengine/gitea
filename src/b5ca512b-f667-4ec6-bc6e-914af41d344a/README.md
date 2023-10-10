@@ -8,6 +8,7 @@
 ```
 # class Owner (Details)
 > namespace: **VDM\Joomla\Gitea\Package**
+> extends: **Api**
 ```uml
 @startuml
 class Owner  #Gold {

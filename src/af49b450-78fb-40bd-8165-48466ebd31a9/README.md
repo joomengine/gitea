@@ -8,6 +8,7 @@
 ```
 # class Tokens (Details)
 > namespace: **VDM\Joomla\Gitea\User**
+> extends: **Api**
 ```uml
 @startuml
 class Tokens  #Gold {

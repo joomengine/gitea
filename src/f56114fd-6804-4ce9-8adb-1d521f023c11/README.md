@@ -8,6 +8,7 @@
 ```
 # class Pulls (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Pulls  #Gold {

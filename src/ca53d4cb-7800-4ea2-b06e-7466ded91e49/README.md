@@ -8,6 +8,7 @@
 ```
 # class Labels (Details)
 > namespace: **VDM\Joomla\Gitea**
+> extends: **Api**
 ```uml
 @startuml
 class Labels  #Gold {

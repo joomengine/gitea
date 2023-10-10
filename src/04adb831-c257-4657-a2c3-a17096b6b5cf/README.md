@@ -8,6 +8,7 @@
 ```
 # class Transfer (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Transfer  #Gold {

@@ -8,6 +8,7 @@
 ```
 # class Followers (Details)
 > namespace: **VDM\Joomla\Gitea\User**
+> extends: **Api**
 ```uml
 @startuml
 class Followers  #Gold {

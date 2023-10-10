@@ -8,6 +8,7 @@
 ```
 # class Activitypub (Details)
 > namespace: **VDM\Joomla\Gitea\Miscellaneous**
+> extends: **Api**
 ```uml
 @startuml
 class Activitypub  #Gold {

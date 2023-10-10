@@ -8,6 +8,7 @@
 ```
 # class Patch (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Patch  #Gold {

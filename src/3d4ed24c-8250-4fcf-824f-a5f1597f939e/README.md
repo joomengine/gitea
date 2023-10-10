@@ -8,6 +8,7 @@
 ```
 # class Attachment (Details)
 > namespace: **VDM\Joomla\Gitea\Settings**
+> extends: **Api**
 ```uml
 @startuml
 class Attachment  #Gold {

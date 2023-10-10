@@ -8,6 +8,7 @@
 ```
 # class Collaborator (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Collaborator  #Gold {

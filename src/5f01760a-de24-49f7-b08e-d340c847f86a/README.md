@@ -8,6 +8,7 @@
 ```
 # class Statuses (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Statuses  #Gold {

@@ -8,6 +8,7 @@
 ```
 # class Forks (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Forks  #Gold {

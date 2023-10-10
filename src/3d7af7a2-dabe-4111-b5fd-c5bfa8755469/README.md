@@ -15,7 +15,7 @@ abstract Api  #Orange {
   # Uri $uri
   # Response $response
   + __construct(Http $http, Uri $uri, ...)
-  + load_(string $url, string $token) : void
+  + load_(?string $url = null, ?string $token = null) : void
 }
 
 note right of Api::__construct

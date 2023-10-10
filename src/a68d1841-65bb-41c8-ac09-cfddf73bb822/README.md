@@ -8,6 +8,7 @@
 ```
 # class Stopwatch (Details)
 > namespace: **VDM\Joomla\Gitea\Issue**
+> extends: **Api**
 ```uml
 @startuml
 class Stopwatch  #Gold {

@@ -8,6 +8,7 @@
 ```
 # class Subscriptions (Details)
 > namespace: **VDM\Joomla\Gitea\Issue**
+> extends: **Api**
 ```uml
 @startuml
 class Subscriptions  #Gold {

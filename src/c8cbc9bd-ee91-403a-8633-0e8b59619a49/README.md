@@ -8,6 +8,7 @@
 ```
 # class Notifications (Details)
 > namespace: **VDM\Joomla\Gitea**
+> extends: **Api**
 ```uml
 @startuml
 class Notifications  #Gold {

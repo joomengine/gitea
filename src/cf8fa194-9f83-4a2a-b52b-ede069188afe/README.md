@@ -8,6 +8,7 @@
 ```
 # class Notes (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Notes  #Gold {

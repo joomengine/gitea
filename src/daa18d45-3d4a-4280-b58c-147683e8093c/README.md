@@ -8,6 +8,7 @@
 ```
 # class Commits (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Commits  #Gold {

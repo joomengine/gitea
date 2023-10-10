@@ -8,6 +8,7 @@
 ```
 # class NodeInfo (Details)
 > namespace: **VDM\Joomla\Gitea\Miscellaneous**
+> extends: **Api**
 ```uml
 @startuml
 class NodeInfo  #Gold {

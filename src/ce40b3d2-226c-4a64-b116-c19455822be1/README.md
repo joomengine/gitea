@@ -8,9 +8,10 @@
 ```
 # final class Http (Details)
 > namespace: **VDM\Joomla\Gitea\Utilities**
+> extends: **JoomlaHttp**
 ```uml
 @startuml
-class Http << (F,LightGreen) >> #Green {
+class Http << (F,LightGreen) >> #RoyalBlue {
   + __construct(?string $token)
   + setToken(string $token)
 }

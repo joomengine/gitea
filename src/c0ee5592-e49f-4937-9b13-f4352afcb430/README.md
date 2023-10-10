@@ -8,6 +8,7 @@
 ```
 # class Media (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Media  #Gold {

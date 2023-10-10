@@ -8,6 +8,7 @@
 ```
 # class Comments (Details)
 > namespace: **VDM\Joomla\Gitea\Issue**
+> extends: **Api**
 ```uml
 @startuml
 class Comments  #Gold {

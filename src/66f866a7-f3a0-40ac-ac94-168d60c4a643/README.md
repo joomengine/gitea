@@ -8,6 +8,7 @@
 ```
 # class Assignees (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Assignees  #Gold {

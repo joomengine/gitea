@@ -8,6 +8,7 @@
 ```
 # class Milestones (Details)
 > namespace: **VDM\Joomla\Gitea\Issue**
+> extends: **Api**
 ```uml
 @startuml
 class Milestones  #Gold {

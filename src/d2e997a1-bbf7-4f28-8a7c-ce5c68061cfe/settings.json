@@ -12,15 +12,15 @@
     "system_name": "Joomla.Gitea.Service.Jcb",
     "type": "class",
     "use_selection": {
-        "use_selection2": {
+        "use_selection0": {
             "use": "61e813c6-a872-4f55-8078-198241170e80",
             "as": "default"
         },
-        "use_selection0": {
+        "use_selection1": {
             "use": "ce40b3d2-226c-4a64-b116-c19455822be1",
             "as": "default"
         },
-        "use_selection1": {
+        "use_selection2": {
             "use": "640b5352-fb09-425f-a26e-cd44eda03f15",
             "as": "default"
         }

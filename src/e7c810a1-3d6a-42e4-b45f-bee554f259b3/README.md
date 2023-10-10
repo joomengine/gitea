@@ -8,6 +8,7 @@
 ```
 # class Users (Details)
 > namespace: **VDM\Joomla\Gitea\Admin**
+> extends: **Api**
 ```uml
 @startuml
 class Users  #Gold {

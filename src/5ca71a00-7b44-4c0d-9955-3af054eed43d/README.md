@@ -8,6 +8,7 @@
 ```
 # class Api (Details)
 > namespace: **VDM\Joomla\Gitea\Settings**
+> extends: **BaseAPI**
 ```uml
 @startuml
 class Api  #Gold {

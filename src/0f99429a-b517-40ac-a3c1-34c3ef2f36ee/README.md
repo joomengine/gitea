@@ -8,6 +8,7 @@
 ```
 # class Merge (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Merge  #Gold {

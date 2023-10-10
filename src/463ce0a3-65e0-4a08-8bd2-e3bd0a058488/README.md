@@ -8,6 +8,7 @@
 ```
 # class Hooks (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Hooks  #Gold {

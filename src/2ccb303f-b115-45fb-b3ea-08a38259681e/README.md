@@ -8,6 +8,7 @@
 ```
 # class Times (Details)
 > namespace: **VDM\Joomla\Gitea\User**
+> extends: **Api**
 ```uml
 @startuml
 class Times  #Gold {

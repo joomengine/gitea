@@ -8,6 +8,7 @@
 ```
 # class Repos (Details)
 > namespace: **VDM\Joomla\Gitea\User**
+> extends: **Api**
 ```uml
 @startuml
 class Repos  #Gold {

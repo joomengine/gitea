@@ -8,6 +8,7 @@
 ```
 # class Remote (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Remote  #Gold {

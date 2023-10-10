@@ -8,6 +8,7 @@
 ```
 # class Watchers (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Watchers  #Gold {

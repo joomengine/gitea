@@ -8,6 +8,7 @@
 ```
 # class Git (Details)
 > namespace: **VDM\Joomla\Gitea\Repository\Hooks**
+> extends: **Api**
 ```uml
 @startuml
 class Git  #Gold {

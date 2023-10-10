@@ -83,7 +83,7 @@
 	 **/
 	public function setUrl(string $url)
 	{
-		return $this->url = $url;
+		$this->url = $url;
 	}
 
 	/**
@@ -96,7 +96,7 @@
 	 **/
 	private function setEndpoint(string $endpoint)
 	{
-		return $this->endpoint = $endpoint;
+		$this->endpoint = $endpoint;
 	}
 
 	/**
@@ -109,5 +109,5 @@
 	 **/
 	private function setVersion($version)
 	{
-		return $this->version = $version;
+		$this->version = $version;
 	}

@@ -8,6 +8,7 @@
 ```
 # class Gpg (Details)
 > namespace: **VDM\Joomla\Gitea\Repository**
+> extends: **Api**
 ```uml
 @startuml
 class Gpg  #Gold {

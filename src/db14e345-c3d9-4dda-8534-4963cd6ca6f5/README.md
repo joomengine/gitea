@@ -8,6 +8,7 @@
 ```
 # class Thread (Details)
 > namespace: **VDM\Joomla\Gitea\Notifications**
+> extends: **Api**
 ```uml
 @startuml
 class Thread  #Gold {
