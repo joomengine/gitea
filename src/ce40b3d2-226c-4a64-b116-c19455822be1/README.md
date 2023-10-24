@@ -13,7 +13,8 @@
 @startuml
 class Http << (F,LightGreen) >> #RoyalBlue {
   + __construct(?string $token)
-  + setToken(string $token)
+  + setToken(string $token) : void
+  + getToken() : ?string
 }
 
 note right of Http::__construct
@@ -26,6 +27,14 @@ note right of Http::setToken
   Change the Token.
 
   since: 3.2.0
+  return: void
+end note
+
+note right of Http::getToken
+  Get the Token.
+
+  since: 3.2.0
+  return: ?string
 end note
  
 @enduml

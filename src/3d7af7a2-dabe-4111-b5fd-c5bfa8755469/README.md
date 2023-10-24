@@ -14,8 +14,12 @@ abstract Api  #Orange {
   # Http $http
   # Uri $uri
   # Response $response
+  # ?string $url
+  # ?string $token
   + __construct(Http $http, Uri $uri, ...)
-  + load_(?string $url = null, ?string $token = null) : void
+  + load_(?string $url = null, ?string $token = null, ...) : void
+  + reset_() : void
+  + api() : string
 }
 
 note right of Api::__construct
@@ -34,6 +38,25 @@ note right of Api::load_
 
   since: 3.2.0
   return: void
+  
+  arguments:
+    ?string $url = null
+    ?string $token = null
+    bool $backup = true
+end note
+
+note right of Api::reset_
+  Reset to previous toke, url it set
+
+  since: 3.2.0
+  return: void
+end note
+
+note right of Api::api
+  Get the API url
+
+  since: 3.2.0
+  return: string
 end note
  
 @enduml

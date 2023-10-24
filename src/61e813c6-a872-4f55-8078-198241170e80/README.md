@@ -18,6 +18,7 @@ class Uri << (F,LightGreen) >> #RoyalBlue {
   + get(string $path) : JoomlaUri
   + api() : string
   + setUrl(string $url) : void
+  + getUrl() : ?string
   - setEndpoint(string $endpoint) : void
   - setVersion(string $version) : void
 }
@@ -56,6 +57,13 @@ example: https://git.vdm.dev
 
   since: 3.2.0
   return: void
+end note
+
+note right of Uri::getUrl
+  Get the URL of the API
+
+  since: 3.2.0
+  return: ?string
 end note
 
 note right of Uri::setEndpoint
