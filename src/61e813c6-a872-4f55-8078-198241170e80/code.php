@@ -9,7 +9,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VDM\Joomla\Gitea\Utilities;
+namespace VastDevelopmentMethod\Joomla\Gitea\Utilities;
 
 
 use Joomla\Uri\Uri as JoomlaUri;

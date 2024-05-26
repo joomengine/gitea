@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Git (Details)
-> namespace: **VDM\Joomla\Gitea\Repository\Hooks**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea\Repository\Hooks**
 > extends: **Api**
 ```uml
 @startuml

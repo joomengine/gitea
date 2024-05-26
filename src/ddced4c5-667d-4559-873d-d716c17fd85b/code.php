@@ -9,18 +9,18 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VDM\Joomla\Gitea\Service;
+namespace VastDevelopmentMethod\Joomla\Gitea\Service;
 
 
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
-use VDM\Joomla\Gitea\Admin\Cron;
-use VDM\Joomla\Gitea\Admin\Organizations;
-use VDM\Joomla\Gitea\Admin\Unadopted;
-use VDM\Joomla\Gitea\Admin\Users;
-use VDM\Joomla\Gitea\Admin\Users\Keys;
-use VDM\Joomla\Gitea\Admin\Users\Organization;
-use VDM\Joomla\Gitea\Admin\Users\Repository;
+use VastDevelopmentMethod\Joomla\Gitea\Admin\Cron;
+use VastDevelopmentMethod\Joomla\Gitea\Admin\Organizations;
+use VastDevelopmentMethod\Joomla\Gitea\Admin\Unadopted;
+use VastDevelopmentMethod\Joomla\Gitea\Admin\Users;
+use VastDevelopmentMethod\Joomla\Gitea\Admin\Users\Keys;
+use VastDevelopmentMethod\Joomla\Gitea\Admin\Users\Organization;
+use VastDevelopmentMethod\Joomla\Gitea\Admin\Users\Repository;
 
 
 /**

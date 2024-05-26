@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Gpg (Details)
-> namespace: **VDM\Joomla\Gitea\Miscellaneous**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea\Miscellaneous**
 > extends: **Api**
 ```uml
 @startuml

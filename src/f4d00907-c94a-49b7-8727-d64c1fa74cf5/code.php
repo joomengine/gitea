@@ -9,15 +9,15 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VDM\Joomla\Gitea\Service;
+namespace VastDevelopmentMethod\Joomla\Gitea\Service;
 
 
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
-use VDM\Joomla\Gitea\Settings\Api;
-use VDM\Joomla\Gitea\Settings\Attachment;
-use VDM\Joomla\Gitea\Settings\Repository;
-use VDM\Joomla\Gitea\Settings\Ui;
+use VastDevelopmentMethod\Joomla\Gitea\Settings\Api;
+use VastDevelopmentMethod\Joomla\Gitea\Settings\Attachment;
+use VastDevelopmentMethod\Joomla\Gitea\Settings\Repository;
+use VastDevelopmentMethod\Joomla\Gitea\Settings\Ui;
 
 
 /**

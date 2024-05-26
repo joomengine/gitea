@@ -9,16 +9,16 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VDM\Joomla\Gitea\Service;
+namespace VastDevelopmentMethod\Joomla\Gitea\Service;
 
 
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
-use VDM\Joomla\Gitea\Miscellaneous\Activitypub;
-use VDM\Joomla\Gitea\Miscellaneous\Gpg;
-use VDM\Joomla\Gitea\Miscellaneous\Markdown;
-use VDM\Joomla\Gitea\Miscellaneous\NodeInfo;
-use VDM\Joomla\Gitea\Miscellaneous\Version;
+use VastDevelopmentMethod\Joomla\Gitea\Miscellaneous\Activitypub;
+use VastDevelopmentMethod\Joomla\Gitea\Miscellaneous\Gpg;
+use VastDevelopmentMethod\Joomla\Gitea\Miscellaneous\Markdown;
+use VastDevelopmentMethod\Joomla\Gitea\Miscellaneous\NodeInfo;
+use VastDevelopmentMethod\Joomla\Gitea\Miscellaneous\Version;
 
 
 /**

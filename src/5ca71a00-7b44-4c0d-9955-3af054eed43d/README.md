@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Api (Details)
-> namespace: **VDM\Joomla\Gitea\Settings**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea\Settings**
 > extends: **BaseAPI**
 ```uml
 @startuml

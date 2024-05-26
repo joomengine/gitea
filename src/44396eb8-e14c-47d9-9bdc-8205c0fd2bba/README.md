@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Issue (Details)
-> namespace: **VDM\Joomla\Gitea\Service**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea\Service**
 ```uml
 @startuml
 class Issue  #Gold {

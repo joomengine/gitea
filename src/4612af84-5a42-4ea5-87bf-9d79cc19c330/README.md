@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # abstract class Factory (Details)
-> namespace: **VDM\Joomla\Gitea**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea**
 ```uml
 @startuml
 abstract Factory  #Orange {

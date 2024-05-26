@@ -9,14 +9,14 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VDM\Joomla\Gitea\Service;
+namespace VastDevelopmentMethod\Joomla\Gitea\Service;
 
 
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
-use VDM\Joomla\Gitea\Utilities\Uri;
-use VDM\Joomla\Gitea\Utilities\Http;
-use VDM\Joomla\Utilities\Component\Helper;
+use VastDevelopmentMethod\Joomla\Gitea\Utilities\Uri;
+use VastDevelopmentMethod\Joomla\Gitea\Utilities\Http;
+use VastDevelopmentMethod\Joomla\Utilities\Component\Helper;
 
 
 /**

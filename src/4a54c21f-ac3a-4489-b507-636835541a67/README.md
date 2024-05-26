@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Files (Details)
-> namespace: **VDM\Joomla\Gitea\Package**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea\Package**
 > extends: **Api**
 ```uml
 @startuml

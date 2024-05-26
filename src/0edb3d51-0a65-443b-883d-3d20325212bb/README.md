@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Protection (Details)
-> namespace: **VDM\Joomla\Gitea\Repository\Branch**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea\Repository\Branch**
 > extends: **Api**
 ```uml
 @startuml

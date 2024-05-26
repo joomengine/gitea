@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # final class Http (Details)
-> namespace: **VDM\Joomla\Gitea\Utilities**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea\Utilities**
 > extends: **JoomlaHttp**
 ```uml
 @startuml

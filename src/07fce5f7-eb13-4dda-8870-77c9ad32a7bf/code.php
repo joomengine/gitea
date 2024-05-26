@@ -9,10 +9,10 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VDM\Joomla\Gitea\Organization\Teams;
+namespace VastDevelopmentMethod\Joomla\Gitea\Organization\Teams;
 
 
-use VDM\Joomla\Gitea\Abstraction\Api;
+use VastDevelopmentMethod\Joomla\Gitea\Abstraction\Api;
 
 
 /**

@@ -9,14 +9,14 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VDM\Joomla\Gitea\Service;
+namespace VastDevelopmentMethod\Joomla\Gitea\Service;
 
 
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
-use VDM\Joomla\Gitea\Notifications as Notifi;
-use VDM\Joomla\Gitea\Notifications\Repository;
-use VDM\Joomla\Gitea\Notifications\Thread;
+use VastDevelopmentMethod\Joomla\Gitea\Notifications as Notifi;
+use VastDevelopmentMethod\Joomla\Gitea\Notifications\Repository;
+use VastDevelopmentMethod\Joomla\Gitea\Notifications\Thread;
 
 
 /**

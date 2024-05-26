@@ -9,49 +9,49 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VDM\Joomla\Gitea\Service;
+namespace VastDevelopmentMethod\Joomla\Gitea\Service;
 
 
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
-use VDM\Joomla\Gitea\Repository as Repo;
-use VDM\Joomla\Gitea\Repository\Archive;
-use VDM\Joomla\Gitea\Repository\Assignees;
-use VDM\Joomla\Gitea\Repository\Attachments;
-use VDM\Joomla\Gitea\Repository\Branch;
-use VDM\Joomla\Gitea\Repository\Branch\Protection;
-use VDM\Joomla\Gitea\Repository\Collaborator;
-use VDM\Joomla\Gitea\Repository\Commits;
-use VDM\Joomla\Gitea\Repository\Contents;
-use VDM\Joomla\Gitea\Repository\Forks;
-use VDM\Joomla\Gitea\Repository\Gpg;
-use VDM\Joomla\Gitea\Repository\Hooks;
-use VDM\Joomla\Gitea\Repository\Hooks\Git;
-use VDM\Joomla\Gitea\Repository\Keys;
-use VDM\Joomla\Gitea\Repository\Languages;
-use VDM\Joomla\Gitea\Repository\Media;
-use VDM\Joomla\Gitea\Repository\Merge;
-use VDM\Joomla\Gitea\Repository\Mirror;
-use VDM\Joomla\Gitea\Repository\Mirrors;
-use VDM\Joomla\Gitea\Repository\Notes;
-use VDM\Joomla\Gitea\Repository\Patch;
-use VDM\Joomla\Gitea\Repository\Pulls;
-use VDM\Joomla\Gitea\Repository\Refs;
-use VDM\Joomla\Gitea\Repository\Releases;
-use VDM\Joomla\Gitea\Repository\Remote;
-use VDM\Joomla\Gitea\Repository\Reviewers;
-use VDM\Joomla\Gitea\Repository\Reviews;
-use VDM\Joomla\Gitea\Repository\Stargazers;
-use VDM\Joomla\Gitea\Repository\Statuses;
-use VDM\Joomla\Gitea\Repository\Tags;
-use VDM\Joomla\Gitea\Repository\Teams;
-use VDM\Joomla\Gitea\Repository\Templates;
-use VDM\Joomla\Gitea\Repository\Times;
-use VDM\Joomla\Gitea\Repository\Topics;
-use VDM\Joomla\Gitea\Repository\Transfer;
-use VDM\Joomla\Gitea\Repository\Trees;
-use VDM\Joomla\Gitea\Repository\Watchers;
-use VDM\Joomla\Gitea\Repository\Wiki;
+use VastDevelopmentMethod\Joomla\Gitea\Repository as Repo;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Archive;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Assignees;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Attachments;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Branch;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Branch\Protection;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Collaborator;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Commits;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Contents;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Forks;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Gpg;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Hooks;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Hooks\Git;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Keys;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Languages;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Media;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Merge;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Mirror;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Mirrors;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Notes;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Patch;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Pulls;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Refs;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Releases;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Remote;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Reviewers;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Reviews;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Stargazers;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Statuses;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Tags;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Teams;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Templates;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Times;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Topics;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Transfer;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Trees;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Watchers;
+use VastDevelopmentMethod\Joomla\Gitea\Repository\Wiki;
 
 
 /**

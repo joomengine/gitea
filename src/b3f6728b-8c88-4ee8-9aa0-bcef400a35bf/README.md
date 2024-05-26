@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class User (Details)
-> namespace: **VDM\Joomla\Gitea\Organization**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea\Organization**
 > extends: **Api**
 ```uml
 @startuml

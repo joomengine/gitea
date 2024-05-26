@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Repository (Details)
-> namespace: **VDM\Joomla\Gitea\Service**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea\Service**
 ```uml
 @startuml
 class Repository  #Gold {

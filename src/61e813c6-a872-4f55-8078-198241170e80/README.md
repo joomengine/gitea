@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # final class Uri (Details)
-> namespace: **VDM\Joomla\Gitea\Utilities**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea\Utilities**
 ```uml
 @startuml
 class Uri << (F,LightGreen) >> #RoyalBlue {

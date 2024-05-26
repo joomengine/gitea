@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Times (Details)
-> namespace: **VDM\Joomla\Gitea\User**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea\User**
 > extends: **Api**
 ```uml
 @startuml

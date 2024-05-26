@@ -23,7 +23,7 @@ This repository contains an index (see below) of all the approved powers within 
 
 # Index of powers
 
-- **Namespace**: [VDM\Joomla\Gitea](#vdm-joomla-gitea)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea](#vastdevelopmentmethod-joomla-gitea)
 
   - **abstract class Factory** | [Details](src/4612af84-5a42-4ea5-87bf-9d79cc19c330) | [Code](src/4612af84-5a42-4ea5-87bf-9d79cc19c330/code.php) | [Settings](src/4612af84-5a42-4ea5-87bf-9d79cc19c330/settings.json) | Super__4612af84_5a42_4ea5_87bf_9d79cc19c330__Power
   - **class Issue** | [Details](src/5c8f9038-d6e9-4788-96df-45019eafbadb) | [Code](src/5c8f9038-d6e9-4788-96df-45019eafbadb/code.php) | [Settings](src/5c8f9038-d6e9-4788-96df-45019eafbadb/settings.json) | Super__5c8f9038_d6e9_4788_96df_45019eafbadb__Power
@@ -33,19 +33,19 @@ This repository contains an index (see below) of all the approved powers within 
   - **class Package** | [Details](src/b7ec675d-3197-4458-89d6-ca5d4303af8a) | [Code](src/b7ec675d-3197-4458-89d6-ca5d4303af8a/code.php) | [Settings](src/b7ec675d-3197-4458-89d6-ca5d4303af8a/settings.json) | Super__b7ec675d_3197_4458_89d6_ca5d4303af8a__Power
   - **class Repository** | [Details](src/eb6c050d-7100-42b8-a922-f7e7c78a08c2) | [Code](src/eb6c050d-7100-42b8-a922-f7e7c78a08c2/code.php) | [Settings](src/eb6c050d-7100-42b8-a922-f7e7c78a08c2/settings.json) | Super__eb6c050d_7100_42b8_a922_f7e7c78a08c2__Power
   - **class User** | [Details](src/4a5694db-bf3c-439b-bf9c-36a487828787) | [Code](src/4a5694db-bf3c-439b-bf9c-36a487828787/code.php) | [Settings](src/4a5694db-bf3c-439b-bf9c-36a487828787/settings.json) | Super__4a5694db_bf3c_439b_bf9c_36a487828787__Power
-- **Namespace**: [VDM\Joomla\Componentbuilder\Service](#vdm-joomla-componentbuilder-service)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Componentbuilder\Service](#vastdevelopmentmethod-joomla-componentbuilder-service)
 
   - **class Gitea** | [Details](src/71acf8d6-32b8-4173-8277-eb9cda29fd64) | [Code](src/71acf8d6-32b8-4173-8277-eb9cda29fd64/code.php) | [Settings](src/71acf8d6-32b8-4173-8277-eb9cda29fd64/settings.json) | Super__71acf8d6_32b8_4173_8277_eb9cda29fd64__Power
-- **Namespace**: [VDM\Joomla\Gitea\Abstraction](#vdm-joomla-gitea-abstraction)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Abstraction](#vastdevelopmentmethod-joomla-gitea-abstraction)
 
   - **abstract class Api** | [Details](src/3d7af7a2-dabe-4111-b5fd-c5bfa8755469) | [Code](src/3d7af7a2-dabe-4111-b5fd-c5bfa8755469/code.php) | [Settings](src/3d7af7a2-dabe-4111-b5fd-c5bfa8755469/settings.json) | Super__3d7af7a2_dabe_4111_b5fd_c5bfa8755469__Power
-- **Namespace**: [VDM\Joomla\Gitea\Admin](#vdm-joomla-gitea-admin)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Admin](#vastdevelopmentmethod-joomla-gitea-admin)
 
   - **class Cron** | [Details](src/6e1a6731-2587-4ad5-8e70-ca83eba65ee0) | [Code](src/6e1a6731-2587-4ad5-8e70-ca83eba65ee0/code.php) | [Settings](src/6e1a6731-2587-4ad5-8e70-ca83eba65ee0/settings.json) | Super__6e1a6731_2587_4ad5_8e70_ca83eba65ee0__Power
   - **class Organizations** | [Details](src/5d42c91a-6e4d-4c26-80d7-1b1d27cb35e0) | [Code](src/5d42c91a-6e4d-4c26-80d7-1b1d27cb35e0/code.php) | [Settings](src/5d42c91a-6e4d-4c26-80d7-1b1d27cb35e0/settings.json) | Super__5d42c91a_6e4d_4c26_80d7_1b1d27cb35e0__Power
   - **class Unadopted** | [Details](src/3aba9610-cb22-48e0-b2d7-2a9e708c82e2) | [Code](src/3aba9610-cb22-48e0-b2d7-2a9e708c82e2/code.php) | [Settings](src/3aba9610-cb22-48e0-b2d7-2a9e708c82e2/settings.json) | Super__3aba9610_cb22_48e0_b2d7_2a9e708c82e2__Power
   - **class Users** | [Details](src/e7c810a1-3d6a-42e4-b45f-bee554f259b3) | [Code](src/e7c810a1-3d6a-42e4-b45f-bee554f259b3/code.php) | [Settings](src/e7c810a1-3d6a-42e4-b45f-bee554f259b3/settings.json) | Super__e7c810a1_3d6a_42e4_b45f_bee554f259b3__Power
-- **Namespace**: [VDM\Joomla\Gitea\Issue](#vdm-joomla-gitea-issue)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Issue](#vastdevelopmentmethod-joomla-gitea-issue)
 
   - **class Comments** | [Details](src/22d65693-917d-47c7-ba5c-8e1f354dc713) | [Code](src/22d65693-917d-47c7-ba5c-8e1f354dc713/code.php) | [Settings](src/22d65693-917d-47c7-ba5c-8e1f354dc713/settings.json) | Super__22d65693_917d_47c7_ba5c_8e1f354dc713__Power
   - **class Deadline** | [Details](src/61ddd1b9-4b74-44bd-a7ee-f743cd4c2f69) | [Code](src/61ddd1b9-4b74-44bd-a7ee-f743cd4c2f69/code.php) | [Settings](src/61ddd1b9-4b74-44bd-a7ee-f743cd4c2f69/settings.json) | Super__61ddd1b9_4b74_44bd_a7ee_f743cd4c2f69__Power
@@ -56,18 +56,18 @@ This repository contains an index (see below) of all the approved powers within 
   - **class Subscriptions** | [Details](src/acca507d-e632-4349-9e3a-9dba5d19fbf9) | [Code](src/acca507d-e632-4349-9e3a-9dba5d19fbf9/code.php) | [Settings](src/acca507d-e632-4349-9e3a-9dba5d19fbf9/settings.json) | Super__acca507d_e632_4349_9e3a_9dba5d19fbf9__Power
   - **class Timeline** | [Details](src/83bb983b-80d8-44d5-917b-03d3c13742b9) | [Code](src/83bb983b-80d8-44d5-917b-03d3c13742b9/code.php) | [Settings](src/83bb983b-80d8-44d5-917b-03d3c13742b9/settings.json) | Super__83bb983b_80d8_44d5_917b_03d3c13742b9__Power
   - **class Times** | [Details](src/d273c34e-88c1-438b-98c0-801996f58c29) | [Code](src/d273c34e-88c1-438b-98c0-801996f58c29/code.php) | [Settings](src/d273c34e-88c1-438b-98c0-801996f58c29/settings.json) | Super__d273c34e_88c1_438b_98c0_801996f58c29__Power
-- **Namespace**: [VDM\Joomla\Gitea\Miscellaneous](#vdm-joomla-gitea-miscellaneous)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Miscellaneous](#vastdevelopmentmethod-joomla-gitea-miscellaneous)
 
   - **class Activitypub** | [Details](src/9ae44ddd-9d69-4298-a50b-05129cbebb76) | [Code](src/9ae44ddd-9d69-4298-a50b-05129cbebb76/code.php) | [Settings](src/9ae44ddd-9d69-4298-a50b-05129cbebb76/settings.json) | Super__9ae44ddd_9d69_4298_a50b_05129cbebb76__Power
   - **class Gpg** | [Details](src/5974503e-e56c-488b-bee3-f93b90c781df) | [Code](src/5974503e-e56c-488b-bee3-f93b90c781df/code.php) | [Settings](src/5974503e-e56c-488b-bee3-f93b90c781df/settings.json) | Super__5974503e_e56c_488b_bee3_f93b90c781df__Power
   - **class Markdown** | [Details](src/8f1a0130-e555-4e6a-9fa8-9b99e30b39fa) | [Code](src/8f1a0130-e555-4e6a-9fa8-9b99e30b39fa/code.php) | [Settings](src/8f1a0130-e555-4e6a-9fa8-9b99e30b39fa/settings.json) | Super__8f1a0130_e555_4e6a_9fa8_9b99e30b39fa__Power
   - **class NodeInfo** | [Details](src/2cc6543d-b8c7-4bb9-8845-bfae2fb7a71f) | [Code](src/2cc6543d-b8c7-4bb9-8845-bfae2fb7a71f/code.php) | [Settings](src/2cc6543d-b8c7-4bb9-8845-bfae2fb7a71f/settings.json) | Super__2cc6543d_b8c7_4bb9_8845_bfae2fb7a71f__Power
   - **class Version** | [Details](src/7fb2cd98-a87d-4f48-9720-033924c69e34) | [Code](src/7fb2cd98-a87d-4f48-9720-033924c69e34/code.php) | [Settings](src/7fb2cd98-a87d-4f48-9720-033924c69e34/settings.json) | Super__7fb2cd98_a87d_4f48_9720_033924c69e34__Power
-- **Namespace**: [VDM\Joomla\Gitea\Notifications](#vdm-joomla-gitea-notifications)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Notifications](#vastdevelopmentmethod-joomla-gitea-notifications)
 
   - **class Repository** | [Details](src/3a4ce297-4536-45be-b3cc-d93474e55528) | [Code](src/3a4ce297-4536-45be-b3cc-d93474e55528/code.php) | [Settings](src/3a4ce297-4536-45be-b3cc-d93474e55528/settings.json) | Super__3a4ce297_4536_45be_b3cc_d93474e55528__Power
   - **class Thread** | [Details](src/db14e345-c3d9-4dda-8534-4963cd6ca6f5) | [Code](src/db14e345-c3d9-4dda-8534-4963cd6ca6f5/code.php) | [Settings](src/db14e345-c3d9-4dda-8534-4963cd6ca6f5/settings.json) | Super__db14e345_c3d9_4dda_8534_4963cd6ca6f5__Power
-- **Namespace**: [VDM\Joomla\Gitea\Organization](#vdm-joomla-gitea-organization)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Organization](#vastdevelopmentmethod-joomla-gitea-organization)
 
   - **class Hooks** | [Details](src/605d7058-345b-411e-b55d-027edc1ded83) | [Code](src/605d7058-345b-411e-b55d-027edc1ded83/code.php) | [Settings](src/605d7058-345b-411e-b55d-027edc1ded83/settings.json) | Super__605d7058_345b_411e_b55d_027edc1ded83__Power
   - **class Labels** | [Details](src/9c9ba4c4-2039-4396-9ea2-621e42e04c89) | [Code](src/9c9ba4c4-2039-4396-9ea2-621e42e04c89/code.php) | [Settings](src/9c9ba4c4-2039-4396-9ea2-621e42e04c89/settings.json) | Super__9c9ba4c4_2039_4396_9ea2_621e42e04c89__Power
@@ -76,11 +76,11 @@ This repository contains an index (see below) of all the approved powers within 
   - **class Repository** | [Details](src/aeb42050-90e1-4169-907a-fa6cde20caa4) | [Code](src/aeb42050-90e1-4169-907a-fa6cde20caa4/code.php) | [Settings](src/aeb42050-90e1-4169-907a-fa6cde20caa4/settings.json) | Super__aeb42050_90e1_4169_907a_fa6cde20caa4__Power
   - **class Teams** | [Details](src/9c886ee5-ff14-44c3-a3dd-6a30ebf32ca3) | [Code](src/9c886ee5-ff14-44c3-a3dd-6a30ebf32ca3/code.php) | [Settings](src/9c886ee5-ff14-44c3-a3dd-6a30ebf32ca3/settings.json) | Super__9c886ee5_ff14_44c3_a3dd_6a30ebf32ca3__Power
   - **class User** | [Details](src/b3f6728b-8c88-4ee8-9aa0-bcef400a35bf) | [Code](src/b3f6728b-8c88-4ee8-9aa0-bcef400a35bf/code.php) | [Settings](src/b3f6728b-8c88-4ee8-9aa0-bcef400a35bf/settings.json) | Super__b3f6728b_8c88_4ee8_9aa0_bcef400a35bf__Power
-- **Namespace**: [VDM\Joomla\Gitea\Package](#vdm-joomla-gitea-package)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Package](#vastdevelopmentmethod-joomla-gitea-package)
 
   - **class Files** | [Details](src/4a54c21f-ac3a-4489-b507-636835541a67) | [Code](src/4a54c21f-ac3a-4489-b507-636835541a67/code.php) | [Settings](src/4a54c21f-ac3a-4489-b507-636835541a67/settings.json) | Super__4a54c21f_ac3a_4489_b507_636835541a67__Power
   - **class Owner** | [Details](src/b5ca512b-f667-4ec6-bc6e-914af41d344a) | [Code](src/b5ca512b-f667-4ec6-bc6e-914af41d344a/code.php) | [Settings](src/b5ca512b-f667-4ec6-bc6e-914af41d344a/settings.json) | Super__b5ca512b_f667_4ec6_bc6e_914af41d344a__Power
-- **Namespace**: [VDM\Joomla\Gitea\Repository](#vdm-joomla-gitea-repository)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Repository](#vastdevelopmentmethod-joomla-gitea-repository)
 
   - **class Archive** | [Details](src/8a8fce09-a880-4364-a8c4-4ca337e7e951) | [Code](src/8a8fce09-a880-4364-a8c4-4ca337e7e951/code.php) | [Settings](src/8a8fce09-a880-4364-a8c4-4ca337e7e951/settings.json) | Super__8a8fce09_a880_4364_a8c4_4ca337e7e951__Power
   - **class Assignees** | [Details](src/66f866a7-f3a0-40ac-ac94-168d60c4a643) | [Code](src/66f866a7-f3a0-40ac-ac94-168d60c4a643/code.php) | [Settings](src/66f866a7-f3a0-40ac-ac94-168d60c4a643/settings.json) | Super__66f866a7_f3a0_40ac_ac94_168d60c4a643__Power
@@ -117,7 +117,7 @@ This repository contains an index (see below) of all the approved powers within 
   - **class Trees** | [Details](src/78b3346f-c4cf-46b3-941c-656e2d510da0) | [Code](src/78b3346f-c4cf-46b3-941c-656e2d510da0/code.php) | [Settings](src/78b3346f-c4cf-46b3-941c-656e2d510da0/settings.json) | Super__78b3346f_c4cf_46b3_941c_656e2d510da0__Power
   - **class Watchers** | [Details](src/93d704d3-aed8-4ee5-a25e-e7fbfb23b5c7) | [Code](src/93d704d3-aed8-4ee5-a25e-e7fbfb23b5c7/code.php) | [Settings](src/93d704d3-aed8-4ee5-a25e-e7fbfb23b5c7/settings.json) | Super__93d704d3_aed8_4ee5_a25e_e7fbfb23b5c7__Power
   - **class Wiki** | [Details](src/572b9567-1893-400b-bd34-f1a45ef7e503) | [Code](src/572b9567-1893-400b-bd34-f1a45ef7e503/code.php) | [Settings](src/572b9567-1893-400b-bd34-f1a45ef7e503/settings.json) | Super__572b9567_1893_400b_bd34_f1a45ef7e503__Power
-- **Namespace**: [VDM\Joomla\Gitea\Service](#vdm-joomla-gitea-service)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Service](#vastdevelopmentmethod-joomla-gitea-service)
 
   - **class Admin** | [Details](src/ddced4c5-667d-4559-873d-d716c17fd85b) | [Code](src/ddced4c5-667d-4559-873d-d716c17fd85b/code.php) | [Settings](src/ddced4c5-667d-4559-873d-d716c17fd85b/settings.json) | Super__ddced4c5_667d_4559_873d_d716c17fd85b__Power
   - **class Issue** | [Details](src/44396eb8-e14c-47d9-9bdc-8205c0fd2bba) | [Code](src/44396eb8-e14c-47d9-9bdc-8205c0fd2bba/code.php) | [Settings](src/44396eb8-e14c-47d9-9bdc-8205c0fd2bba/settings.json) | Super__44396eb8_e14c_47d9_9bdc_8205c0fd2bba__Power
@@ -130,13 +130,13 @@ This repository contains an index (see below) of all the approved powers within 
   - **class Settings** | [Details](src/f4d00907-c94a-49b7-8727-d64c1fa74cf5) | [Code](src/f4d00907-c94a-49b7-8727-d64c1fa74cf5/code.php) | [Settings](src/f4d00907-c94a-49b7-8727-d64c1fa74cf5/settings.json) | Super__f4d00907_c94a_49b7_8727_d64c1fa74cf5__Power
   - **class User** | [Details](src/0a69cfc5-3223-4afb-8c9a-75f4bacf3c0e) | [Code](src/0a69cfc5-3223-4afb-8c9a-75f4bacf3c0e/code.php) | [Settings](src/0a69cfc5-3223-4afb-8c9a-75f4bacf3c0e/settings.json) | Super__0a69cfc5_3223_4afb_8c9a_75f4bacf3c0e__Power
   - **class Utilities** | [Details](src/6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c) | [Code](src/6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c/code.php) | [Settings](src/6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c/settings.json) | Super__6edf0cf3_c2b0_45c9_84d2_c6ef1c5d434c__Power
-- **Namespace**: [VDM\Joomla\Gitea\Settings](#vdm-joomla-gitea-settings)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Settings](#vastdevelopmentmethod-joomla-gitea-settings)
 
   - **class Api** | [Details](src/5ca71a00-7b44-4c0d-9955-3af054eed43d) | [Code](src/5ca71a00-7b44-4c0d-9955-3af054eed43d/code.php) | [Settings](src/5ca71a00-7b44-4c0d-9955-3af054eed43d/settings.json) | Super__5ca71a00_7b44_4c0d_9955_3af054eed43d__Power
   - **class Attachment** | [Details](src/3d4ed24c-8250-4fcf-824f-a5f1597f939e) | [Code](src/3d4ed24c-8250-4fcf-824f-a5f1597f939e/code.php) | [Settings](src/3d4ed24c-8250-4fcf-824f-a5f1597f939e/settings.json) | Super__3d4ed24c_8250_4fcf_824f_a5f1597f939e__Power
   - **class Repository** | [Details](src/e7c16db5-bb22-421b-8789-180f6a502b62) | [Code](src/e7c16db5-bb22-421b-8789-180f6a502b62/code.php) | [Settings](src/e7c16db5-bb22-421b-8789-180f6a502b62/settings.json) | Super__e7c16db5_bb22_421b_8789_180f6a502b62__Power
   - **class Ui** | [Details](src/0367ac44-18d6-495d-beae-315794ffa89d) | [Code](src/0367ac44-18d6-495d-beae-315794ffa89d/code.php) | [Settings](src/0367ac44-18d6-495d-beae-315794ffa89d/settings.json) | Super__0367ac44_18d6_495d_beae_315794ffa89d__Power
-- **Namespace**: [VDM\Joomla\Gitea\User](#vdm-joomla-gitea-user)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\User](#vastdevelopmentmethod-joomla-gitea-user)
 
   - **class Applications** | [Details](src/4a9e144e-7754-4d3f-9325-9ff792ce4aef) | [Code](src/4a9e144e-7754-4d3f-9325-9ff792ce4aef/code.php) | [Settings](src/4a9e144e-7754-4d3f-9325-9ff792ce4aef/settings.json) | Super__4a9e144e_7754_4d3f_9325_9ff792ce4aef__Power
   - **class Emails** | [Details](src/af4b8b77-d773-42a7-9f54-19de463bc49b) | [Code](src/af4b8b77-d773-42a7-9f54-19de463bc49b/code.php) | [Settings](src/af4b8b77-d773-42a7-9f54-19de463bc49b/settings.json) | Super__af4b8b77_d773_42a7_9f54_19de463bc49b__Power
@@ -151,30 +151,30 @@ This repository contains an index (see below) of all the approved powers within 
   - **class Teams** | [Details](src/c3dfbf28-1a28-4fd3-a0b5-12b06ecaadf3) | [Code](src/c3dfbf28-1a28-4fd3-a0b5-12b06ecaadf3/code.php) | [Settings](src/c3dfbf28-1a28-4fd3-a0b5-12b06ecaadf3/settings.json) | Super__c3dfbf28_1a28_4fd3_a0b5_12b06ecaadf3__Power
   - **class Times** | [Details](src/2ccb303f-b115-45fb-b3ea-08a38259681e) | [Code](src/2ccb303f-b115-45fb-b3ea-08a38259681e/code.php) | [Settings](src/2ccb303f-b115-45fb-b3ea-08a38259681e/settings.json) | Super__2ccb303f_b115_45fb_b3ea_08a38259681e__Power
   - **class Tokens** | [Details](src/af49b450-78fb-40bd-8165-48466ebd31a9) | [Code](src/af49b450-78fb-40bd-8165-48466ebd31a9/code.php) | [Settings](src/af49b450-78fb-40bd-8165-48466ebd31a9/settings.json) | Super__af49b450_78fb_40bd_8165_48466ebd31a9__Power
-- **Namespace**: [VDM\Joomla\Gitea\Utilities](#vdm-joomla-gitea-utilities)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Utilities](#vastdevelopmentmethod-joomla-gitea-utilities)
 
   - **final class Http** | [Details](src/ce40b3d2-226c-4a64-b116-c19455822be1) | [Code](src/ce40b3d2-226c-4a64-b116-c19455822be1/code.php) | [Settings](src/ce40b3d2-226c-4a64-b116-c19455822be1/settings.json) | Super__ce40b3d2_226c_4a64_b116_c19455822be1__Power
   - **final class Response** | [Details](src/19eb68d7-1e19-4d14-a0ef-70d719c45e80) | [Code](src/19eb68d7-1e19-4d14-a0ef-70d719c45e80/code.php) | [Settings](src/19eb68d7-1e19-4d14-a0ef-70d719c45e80/settings.json) | Super__19eb68d7_1e19_4d14_a0ef_70d719c45e80__Power
   - **final class Uri** | [Details](src/61e813c6-a872-4f55-8078-198241170e80) | [Code](src/61e813c6-a872-4f55-8078-198241170e80/code.php) | [Settings](src/61e813c6-a872-4f55-8078-198241170e80/settings.json) | Super__61e813c6_a872_4f55_8078_198241170e80__Power
-- **Namespace**: [VDM\Joomla\Gitea\Admin\Users](#vdm-joomla-gitea-admin-users)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Admin\Users](#vastdevelopmentmethod-joomla-gitea-admin-users)
 
   - **class Keys** | [Details](src/2d29b342-cb4a-45f9-9cf1-a7347fbc0701) | [Code](src/2d29b342-cb4a-45f9-9cf1-a7347fbc0701/code.php) | [Settings](src/2d29b342-cb4a-45f9-9cf1-a7347fbc0701/settings.json) | Super__2d29b342_cb4a_45f9_9cf1_a7347fbc0701__Power
   - **class Organization** | [Details](src/0039c453-cf6d-468b-9232-fc3fc13ca0c2) | [Code](src/0039c453-cf6d-468b-9232-fc3fc13ca0c2/code.php) | [Settings](src/0039c453-cf6d-468b-9232-fc3fc13ca0c2/settings.json) | Super__0039c453_cf6d_468b_9232_fc3fc13ca0c2__Power
   - **class Repository** | [Details](src/49ae84dc-4474-468f-bf99-c92433fd1cc4) | [Code](src/49ae84dc-4474-468f-bf99-c92433fd1cc4/code.php) | [Settings](src/49ae84dc-4474-468f-bf99-c92433fd1cc4/settings.json) | Super__49ae84dc_4474_468f_bf99_c92433fd1cc4__Power
-- **Namespace**: [VDM\Joomla\Gitea\Issue\Reactions](#vdm-joomla-gitea-issue-reactions)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Issue\Reactions](#vastdevelopmentmethod-joomla-gitea-issue-reactions)
 
   - **class Comment** | [Details](src/73b3ebfa-c52a-4a96-a8de-718ff0bbc155) | [Code](src/73b3ebfa-c52a-4a96-a8de-718ff0bbc155/code.php) | [Settings](src/73b3ebfa-c52a-4a96-a8de-718ff0bbc155/settings.json) | Super__73b3ebfa_c52a_4a96_a8de_718ff0bbc155__Power
-- **Namespace**: [VDM\Joomla\Gitea\Issue\Repository](#vdm-joomla-gitea-issue-repository)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Issue\Repository](#vastdevelopmentmethod-joomla-gitea-issue-repository)
 
   - **class Comments** | [Details](src/63fbd482-688a-4356-b3e4-a676ef357100) | [Code](src/63fbd482-688a-4356-b3e4-a676ef357100/code.php) | [Settings](src/63fbd482-688a-4356-b3e4-a676ef357100/settings.json) | Super__63fbd482_688a_4356_b3e4_a676ef357100__Power
-- **Namespace**: [VDM\Joomla\Gitea\Organization\Teams](#vdm-joomla-gitea-organization-teams)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Organization\Teams](#vastdevelopmentmethod-joomla-gitea-organization-teams)
 
   - **class Members** | [Details](src/d9fa532a-dbe8-445f-93dc-398a3cf01c1e) | [Code](src/d9fa532a-dbe8-445f-93dc-398a3cf01c1e/code.php) | [Settings](src/d9fa532a-dbe8-445f-93dc-398a3cf01c1e/settings.json) | Super__d9fa532a_dbe8_445f_93dc_398a3cf01c1e__Power
   - **class Repository** | [Details](src/07fce5f7-eb13-4dda-8870-77c9ad32a7bf) | [Code](src/07fce5f7-eb13-4dda-8870-77c9ad32a7bf/code.php) | [Settings](src/07fce5f7-eb13-4dda-8870-77c9ad32a7bf/settings.json) | Super__07fce5f7_eb13_4dda_8870_77c9ad32a7bf__Power
-- **Namespace**: [VDM\Joomla\Gitea\Repository\Branch](#vdm-joomla-gitea-repository-branch)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Repository\Branch](#vastdevelopmentmethod-joomla-gitea-repository-branch)
 
   - **class Protection** | [Details](src/0edb3d51-0a65-443b-883d-3d20325212bb) | [Code](src/0edb3d51-0a65-443b-883d-3d20325212bb/code.php) | [Settings](src/0edb3d51-0a65-443b-883d-3d20325212bb/settings.json) | Super__0edb3d51_0a65_443b_883d_3d20325212bb__Power
-- **Namespace**: [VDM\Joomla\Gitea\Repository\Hooks](#vdm-joomla-gitea-repository-hooks)
+- **Namespace**: [VastDevelopmentMethod\Joomla\Gitea\Repository\Hooks](#vastdevelopmentmethod-joomla-gitea-repository-hooks)
 
   - **class Git** | [Details](src/a11cacb2-c13a-4482-bf71-1b7d99574a98) | [Code](src/a11cacb2-c13a-4482-bf71-1b7d99574a98/code.php) | [Settings](src/a11cacb2-c13a-4482-bf71-1b7d99574a98/settings.json) | Super__a11cacb2_c13a_4482_bf71_1b7d99574a98__Power
 

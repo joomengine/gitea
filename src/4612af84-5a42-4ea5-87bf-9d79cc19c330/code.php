@@ -9,22 +9,22 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VDM\Joomla\Gitea;
+namespace VastDevelopmentMethod\Joomla\Gitea;
 
 
 use Joomla\DI\Container;
-use VDM\Joomla\Gitea\Service\Utilities;
-use VDM\Joomla\Gitea\Service\Jcb;
-use VDM\Joomla\Gitea\Service\Settings;
-use VDM\Joomla\Gitea\Service\Organization;
-use VDM\Joomla\Gitea\Service\User;
-use VDM\Joomla\Gitea\Service\Repository;
-use VDM\Joomla\Gitea\Service\Package;
-use VDM\Joomla\Gitea\Service\Issue;
-use VDM\Joomla\Gitea\Service\Notifications;
-use VDM\Joomla\Gitea\Service\Miscellaneous;
-use VDM\Joomla\Gitea\Service\Admin;
-use VDM\Joomla\Interfaces\FactoryInterface;
+use VastDevelopmentMethod\Joomla\Gitea\Service\Utilities;
+use VastDevelopmentMethod\Joomla\Gitea\Service\Jcb;
+use VastDevelopmentMethod\Joomla\Gitea\Service\Settings;
+use VastDevelopmentMethod\Joomla\Gitea\Service\Organization;
+use VastDevelopmentMethod\Joomla\Gitea\Service\User;
+use VastDevelopmentMethod\Joomla\Gitea\Service\Repository;
+use VastDevelopmentMethod\Joomla\Gitea\Service\Package;
+use VastDevelopmentMethod\Joomla\Gitea\Service\Issue;
+use VastDevelopmentMethod\Joomla\Gitea\Service\Notifications;
+use VastDevelopmentMethod\Joomla\Gitea\Service\Miscellaneous;
+use VastDevelopmentMethod\Joomla\Gitea\Service\Admin;
+use VastDevelopmentMethod\Joomla\Interfaces\FactoryInterface;
 
 
 /**

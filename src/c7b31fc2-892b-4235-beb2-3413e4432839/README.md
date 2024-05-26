@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Teams (Details)
-> namespace: **VDM\Joomla\Gitea\Repository**
+> namespace: **VastDevelopmentMethod\Joomla\Gitea\Repository**
 > extends: **Api**
 ```uml
 @startuml

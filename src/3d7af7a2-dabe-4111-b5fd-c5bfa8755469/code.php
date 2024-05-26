@@ -9,12 +9,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VDM\Joomla\Gitea\Abstraction;
+namespace VastDevelopmentMethod\Joomla\Gitea\Abstraction;
 
 
-use VDM\Joomla\Gitea\Utilities\Http;
-use VDM\Joomla\Gitea\Utilities\Uri;
-use VDM\Joomla\Gitea\Utilities\Response;
+use VastDevelopmentMethod\Joomla\Gitea\Utilities\Http;
+use VastDevelopmentMethod\Joomla\Gitea\Utilities\Uri;
+use VastDevelopmentMethod\Joomla\Gitea\Utilities\Response;
 
 
 /**
