@@ -9,24 +9,24 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VastDevelopmentMethod\Joomla\Gitea\Service;
+namespace VDM\Joomla\Gitea\Service;
 
 
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
-use VastDevelopmentMethod\Joomla\Gitea\Issue as Issu;
-use VastDevelopmentMethod\Joomla\Gitea\Issue\Comments;
-use VastDevelopmentMethod\Joomla\Gitea\Issue\Repository\Comments as RepoComments;
-use VastDevelopmentMethod\Joomla\Gitea\Issue\Deadline;
-use VastDevelopmentMethod\Joomla\Gitea\Labels;
-use VastDevelopmentMethod\Joomla\Gitea\Issue\Labels as IssueLabels;
-use VastDevelopmentMethod\Joomla\Gitea\Issue\Milestones;
-use VastDevelopmentMethod\Joomla\Gitea\Issue\Reactions;
-use VastDevelopmentMethod\Joomla\Gitea\Issue\Reactions\Comment;
-use VastDevelopmentMethod\Joomla\Gitea\Issue\Stopwatch;
-use VastDevelopmentMethod\Joomla\Gitea\Issue\Subscriptions;
-use VastDevelopmentMethod\Joomla\Gitea\Issue\Timeline;
-use VastDevelopmentMethod\Joomla\Gitea\Issue\Times;
+use VDM\Joomla\Gitea\Issue as Issu;
+use VDM\Joomla\Gitea\Issue\Comments;
+use VDM\Joomla\Gitea\Issue\Repository\Comments as RepoComments;
+use VDM\Joomla\Gitea\Issue\Deadline;
+use VDM\Joomla\Gitea\Labels;
+use VDM\Joomla\Gitea\Issue\Labels as IssueLabels;
+use VDM\Joomla\Gitea\Issue\Milestones;
+use VDM\Joomla\Gitea\Issue\Reactions;
+use VDM\Joomla\Gitea\Issue\Reactions\Comment;
+use VDM\Joomla\Gitea\Issue\Stopwatch;
+use VDM\Joomla\Gitea\Issue\Subscriptions;
+use VDM\Joomla\Gitea\Issue\Timeline;
+use VDM\Joomla\Gitea\Issue\Times;
 
 
 /**

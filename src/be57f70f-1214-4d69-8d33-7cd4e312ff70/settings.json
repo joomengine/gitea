@@ -1,7 +1,7 @@
 {
     "add_head": "1",
     "add_licensing_template": "2",
-    "extends": "0",
+    "extends": "",
     "guid": "be57f70f-1214-4d69-8d33-7cd4e312ff70",
     "implements": [
         "-1"
@@ -25,6 +25,7 @@
             "as": "default"
         }
     },
+    "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Service.Notifications",
     "description": "The Gitea Notifications Service\r\n\r\n@since 3.2.0",
     "implements_custom": "ServiceProviderInterface",

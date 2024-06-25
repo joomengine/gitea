@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Tokens (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Gitea\User**
+> namespace: **VDM\Joomla\Gitea\User**
 > extends: **Api**
 ```uml
 @startuml

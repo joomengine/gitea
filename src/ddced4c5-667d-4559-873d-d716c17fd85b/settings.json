@@ -1,7 +1,7 @@
 {
     "add_head": "1",
     "add_licensing_template": "2",
-    "extends": "0",
+    "extends": "",
     "guid": "ddced4c5-667d-4559-873d-d716c17fd85b",
     "implements": [
         "-1"
@@ -41,6 +41,7 @@
             "as": "default"
         }
     },
+    "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Service.Admin",
     "description": "The Gitea Admin Service\r\n\r\n@since 3.2.0",
     "implements_custom": "ServiceProviderInterface",

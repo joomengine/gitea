@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Owner (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Gitea\Package**
+> namespace: **VDM\Joomla\Gitea\Package**
 > extends: **Api**
 ```uml
 @startuml

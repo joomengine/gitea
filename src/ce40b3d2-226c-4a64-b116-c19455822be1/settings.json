@@ -10,6 +10,7 @@
     "system_name": "Joomla.Gitea.Utilities.Http",
     "type": "final class",
     "use_selection": null,
+    "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Utilities.Http",
     "description": "The Gitea Http\r\n\r\n@since 3.2.0",
     "extends_custom": "JoomlaHttp",

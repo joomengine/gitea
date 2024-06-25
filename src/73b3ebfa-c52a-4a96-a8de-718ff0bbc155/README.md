@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Comment (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Gitea\Issue\Reactions**
+> namespace: **VDM\Joomla\Gitea\Issue\Reactions**
 > extends: **Api**
 ```uml
 @startuml

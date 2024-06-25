@@ -9,21 +9,21 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VastDevelopmentMethod\Joomla\Gitea\Service;
+namespace VDM\Joomla\Gitea\Service;
 
 
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
-use VastDevelopmentMethod\Joomla\Gitea\Organization as Org;
-use VastDevelopmentMethod\Joomla\Gitea\Organization\Hooks;
-use VastDevelopmentMethod\Joomla\Gitea\Organization\Labels;
-use VastDevelopmentMethod\Joomla\Gitea\Organization\Members;
-use VastDevelopmentMethod\Joomla\Gitea\Organization\PublicMembers as PublicMembers;
-use VastDevelopmentMethod\Joomla\Gitea\Organization\Repository;
-use VastDevelopmentMethod\Joomla\Gitea\Organization\Teams;
-use VastDevelopmentMethod\Joomla\Gitea\Organization\Teams\Members as TeamsMembers;
-use VastDevelopmentMethod\Joomla\Gitea\Organization\Teams\Repository as TeamsRepository;
-use VastDevelopmentMethod\Joomla\Gitea\Organization\User;
+use VDM\Joomla\Gitea\Organization as Org;
+use VDM\Joomla\Gitea\Organization\Hooks;
+use VDM\Joomla\Gitea\Organization\Labels;
+use VDM\Joomla\Gitea\Organization\Members;
+use VDM\Joomla\Gitea\Organization\PublicMembers as PublicMembers;
+use VDM\Joomla\Gitea\Organization\Repository;
+use VDM\Joomla\Gitea\Organization\Teams;
+use VDM\Joomla\Gitea\Organization\Teams\Members as TeamsMembers;
+use VDM\Joomla\Gitea\Organization\Teams\Repository as TeamsRepository;
+use VDM\Joomla\Gitea\Organization\User;
 
 
 /**

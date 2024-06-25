@@ -9,22 +9,23 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VastDevelopmentMethod\Joomla\Gitea;
+namespace VDM\Joomla\Gitea;
 
 
 use Joomla\DI\Container;
-use VastDevelopmentMethod\Joomla\Gitea\Service\Utilities;
-use VastDevelopmentMethod\Joomla\Gitea\Service\Jcb;
-use VastDevelopmentMethod\Joomla\Gitea\Service\Settings;
-use VastDevelopmentMethod\Joomla\Gitea\Service\Organization;
-use VastDevelopmentMethod\Joomla\Gitea\Service\User;
-use VastDevelopmentMethod\Joomla\Gitea\Service\Repository;
-use VastDevelopmentMethod\Joomla\Gitea\Service\Package;
-use VastDevelopmentMethod\Joomla\Gitea\Service\Issue;
-use VastDevelopmentMethod\Joomla\Gitea\Service\Notifications;
-use VastDevelopmentMethod\Joomla\Gitea\Service\Miscellaneous;
-use VastDevelopmentMethod\Joomla\Gitea\Service\Admin;
-use VastDevelopmentMethod\Joomla\Interfaces\FactoryInterface;
+use VDM\Joomla\Gitea\Service\Utilities;
+use VDM\Joomla\Gitea\Service\Jcb;
+use VDM\Joomla\Gitea\Service\Settings;
+use VDM\Joomla\Gitea\Service\Organization;
+use VDM\Joomla\Gitea\Service\User;
+use VDM\Joomla\Gitea\Service\Repository;
+use VDM\Joomla\Gitea\Service\Package;
+use VDM\Joomla\Gitea\Service\Issue;
+use VDM\Joomla\Gitea\Service\Notifications;
+use VDM\Joomla\Gitea\Service\Miscellaneous;
+use VDM\Joomla\Gitea\Service\Admin;
+use VDM\Joomla\Interfaces\FactoryInterface;
+use VDM\Joomla\Abstraction\Factory as ExtendingFactory;
 
 
 /**
@@ -32,45 +33,8 @@ use VastDevelopmentMethod\Joomla\Interfaces\FactoryInterface;
  * 
  * @since 3.2.0
  */
-abstract class Factory implements FactoryInterface
+abstract class Factory extends ExtendingFactory implements FactoryInterface
 {
-	/**
-	 * Global Package Container
-	 *
-	 * @var     Container
-	 * @since 3.2.0
-	 **/
-	protected static $container = null;
-
-	/**
-	 * Get any class from the package container
-	 *
-	 * @param   string  $key  The container class key
-	 *
-	 * @return  Mixed
-	 * @since 3.2.0
-	 */
-	public static function _($key)
-	{
-		return self::getContainer()->get($key);
-	}
-
-	/**
-	 * Get the global package container
-	 *
-	 * @return  Container
-	 * @since 3.2.0
-	 */
-	public static function getContainer(): Container
-	{
-		if (!self::$container)
-		{
-			self::$container = self::createContainer();
-		}
-
-		return self::$container;
-	}
-
 	/**
 	 * Create a container object
 	 *

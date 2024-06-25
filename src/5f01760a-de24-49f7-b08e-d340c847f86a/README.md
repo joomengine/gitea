@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Statuses (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Gitea\Repository**
+> namespace: **VDM\Joomla\Gitea\Repository**
 > extends: **Api**
 ```uml
 @startuml

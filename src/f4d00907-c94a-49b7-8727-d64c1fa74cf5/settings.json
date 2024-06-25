@@ -1,7 +1,7 @@
 {
     "add_head": "1",
     "add_licensing_template": "2",
-    "extends": "0",
+    "extends": "",
     "guid": "f4d00907-c94a-49b7-8727-d64c1fa74cf5",
     "implements": [
         "-1"
@@ -29,6 +29,7 @@
             "as": "default"
         }
     },
+    "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Service.Settings",
     "description": "The Gitea Settings Service\r\n\r\n@since 3.2.0",
     "implements_custom": "ServiceProviderInterface",

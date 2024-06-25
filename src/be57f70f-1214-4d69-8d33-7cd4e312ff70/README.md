@@ -7,7 +7,8 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Notifications (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Gitea\Service**
+> namespace: **VDM\Joomla\Gitea\Service**
+> extends: ****
 ```uml
 @startuml
 class Notifications  #Gold {

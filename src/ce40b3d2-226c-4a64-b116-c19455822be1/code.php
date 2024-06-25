@@ -9,7 +9,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VastDevelopmentMethod\Joomla\Gitea\Utilities;
+namespace VDM\Joomla\Gitea\Utilities;
 
 
 use Joomla\CMS\Http\Http as JoomlaHttp;

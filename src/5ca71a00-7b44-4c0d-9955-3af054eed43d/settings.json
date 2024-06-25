@@ -15,6 +15,7 @@
             "as": "BaseAPI"
         }
     },
+    "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Settings.Api",
     "description": "The Gitea Settings Api\r\n\r\n@since 3.2.0",
     "extends_custom": "BaseAPI",

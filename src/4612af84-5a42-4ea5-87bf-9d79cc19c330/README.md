@@ -7,29 +7,13 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # abstract class Factory (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Gitea**
+> namespace: **VDM\Joomla\Gitea**
+> extends: **ExtendingFactory**
 ```uml
 @startuml
 abstract Factory  #Orange {
-  # static $container
-  + {static} _(string $key) : Mixed
-  + {static} getContainer() : Container
   # {static} createContainer() : Container
 }
-
-note right of Factory::_
-  Get any class from the package container
-
-  since: 3.2.0
-  return: Mixed
-end note
-
-note right of Factory::getContainer
-  Get the global package container
-
-  since: 3.2.0
-  return: Container
-end note
 
 note right of Factory::createContainer
   Create a container object

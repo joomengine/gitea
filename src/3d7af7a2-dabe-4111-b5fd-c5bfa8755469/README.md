@@ -7,7 +7,8 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # abstract class Api (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Gitea\Abstraction**
+> namespace: **VDM\Joomla\Gitea\Abstraction**
+> extends: ****
 ```uml
 @startuml
 abstract Api  #Orange {

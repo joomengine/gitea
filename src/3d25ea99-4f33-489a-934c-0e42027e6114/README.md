@@ -7,7 +7,8 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Organization (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Gitea\Service**
+> namespace: **VDM\Joomla\Gitea\Service**
+> extends: ****
 ```uml
 @startuml
 class Organization  #Gold {

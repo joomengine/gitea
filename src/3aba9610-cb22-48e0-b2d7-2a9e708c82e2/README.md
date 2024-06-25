@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Unadopted (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Gitea\Admin**
+> namespace: **VDM\Joomla\Gitea\Admin**
 > extends: **Api**
 ```uml
 @startuml

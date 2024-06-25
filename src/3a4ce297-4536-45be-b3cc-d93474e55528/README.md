@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Repository (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Gitea\Notifications**
+> namespace: **VDM\Joomla\Gitea\Notifications**
 > extends: **Api**
 ```uml
 @startuml

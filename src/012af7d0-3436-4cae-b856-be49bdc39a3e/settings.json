@@ -1,7 +1,7 @@
 {
     "add_head": "1",
     "add_licensing_template": "2",
-    "extends": "0",
+    "extends": "",
     "guid": "012af7d0-3436-4cae-b856-be49bdc39a3e",
     "implements": [
         "-1"
@@ -33,6 +33,7 @@
             "as": "default"
         }
     },
+    "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Service.Miscellaneous",
     "description": "The Gitea Miscellaneous Service\r\n\r\n@since 3.2.0",
     "implements_custom": "ServiceProviderInterface",

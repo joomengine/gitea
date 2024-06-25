@@ -1,7 +1,7 @@
 {
     "add_head": "1",
     "add_licensing_template": "2",
-    "extends": "0",
+    "extends": "",
     "guid": "3d25ea99-4f33-489a-934c-0e42027e6114",
     "implements": [
         "-1"
@@ -53,6 +53,7 @@
             "as": "default"
         }
     },
+    "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Service.Organization",
     "description": "The Gitea Organization Service\r\n\r\n@since 3.2.0",
     "implements_custom": "ServiceProviderInterface",

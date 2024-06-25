@@ -7,7 +7,7 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Subscriptions (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Gitea\Issue**
+> namespace: **VDM\Joomla\Gitea\Issue**
 > extends: **Api**
 ```uml
 @startuml

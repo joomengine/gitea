@@ -1,7 +1,7 @@
 {
     "add_head": "1",
     "add_licensing_template": "2",
-    "extends": "0",
+    "extends": "",
     "guid": "71acf8d6-32b8-4173-8277-eb9cda29fd64",
     "implements": [
         "-1"
@@ -21,6 +21,7 @@
             "as": "default"
         }
     },
+    "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Componentbuilder.Service.Gitea",
     "description": "The Gitea Utilities Service\r\n\r\n@since 3.2.0",
     "implements_custom": "ServiceProviderInterface",

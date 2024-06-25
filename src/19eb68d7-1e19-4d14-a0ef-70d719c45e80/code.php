@@ -9,12 +9,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VastDevelopmentMethod\Joomla\Gitea\Utilities;
+namespace VDM\Joomla\Gitea\Utilities;
 
 
-use Joomla\Http\Response as JoomlaResponse;
-use VastDevelopmentMethod\Joomla\Utilities\JsonHelper;
-use VastDevelopmentMethod\Joomla\Utilities\StringHelper;
+use Joomla\CMS\Http\Response as JoomlaResponse;
+use VDM\Joomla\Utilities\JsonHelper;
+use VDM\Joomla\Utilities\StringHelper;
 
 
 /**

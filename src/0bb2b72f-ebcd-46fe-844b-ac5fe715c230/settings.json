@@ -1,7 +1,7 @@
 {
     "add_head": "1",
     "add_licensing_template": "2",
-    "extends": "0",
+    "extends": "",
     "guid": "0bb2b72f-ebcd-46fe-844b-ac5fe715c230",
     "implements": [
         "-1"
@@ -165,6 +165,7 @@
             "as": "default"
         }
     },
+    "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Service.Repository",
     "description": "The Gitea Repository Service\r\n\r\n@since 3.2.0",
     "implements_custom": "ServiceProviderInterface",

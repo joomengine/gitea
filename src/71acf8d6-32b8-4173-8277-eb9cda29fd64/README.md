@@ -7,7 +7,8 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # class Gitea (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Componentbuilder\Service**
+> namespace: **VDM\Joomla\Componentbuilder\Service**
+> extends: ****
 ```uml
 @startuml
 class Gitea  #Gold {

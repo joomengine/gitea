@@ -1,7 +1,7 @@
 {
     "add_head": "1",
     "add_licensing_template": "2",
-    "extends": "0",
+    "extends": "",
     "guid": "44396eb8-e14c-47d9-9bdc-8205c0fd2bba",
     "implements": [
         "-1"
@@ -65,6 +65,7 @@
             "as": "default"
         }
     },
+    "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Service.Issue",
     "description": "The Gitea Issue Service\r\n\r\n@since 3.2.0",
     "implements_custom": "ServiceProviderInterface",

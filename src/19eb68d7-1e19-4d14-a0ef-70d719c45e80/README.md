@@ -7,7 +7,8 @@
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
 ```
 # final class Response (Details)
-> namespace: **VastDevelopmentMethod\Joomla\Gitea\Utilities**
+> namespace: **VDM\Joomla\Gitea\Utilities**
+> extends: ****
 ```uml
 @startuml
 class Response << (F,LightGreen) >> #RoyalBlue {

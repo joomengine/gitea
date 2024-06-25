@@ -9,25 +9,25 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VastDevelopmentMethod\Joomla\Gitea\Service;
+namespace VDM\Joomla\Gitea\Service;
 
 
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
-use VastDevelopmentMethod\Joomla\Gitea\User as Usr;
-use VastDevelopmentMethod\Joomla\Gitea\User\Applications;
-use VastDevelopmentMethod\Joomla\Gitea\User\Emails;
-use VastDevelopmentMethod\Joomla\Gitea\User\Followers;
-use VastDevelopmentMethod\Joomla\Gitea\User\Following;
-use VastDevelopmentMethod\Joomla\Gitea\User\Gpg;
-use VastDevelopmentMethod\Joomla\Gitea\User\Keys;
-use VastDevelopmentMethod\Joomla\Gitea\User\Repos;
-use VastDevelopmentMethod\Joomla\Gitea\User\Settings;
-use VastDevelopmentMethod\Joomla\Gitea\User\Starred;
-use VastDevelopmentMethod\Joomla\Gitea\User\Subscriptions;
-use VastDevelopmentMethod\Joomla\Gitea\User\Teams;
-use VastDevelopmentMethod\Joomla\Gitea\User\Times;
-use VastDevelopmentMethod\Joomla\Gitea\User\Tokens;
+use VDM\Joomla\Gitea\User as Usr;
+use VDM\Joomla\Gitea\User\Applications;
+use VDM\Joomla\Gitea\User\Emails;
+use VDM\Joomla\Gitea\User\Followers;
+use VDM\Joomla\Gitea\User\Following;
+use VDM\Joomla\Gitea\User\Gpg;
+use VDM\Joomla\Gitea\User\Keys;
+use VDM\Joomla\Gitea\User\Repos;
+use VDM\Joomla\Gitea\User\Settings;
+use VDM\Joomla\Gitea\User\Starred;
+use VDM\Joomla\Gitea\User\Subscriptions;
+use VDM\Joomla\Gitea\User\Teams;
+use VDM\Joomla\Gitea\User\Times;
+use VDM\Joomla\Gitea\User\Tokens;
 
 
 /**

@@ -1,7 +1,7 @@
 {
     "add_head": "1",
     "add_licensing_template": "2",
-    "extends": "0",
+    "extends": "",
     "guid": "808da4eb-b467-46cf-a767-e7e714f46b5a",
     "implements": [
         "-1"
@@ -25,6 +25,7 @@
             "as": "default"
         }
     },
+    "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Service.Package",
     "description": "The Gitea Package Service\r\n\r\n@since 3.2.0",
     "implements_custom": "ServiceProviderInterface",
