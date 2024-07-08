@@ -4,7 +4,7 @@
 	 * @var    string
 	 * @since 3.2.0
 	 */
-	protected string $_token_; // to avoid collusions (but allow swapping)
+	protected string $_token_; // to avoid collisions (but allow swapping)
 
 	/**
 	 * Constructor.
@@ -27,7 +27,7 @@
 		// add the token if given
 		if (is_string($token))
 		{
-			$config['headers']['Authorization'] = $token;
+			$config['headers']['Authorization'] = 'token ' . $token;
 			$this->_token_ = $token;
 		}
 
@@ -53,7 +53,7 @@
 		);
 
 		// add the token
-		$headers['Authorization'] = $token;
+		$headers['Authorization'] = 'token ' . $token;
 		$this->_token_ = $token;
 
 		$this->setOption('headers', $headers);

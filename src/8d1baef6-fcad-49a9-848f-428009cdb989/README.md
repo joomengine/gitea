@@ -13,7 +13,7 @@
 @startuml
 class Contents  #Gold {
   + get(string $owner, string $repo, ...) : mixed
-  + metadata(string $owner, string $repo, ...) : ?object
+  + metadata(string $owner, string $repo, ...) : null|array|object
   + create(string $owner, string $repo, ...) : ?object
   + root(string $owner, string $repo, ...) : ?array
   + update(string $owner, string $repo, ...) : ?object
@@ -42,7 +42,7 @@ or a list of entries if a directory.
 Default the repository's default branch (usually master).
 
   since: 3.2.0
-  return: ?object
+  return: null|array|object
   
   arguments:
     string $owner
@@ -68,7 +68,7 @@ note right of Contents::create
     ?string $authorEmail = null
     ?string $committerName = null
     ?string $committerEmail = null
-    ?bool $newBranch = false
+    ?string $newBranch = null
     ?string $authorDate = null
     ?string $committerDate = null
     ?bool $signoff = null
