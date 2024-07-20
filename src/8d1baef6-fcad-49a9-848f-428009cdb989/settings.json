@@ -3,7 +3,9 @@
     "add_licensing_template": "2",
     "extends": "3d7af7a2-dabe-4111-b5fd-c5bfa8755469",
     "guid": "8d1baef6-fcad-49a9-848f-428009cdb989",
-    "implements": null,
+    "implements": [
+        "d1de5d5b-bf29-4031-8094-76c4f6c75900"
+    ],
     "load_selection": null,
     "name": "Contents",
     "power_version": "1.0.0",
