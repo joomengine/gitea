@@ -13,7 +13,7 @@
 ```uml
 @startuml
 class Http << (F,LightGreen) >> #RoyalBlue {
-  + __construct(?string $token)
+  + __construct(?string $token = null)
   + setToken(string $token) : void
   + getToken() : ?string
 }
