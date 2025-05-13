@@ -45,7 +45,7 @@ note right of Response::body
 end note
 
 note right of Response::error
-  Get the error message from the return object
+  Extract an error message from a response object.
 
   since: 3.2.0
   return: string
