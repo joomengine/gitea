@@ -3,7 +3,9 @@
     "add_licensing_template": 2,
     "extends": "3d7af7a2-dabe-4111-b5fd-c5bfa8755469",
     "guid": "caf25475-8c9e-4e07-a7f5-f606e98ec880",
-    "implements": null,
+    "implements": [
+        "39cfd409-7329-4393-af05-4b457cb72fac"
+    ],
     "load_selection": null,
     "name": "Tags",
     "power_version": "1.0.0",
