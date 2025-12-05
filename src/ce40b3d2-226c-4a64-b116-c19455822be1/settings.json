@@ -9,12 +9,17 @@
     "power_version": "1.0.0",
     "system_name": "Joomla.Gitea.Utilities.Http",
     "type": "final class",
-    "use_selection": null,
+    "use_selection": {
+        "use_selection0": {
+            "use": "5663467b-1bc4-47b3-8cbd-2751b6d472a6",
+            "as": "default"
+        }
+    },
     "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Utilities.Http",
     "description": "The Gitea Http\r\n\r\n@since 3.2.0",
     "extends_custom": "JoomlaHttp",
     "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
-    "head": "use Joomla\\CMS\\Http\\Http as JoomlaHttp;\r\nuse Joomla\\Registry\\Registry;\r\n",
+    "head": "use Joomla\\CMS\\Http\\Http as JoomlaHttp;\r\nuse Joomla\\Http\\Transport\\Curl;\r\nuse Joomla\\Http\\Transport\\Stream;\r\nuse Joomla\\Http\\Transport\\Socket;\r\nuse Joomla\\Registry\\Registry;",
     "composer": ""
 }

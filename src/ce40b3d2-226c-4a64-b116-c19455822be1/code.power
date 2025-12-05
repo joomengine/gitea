@@ -33,8 +33,20 @@
 
 		$options = new Registry($config);
 
+		// Force-create the transport WITH your options
+		$transport = null;
+		if (UnsafeCurl::isSupported()) {
+			$transport = new UnsafeCurl($options);
+		} elseif (Curl::isSupported()) {
+			$transport = new Curl($options);
+		} elseif (Stream::isSupported()) {
+			$transport = new Stream($options);
+		} else {
+			$transport = new Socket($options);
+		}
+
 		// run parent constructor
-		parent::__construct($options);
+		parent::__construct($options, $transport);
 	}
 
 	/**
