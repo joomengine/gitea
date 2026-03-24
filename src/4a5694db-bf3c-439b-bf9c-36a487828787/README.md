@@ -9,7 +9,7 @@
 class User  #Gold {
   + authenticate() : ?object
   + search(string $keyword, ?int $uid = null, ...) : ?object
-  + get(string $username) : o
+  + get(string $username) : ?object
   + followers(string $userName, int $page = 1, ...) : ?array
   + following(string $userName, int $page = 1, ...) : ?array
   + check(string $username, string $target) : string
@@ -44,6 +44,7 @@ note right of User::get
   Get a user by their username.
 
   since: 3.2.0
+  return: ?object
 end note
 
 note left of User::followers

@@ -48,8 +48,8 @@ note right of Teams::create
     string $permission = 'read'
     array $units = []
     array $unitsMap = []
-    bool $canCreateOrgRepo = null
-    bool $includesAllRepositories = null
+    ?bool $canCreateOrgRepo = null
+    ?bool $includesAllRepositories = null
 end note
 
 note right of Teams::search

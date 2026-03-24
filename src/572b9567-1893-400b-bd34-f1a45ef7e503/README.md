@@ -78,7 +78,7 @@ note right of Wiki::edit
     string $pageName
     string $title
     string $content
-    string $message = null
+    ?string $message = null
 end note
 
 note right of Wiki::revisions

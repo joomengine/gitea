@@ -78,10 +78,10 @@ note right of Milestones::update
     string $owner
     string $repo
     string $milestoneId
-    string $title = null
-    string $description = null
-    string $dueOn = null
-    string $state = null
+    ?string $title = null
+    ?string $description = null
+    ?string $dueOn = null
+    ?string $state = null
 end note
 
 @enduml

@@ -23,11 +23,11 @@ note right of Times::list
     string $owner
     string $repo
     int $index
-    string $user = null
-    string $since = null
-    string $before = null
-    int $page = null
-    int $limit = null
+    ?string $user = null
+    ?string $since = null
+    ?string $before = null
+    ?int $page = null
+    ?int $limit = null
 end note
 
 note right of Times::add
@@ -41,8 +41,8 @@ note right of Times::add
     string $repo
     int $index
     int $time
-    string $created = null
-    string $userName = null
+    ?string $created = null
+    ?string $userName = null
 end note
 
 note right of Times::reset

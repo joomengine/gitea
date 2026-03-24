@@ -49,7 +49,7 @@ note right of Collaborator::add
     string $owner
     string $repo
     string $collaborator
-    string $permission = null
+    ?string $permission = null
 end note
 
 note right of Collaborator::delete

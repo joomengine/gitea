@@ -15,7 +15,7 @@ class Pulls  #Gold {
   + commits(string $owner, string $repo, ...) : ?array
   + files(string $owner, string $repo, ...) : ?array
   + merge(string $owner, string $repo, ...) : string
-  + update(string $owner, string $repo, ...) : string
+  + mergeUpdate(string $owner, string $repo, ...) : string
 }
 
 note right of Pulls::list
@@ -88,16 +88,6 @@ note left of Pulls::update
     ?string $dueDate = null
     ?bool $unsetDueDate = null
     ?bool $allowMaintainerEdit = null
-  Merge PR's baseBranch into headBranch.
-
-  since: 3.2.0
-  return: string
-  
-  arguments:
-    string $owner
-    string $repo
-    int $index
-    ?string $style = null
 end note
 
 note right of Pulls::diff
@@ -162,6 +152,19 @@ note left of Pulls::merge
     ?bool $forceMerge = null
     ?string $headCommitId = null
     ?bool $mergeWhenChecksSucceed = null
+end note
+
+note right of Pulls::mergeUpdate
+  Merge PR's baseBranch into headBranch.
+
+  since: 3.2.0
+  return: string
+  
+  arguments:
+    string $owner
+    string $repo
+    int $index
+    ?string $style = null
 end note
 
 @enduml
