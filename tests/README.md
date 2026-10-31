@@ -42,3 +42,8 @@ also checks the current ordered dependency catalogue and defines JCB import/refr
 compilation and installed-consumer acceptance. Passing these local tests does not
 certify those integration stages, a live server, every historical Gitea version, or
 every possible request body.
+
+For a real imported and compiled consumer, follow the
+[JCB playground procedure](../docs/testing-playground.md) and its portable
+[view template](integration/playground-template.php). Keep the resulting report
+with the tested branch commit; the template is not a standalone CLI test.
