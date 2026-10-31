@@ -41,7 +41,7 @@ class Watchers extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/subscribers";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/subscribers';
 
 		// Prepare the URI with the path.
 		$uri = $this->uri->get($path);
@@ -68,7 +68,7 @@ class Watchers extends Api
 	public function check(string $ownerName, string $repoName): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/subscription";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/subscription';
 
 		// Prepare the URI with the path.
 		$uri = $this->uri->get($path);
@@ -98,7 +98,7 @@ class Watchers extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/subscription";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/subscription';
 
 		// Set the subscription data
 		$data = new \stdClass();
@@ -108,7 +108,7 @@ class Watchers extends Api
 		// Send the put request.
 		return $this->response->get(
 			$this->http->put(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			)
 		);
 	}
@@ -125,7 +125,7 @@ class Watchers extends Api
 	public function unwatch(string $ownerName, string $repoName): string
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/subscription";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/subscription';
 
 		// Prepare the URI with the path.
 		$uri = $this->uri->get($path);

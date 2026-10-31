@@ -13,8 +13,6 @@ namespace VDM\Joomla\Gitea\Utilities;
 
 
 use Joomla\Http\Response as JoomlaResponse;
-use VDM\Joomla\Utilities\JsonHelper;
-use VDM\Joomla\Utilities\StringHelper;
 
 
 /**
@@ -28,136 +26,167 @@ final class Response
 	 * Process the response and decode it.
 	 *
 	 * @param   JoomlaResponse  $response      The response.
-	 * @param   integer         $expectedCode  The expected "good" code.
-	 * @param   mixed           $default       The default if body not have length
+	 * @param   integer         $expectedCode  The expected successful status code.
+	 * @param   mixed           $default       The default for an empty body.
 	 *
 	 * @return  mixed
-	 *
 	 * @since   3.2.0
 	 * @throws  \DomainException
-	 **/
-	public function get(JoomlaResponse $response, int  $expectedCode = 200, $default = null)
+	 */
+	public function get(JoomlaResponse $response, int $expectedCode = 200, $default = null)
 	{
-		// Validate the response code.
-		$code = method_exists($response, 'getStatusCode')
-			? (string) $response->getStatusCode()
-			: ($response->code ?? null);
-
-		if ($code != $expectedCode)
-		{
-			// Decode the error response and throw an exception.
-			$message =  $this->error($response);
-
-			throw new \DomainException("Invalid response received from Gitea API. $message", $code);
-		}
-
-		return $this->body($response, $default);
+		return $this->get_($response, [$expectedCode => $default]);
 	}
 
 	/**
-	 * Process the response and decode it. (when we have multiple success codes)
+	 * Decode a response with one of several accepted status codes.
 	 *
-	 * @param   JoomlaResponse  $response                    The response.
-	 * @param   array           [$expectedCode => $default]  The expected "good" code. and The default if body not have length
+	 * @param   JoomlaResponse  $response  The response.
+	 * @param   array           $validate  Status codes mapped to empty-body defaults.
 	 *
 	 * @return  mixed
-	 *
 	 * @since   3.2.0
 	 * @throws  \DomainException
-	 **/
+	 */
 	public function get_(JoomlaResponse $response, array $validate = [200 => null])
 	{
-		// Validate the response code.
-		$code = method_exists($response, 'getStatusCode')
-			? (string) $response->getStatusCode()
-			: ($response->code ?? null);
-
-		if (!isset($validate[$code]))
-		{
-			// Decode the error response and throw an exception.
-			$message =  $this->error($response);
-
-			throw new \DomainException("Invalid response received from Gitea API. $message", $code);
-		}
+		$code = $this->validate($response, $validate);
 
 		return $this->body($response, $validate[$code]);
 	}
 
 	/**
-	 * Return the body from the response
+	 * Return response bytes without JSON decoding or content conversion.
 	 *
-	 * @param   JoomlaResponse  $response    The response.
-	 * @param   mixed           $default     The default if body not have length
+	 * Use this for files, archives, patches and rendered Markdown.
 	 *
-	 * @return  mixed
-	 * @since   3.2.0
-	 **/
-	protected function body(JoomlaResponse $response, $default = null)
+	 * @param   JoomlaResponse  $response      The response.
+	 * @param   integer         $expectedCode  The expected successful status code.
+	 * @param   mixed           $default       The default for an empty body.
+	 *
+	 * @return  mixed  The exact body string, or the supplied empty-body default.
+	 * @since   1.1.0
+	 * @throws  \DomainException
+	 */
+	public function raw(JoomlaResponse $response, int $expectedCode = 200, $default = null)
 	{
-		// check that we have a body
-		$body = is_object($response) && method_exists($response, 'getBody')
-			? (string) $response->getBody()
-			: (isset($response->body) ? (string) $response->body : null);
+		$this->validate($response, [$expectedCode => $default]);
+		$body = $this->read($response);
 
-		if ($body !== null && StringHelper::check($body))
-		{
-			if (JsonHelper::check($body))
-			{
-				$body = json_decode((string) $body);
-
-				if (isset($body->content_base64))
-				{
-					$body->content = base64_decode((string) $body->content_base64);
-				}
-			}
-
-			return $body;
-		}
-
-		return $default;
+		return $body === '' ? $default : $body;
 	}
 
 	/**
-	 * Extract an error message from a response object.
+	 * Validate a response status without rejecting null defaults.
 	 *
-	 * @param   JoomlaResponse  $response  The response object.
+	 * @param   JoomlaResponse  $response  The response.
+	 * @param   array           $validate  Accepted status codes and their defaults.
 	 *
-	 * @return  string  The extracted error message, or an empty string.
+	 * @return  integer
+	 * @since   1.1.0
+	 * @throws  \DomainException
+	 */
+	protected function validate(JoomlaResponse $response, array $validate): int
+	{
+		$code = method_exists($response, 'getStatusCode')
+			? (int) $response->getStatusCode()
+			: (int) ($response->code ?? 0);
+
+		if (!array_key_exists($code, $validate))
+		{
+			$message = $this->error($response);
+
+			throw new \DomainException("Invalid response received from Gitea API. $message", $code);
+		}
+
+		return $code;
+	}
+
+	/**
+	 * Read a PSR-7 response body or a legacy Joomla response property.
+	 *
+	 * @param   JoomlaResponse  $response  The response.
+	 *
+	 * @return  string
+	 * @since   1.1.0
+	 */
+	protected function read(JoomlaResponse $response): string
+	{
+		return method_exists($response, 'getBody')
+			? (string) $response->getBody()
+			: (string) ($response->body ?? '');
+	}
+
+	/**
+	 * Decode JSON while preserving all non-JSON response bytes.
+	 *
+	 * @param   JoomlaResponse  $response  The response.
+	 * @param   mixed           $default   The default for an empty body.
+	 *
+	 * @return  mixed
+	 * @since   3.2.0
+	 */
+	protected function body(JoomlaResponse $response, $default = null)
+	{
+		$body = $this->read($response);
+
+		if ($body === '')
+		{
+			return $default;
+		}
+
+		$decoded = json_decode($body, false, 512, JSON_BIGINT_AS_STRING);
+
+		if (json_last_error() !== JSON_ERROR_NONE)
+		{
+			return $body;
+		}
+
+		if (is_object($decoded) && isset($decoded->content_base64) && is_string($decoded->content_base64))
+		{
+			$content = base64_decode($decoded->content_base64, true);
+
+			if ($content !== false)
+			{
+				$decoded->content = $content;
+			}
+		}
+
+		return $decoded;
+	}
+
+	/**
+	 * Extract a useful error without assuming its JSON fields are strings.
+	 *
+	 * @param   JoomlaResponse  $response  The response.
+	 *
+	 * @return  string
 	 * @since   3.2.0
 	 */
 	protected function error(JoomlaResponse $response): string
 	{
-		// Try to get the raw response body
-		$body = method_exists($response, 'getBody') ? (string) $response->getBody() : '';
-
-		// Try to decode as JSON object
-		$errorData = JsonHelper::check($body) ? json_decode($body) : null;
+		$body = $this->read($response);
+		$errorData = json_decode($body);
 
 		if (is_object($errorData))
 		{
-			// Try to extract a useful error field
-			if (!empty($errorData->error))
+			foreach (['error', 'message'] as $field)
 			{
-				return $errorData->error;
+				if (isset($errorData->{$field}) && is_scalar($errorData->{$field}))
+				{
+					return (string) $errorData->{$field};
+				}
 			}
 
-			if (!empty($errorData->message))
-			{
-				return $errorData->message;
-			}
-
-			// Fallback to a serialized message
-			return json_encode($errorData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+			return (string) json_encode($errorData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 		}
 
-		// Fallback to reason phrase or body
-		if (!empty($body))
+		if ($body !== '')
 		{
 			return $body;
 		}
 
-		// Try getting the reason phrase from response
-		if (method_exists($response, 'getReasonPhrase'))
+		if (method_exists($response, 'getReasonPhrase') && $response->getReasonPhrase() !== '')
 		{
 			return $response->getReasonPhrase();
 		}

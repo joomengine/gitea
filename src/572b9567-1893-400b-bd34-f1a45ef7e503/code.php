@@ -44,7 +44,7 @@ class Wiki extends Api implements WikiInterface
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/wiki/new";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/wiki/new';
 
 		// Set the wiki data.
 		$data = new \stdClass();
@@ -60,7 +60,7 @@ class Wiki extends Api implements WikiInterface
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -82,7 +82,7 @@ class Wiki extends Api implements WikiInterface
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/wiki/page/{$pageName}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/wiki/page/' . $this->segment($pageName);
 
 		// Set the URI.
 		$uri = $this->uri->get($path);
@@ -112,7 +112,7 @@ class Wiki extends Api implements WikiInterface
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/wiki/pages";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/wiki/pages';
 
 		// Set the URI.
 		$uri = $this->uri->get($path);
@@ -142,7 +142,7 @@ class Wiki extends Api implements WikiInterface
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/wiki/page/{$pageName}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/wiki/page/' . $this->segment($pageName);
 
 		// Get the URI.
 		$uri = $this->uri->get($path);
@@ -176,7 +176,7 @@ class Wiki extends Api implements WikiInterface
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/wiki/page/{$pageName}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/wiki/page/' . $this->segment($pageName);
 
 		// Set the wiki data.
 		$data = new \stdClass();
@@ -192,7 +192,7 @@ class Wiki extends Api implements WikiInterface
 		return $this->response->get(
 			$this->http->patch(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			)
 		);
 	}
@@ -216,7 +216,7 @@ class Wiki extends Api implements WikiInterface
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/wiki/revisions/{$pageName}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/wiki/revisions/' . $this->segment($pageName);
 
 		// Set the page number.
 		$this->uri->setVar('page', $page);

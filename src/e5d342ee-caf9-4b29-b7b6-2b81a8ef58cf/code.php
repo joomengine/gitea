@@ -36,7 +36,7 @@ class Collaborator extends Api
 	public function list(string $owner, string $repo, int $page = 1, int $limit = 10): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/collaborators";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/collaborators';
 
 		// Get the URI object for the path.
 		$uri = $this->uri->get($path);
@@ -68,7 +68,7 @@ class Collaborator extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/collaborators/{$collaborator}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/collaborators/' . $this->segment($collaborator);
 
 		// Get the URI object for the path.
 		$uri = $this->uri->get($path);
@@ -98,7 +98,7 @@ class Collaborator extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/collaborators/{$collaborator}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/collaborators/' . $this->segment($collaborator);
 
 		// Get the URI object for the path.
 		$uri = $this->uri->get($path);
@@ -108,7 +108,7 @@ class Collaborator extends Api
 		if ($permission !== null) {
 			$body->permission = $permission;
 		}
-		$bodyJson = json_encode($body);
+		$bodyJson = $this->encode($body);
 
 		// Send the put request.
 		return $this->response->get(
@@ -133,7 +133,7 @@ class Collaborator extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/collaborators/{$collaborator}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/collaborators/' . $this->segment($collaborator);
 
 		// Send the delete request.
 		return $this->response->get(
@@ -160,7 +160,7 @@ class Collaborator extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/collaborators/{$collaborator}/permission";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/collaborators/' . $this->segment($collaborator) . '/permission';
 
 		// Get the URI object for the path.
 		$uri = $this->uri->get($path);

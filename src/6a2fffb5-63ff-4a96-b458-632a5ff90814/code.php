@@ -43,7 +43,7 @@ class Reviews extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/reviews";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/reviews';
 
 		// Get the URI.
 		$uri = $this->uri->get($path);
@@ -83,7 +83,7 @@ class Reviews extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/reviews";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/reviews';
 
 		// Set the review data.
 		$data = new \stdClass();
@@ -105,7 +105,7 @@ class Reviews extends Api
 		// Send the request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			)
 		);
 	}
@@ -129,14 +129,10 @@ class Reviews extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/reviews/{$id}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/reviews/' . $this->segment((string) $id);
 
 		// Set the variables for the URI.
 		$uri = $this->uri->get($path);
-		$uri->setVar('owner', $owner);
-		$uri->setVar('repo', $repo);
-		$uri->setVar('index', $index);
-		$uri->setVar('id', $id);
 
 		// Send the request.
 		return $this->response->get(
@@ -167,7 +163,7 @@ class Reviews extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/reviews/{$id}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/reviews/' . $this->segment((string) $id);
 
 		// Set the review data.
 		$data = new \stdClass();
@@ -177,7 +173,7 @@ class Reviews extends Api
 		// Send the request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			)
 		);
 	}
@@ -201,14 +197,10 @@ class Reviews extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/reviews/{$id}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/reviews/' . $this->segment((string) $id);
 
 		// Set the variables for the URI.
 		$uri = $this->uri->get($path);
-		$uri->setVar('owner', $owner);
-		$uri->setVar('repo', $repo);
-		$uri->setVar('index', $index);
-		$uri->setVar('id', $id);
 
 		// Send the delete request.
 		return $this->response->get(
@@ -235,14 +227,10 @@ class Reviews extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/reviews/{$id}/comments";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/reviews/' . $this->segment((string) $id) . '/comments';
 
 		// Set the variables for the URI.
 		$uri = $this->uri->get($path);
-		$uri->setVar('owner', $owner);
-		$uri->setVar('repo', $repo);
-		$uri->setVar('index', $index);
-		$uri->setVar('id', $id);
 
 		// Send the request.
 		return $this->response->get(
@@ -273,7 +261,7 @@ class Reviews extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/reviews/{$id}/dismissals";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/reviews/' . $this->segment((string) $id) . '/dismissals';
 
 		// Set the dismissal data.
 		$data = new \stdClass();
@@ -283,7 +271,7 @@ class Reviews extends Api
 		// Send the request.
 		return $this->response->get(
 		    $this->http->post(
-		        $this->uri->get($path), json_encode($data)
+		        $this->uri->get($path), $this->encode($data)
 		    )
 		);
 	}
@@ -307,13 +295,11 @@ class Reviews extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/reviews/{$id}/undismissals";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/reviews/' . $this->segment((string) $id) . '/undismissals';
 
 		// Send the request.
 		return $this->response->get(
-		    $this->http->post(
-		        $this->uri->get($path)
-		    )
+		    $this->http->post($this->uri->get($path), '')
 		);
 	}
 

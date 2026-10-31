@@ -11,6 +11,10 @@ abstract Api  #Orange {
   # Response $response
   # ?string $url
   # ?string $token
+  # bool $tokenBackedUp
+  # segment(string $value) : string
+  # path(string $value) : string
+  # encode(mixed $data) : string
   + __construct(Http $http, Uri $uri, ...)
   + load_(?string $url = null, ?string $token = null, ...) : void
   + reset_() : void
@@ -41,7 +45,7 @@ note right of Api::load_
 end note
 
 note right of Api::reset_
-  Reset to previous toke, url it set
+  Restore the backed-up URL and token, including anonymous access.
 
   since: 3.2.0
   return: void
@@ -56,6 +60,14 @@ end note
 
 @enduml
 ```
+
+## Request helpers and configuration (Power 1.1.0)
+
+`load_()` / `reset_()` retain the existing one-level configuration backup contract. A saved anonymous token is now restored correctly, removing temporary authentication from the shared HTTP client. Pass an empty string to temporarily disable a token; `null` means leave that setting unchanged. `backup: false` changes settings without recording a new backup.
+
+Endpoint implementations should call protected `segment(string $value): string` for individual path parameters (including branch/tag names containing slashes), or `path(string $value): string` for repository file paths whose directory separators must remain intact. Both accept unencoded inputs and reject standalone `.` or `..` segments that HTTP clients or proxies could normalize into a different endpoint. Query values are encoded by the URI utility.
+
+Use protected `encode($data): string` for JSON request bodies. Invalid UTF-8 and non-finite numbers raise `JsonException` before a request is sent, instead of silently sending an empty payload.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

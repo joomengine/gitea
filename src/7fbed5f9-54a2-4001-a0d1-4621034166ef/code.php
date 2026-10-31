@@ -41,7 +41,7 @@ class Forks extends Api
 	): ?array
 	{
 		// Build the request path.
-		$uriPath = "/repos/{$owner}/{$repo}/forks";
+		$uriPath = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/forks';
 
 		// Set the query parameters.
 		$uri = $this->uri->get($uriPath);
@@ -73,7 +73,7 @@ class Forks extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/forks";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/forks';
 
 		// Set the fork data.
 		$data = new \stdClass();
@@ -92,7 +92,7 @@ class Forks extends Api
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 202
 		);
 	}

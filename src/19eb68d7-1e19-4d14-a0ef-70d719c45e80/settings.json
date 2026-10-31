@@ -6,19 +6,10 @@
     "implements": null,
     "load_selection": null,
     "name": "Response",
-    "power_version": "1.0.0",
+    "power_version": "1.1.0",
     "system_name": "Joomla.Gitea.Utilities.Response",
     "type": "final class",
-    "use_selection": {
-        "use_selection0": {
-            "use": "4b225c51-d293-48e4-b3f6-5136cf5c3f18",
-            "as": "default"
-        },
-        "use_selection1": {
-            "use": "1f28cb53-60d9-4db1-b517-3c7dc6b429ef",
-            "as": "default"
-        }
-    },
+    "use_selection": null,
     "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Utilities.Response",
     "description": "The Gitea Response\r\n\r\n@since 3.2.0",

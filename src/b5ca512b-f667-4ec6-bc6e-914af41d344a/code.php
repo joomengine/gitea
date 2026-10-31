@@ -43,7 +43,7 @@ class Owner extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/packages/{$owner}";
+		$path = '/packages/' . $this->segment($owner);
 
 		// Configure the URI with query parameters.
 		$uri = $this->uri->get($path);

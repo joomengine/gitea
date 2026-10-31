@@ -28,8 +28,8 @@ class Comments extends Api
 	 * @param   string         $owner      The owner name.
 	 * @param   string         $repo       The repo name.
 	 * @param   int            $index      The issue index.
-	 * @param   int            $page       The page number to get, defaults to 1.
-	 * @param   int            $limit      The number of comments per page, defaults to 10.
+	 * @param   int            $page       Legacy argument; ignored by this unpaginated endpoint.
+	 * @param   int            $limit      Legacy argument; ignored by this unpaginated endpoint.
 	 * @param   string|null    $since      The date-time since when to get comments, defaults to null.
 	 * @param   string|null    $before     The date-time before when to get comments, defaults to null.
 	 *
@@ -47,12 +47,12 @@ class Comments extends Api
 	): ?array
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/comments";
 
 		// Build the URI.
 		$uri = $this->uri->get($path);
-		$uri->setVar('page', $page);
-		$uri->setVar('limit', $limit);
 
 		// Set the 'since' and 'before' parameters if not null.
 		if ($since !== null)
@@ -83,13 +83,15 @@ class Comments extends Api
 	public function get(string $owner, string $repo, int $commentId): ?object
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/comments/{$commentId}";
 
 		// Send the get request.
-		return $this->response->get(
+		return $this->response->get_(
 			$this->http->get(
 				$this->uri->get($path)
-			)
+			), [200 => null, 204 => null]
 		);
 	}
 
@@ -106,6 +108,8 @@ class Comments extends Api
 	public function delete(string $owner, string $repo, int $commentId): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/comments/{$commentId}";
 
 		// Send the delete request.
@@ -130,6 +134,8 @@ class Comments extends Api
 	public function edit(string $owner, string $repo, int $commentId, string $commentBody): ?object
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/comments/{$commentId}";
 
 		// Build the request data.
@@ -137,10 +143,10 @@ class Comments extends Api
 		$data->body = $commentBody;
 
 		// Send the patch request.
-		return $this->response->get(
+		return $this->response->get_(
 			$this->http->patch(
-				$this->uri->get($path), json_encode($data)
-			)
+				$this->uri->get($path), $this->encode($data)
+			), [200 => null, 204 => null]
 		);
 	}
 
@@ -158,6 +164,8 @@ class Comments extends Api
 	public function add(string $owner, string $repo, int $issueIndex, string $commentBody): ?object
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$issueIndex}/comments";
 
 		// Build the request data.
@@ -167,7 +175,7 @@ class Comments extends Api
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}

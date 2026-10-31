@@ -27,7 +27,7 @@
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -76,7 +76,7 @@
 	public function get(int $id): ?object
 	{
 		// Build the request path.
-		$path = "/user/keys/{$id}";
+		$path = '/user/keys/' . $id;
 
 		// Send the get request.
 		return $this->response->get(
@@ -97,7 +97,7 @@
 	public function delete(int $id): string
 	{
 		// Build the request path.
-		$path = "/user/keys/{$id}";
+		$path = '/user/keys/' . $id;
 
 		// Send the delete request.
 		return $this->response->get(

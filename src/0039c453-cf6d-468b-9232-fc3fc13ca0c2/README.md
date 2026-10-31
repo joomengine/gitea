@@ -6,16 +6,12 @@
 ```uml
 @startuml
 
-class Organization  #Gold {
+class Organization #Gold {
   + create(string $username, string $fullName, ...) : ?object
 }
 
 note right of Organization::create
-  Create an organization on behalf of a user.
-
-  since: 3.2.0
   return: ?object
-  
   arguments:
     string $username
     string $fullName
@@ -24,10 +20,16 @@ note right of Organization::create
     bool $repoAdminChangeTeamAccess = false
     string $visibility = 'public'
     ?string $website = null
+    ?string $organization = null
+    ?string $email = null
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+`create()` now sends Gitea's required organization `username`. Pass `organization:` for a distinct organization handle; omitted values fall back to `fullName` for existing calls. The user argument still identifies the owner. Optional `email` is supported.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

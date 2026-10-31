@@ -6,59 +6,66 @@
 ```uml
 @startuml
 
-class Gpg  #Gold {
+class Gpg #Gold {
   + createGPGKey(string $armoredPublicKey, ?string $armoredSignature = null) : ?object
   + get(int $id) : ?object
   + token() : ?string
-  + verify(string $armoredPublicKey) : ?object
+  + verify(string $armoredPublicKey, ?string $armoredSignature = null) : ?object
+  + verifyKey(string $keyId, string $armoredSignature) : ?object
   + list(int $page = 1, int $limit = 10) : ?array
   + remove(int $id) : string
 }
 
 note right of Gpg::createGPGKey
-  Create a GPG key for the authenticated user.
-
-  since: 3.2.0
   return: ?object
+  arguments:
+    string $armoredPublicKey
+    ?string $armoredSignature = null
 end note
 
 note right of Gpg::get
-  Get a GPG key for the authenticated user.
-
-  since: 3.2.0
   return: ?object
+  arguments:
+    int $id
 end note
 
 note right of Gpg::token
-  Get a token to verify.
-
-  since: 3.2.0
   return: ?string
 end note
 
 note right of Gpg::verify
-  Verify a GPG key.
-
-  since: 3.2.0
   return: ?object
+  arguments:
+    string $armoredPublicKey
+    ?string $armoredSignature = null
+end note
+
+note right of Gpg::verifyKey
+  return: ?object
+  arguments:
+    string $keyId
+    string $armoredSignature
 end note
 
 note right of Gpg::list
-  List the authenticated user's GPG keys.
-
-  since: 3.2.0
   return: ?array
+  arguments:
+    int $page = 1
+    int $limit = 10
 end note
 
 note right of Gpg::remove
-  Remove a GPG key for the authenticated user.
-
-  since: 3.2.0
   return: string
+  arguments:
+    int $id
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+Use `verifyKey($keyId, $armoredSignature)` to verify an existing key: retrieve `token()`, sign it with that GPG key, and provide the armored signature. The old `verify($armoredPublicKey)` could never satisfy Gitea's required body. It remains as a deprecated adapter: its first argument now holds the key ID and the appended signature is required. The handler at Gitea 28.2.0 returns 200 while Swagger advertises 201; both are accepted. Token bytes are returned without JSON conversion.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

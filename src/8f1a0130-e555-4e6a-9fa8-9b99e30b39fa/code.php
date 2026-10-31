@@ -36,8 +36,8 @@ class Markdown extends Api
 	public function render(
 		string $markdownText,
 		bool $isWikiPage = false,
-		string $context = 'string',
-		string $mode = 'string'
+		string $context = '',
+		string $mode = 'markdown'
 	): ?string
 	{
 		// Build the request path.
@@ -51,10 +51,10 @@ class Markdown extends Api
 		$data->Mode = $mode;
 
 		// Send the post request.
-		return $this->response->get(
+		return $this->response->raw(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data),
+				$this->encode($data),
 				['accept' => 'text/html']
 			)
 		);
@@ -74,7 +74,7 @@ class Markdown extends Api
 		$path = "/markdown/raw";
 
 		// Send the post request.
-		return $this->response->get(
+		return $this->response->raw(
 			$this->http->post(
 				$this->uri->get($path),
 				$rawMarkdown,

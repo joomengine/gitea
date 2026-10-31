@@ -43,7 +43,7 @@ class Remote extends Api
 		string $cloneAddr,
 		string $repoName,
 		string $repoOwner,
-		string $uid,
+		string $uid = '',
 		string $description = '',
 		bool $private = false,
 		?string $authToken = null,
@@ -57,26 +57,34 @@ class Remote extends Api
 
 		// Set the repository migration data.
 		$data = new \stdClass();
-		$data->cloneAddr = $cloneAddr;
-		$data->repoName = $repoName;
-		$data->repoOwner = $repoOwner;
-		$data->uid = $uid;
+		$data->clone_addr = $cloneAddr;
+		$data->repo_name = $repoName;
+		$data->repo_owner = $repoOwner;
+		if ($uid !== '')
+		{
+			if (filter_var($uid, FILTER_VALIDATE_INT, ['options' => ['min_range' => 0]]) === false)
+			{
+				throw new \InvalidArgumentException('The deprecated migration uid must be a non-negative integer.');
+			}
+
+			$data->uid = (int) $uid;
+		}
 		$data->description = $description;
 		$data->private = $private;
 
 		if ($authToken !== null)
 		{
-			$data->authToken = $authToken;
+			$data->auth_token = $authToken;
 		}
 
 		if ($authUsername !== null)
 		{
-			$data->authUsername = $authUsername;
+			$data->auth_username = $authUsername;
 		}
 
 		if ($authPassword !== null)
 		{
-			$data->authPassword = $authPassword;
+			$data->auth_password = $authPassword;
 		}
 
 		foreach ($options as $key => $val)
@@ -87,7 +95,7 @@ class Remote extends Api
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}

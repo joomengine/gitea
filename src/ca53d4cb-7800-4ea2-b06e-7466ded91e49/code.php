@@ -42,19 +42,21 @@ class Labels extends Api
 		// Set all the needed data.
 		$data->name = $labelName;
 		$data->color = $labelColor;
-		if (!empty($labelDescription))
+		if ($labelDescription !== null)
 		{
 			$data->description = $labelDescription;
 		}
 
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/labels";
 
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -72,6 +74,9 @@ class Labels extends Api
 	public function get(string $owner, string $repo, string $id): ?object
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
+		$id = $this->segment($id);
 		$path = "/repos/{$owner}/{$repo}/labels/{$id}";
 
 		// Send the get request.
@@ -95,6 +100,9 @@ class Labels extends Api
 	public function delete(string $owner, string $repo, string $id): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
+		$id = $this->segment($id);
 		$path = "/repos/{$owner}/{$repo}/labels/{$id}";
 
 		// Send the delete request.
@@ -124,7 +132,7 @@ class Labels extends Api
 		string $id,
 		string $labelName = '',
 		string $labelColor = '',
-		string $labelDescription = ''
+		?string $labelDescription = null
 	): ?object
 	{
 		// Set the lines data
@@ -141,19 +149,22 @@ class Labels extends Api
 			$data->color = $labelColor;
 		}
 
-		if (!empty($labelDescription))
+		if ($labelDescription !== null)
 		{
 			$data->description = $labelDescription;
 		}
 
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
+		$id = $this->segment($id);
 		$path = "/repos/{$owner}/{$repo}/labels/{$id}";
 
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			)
 		);
 	}

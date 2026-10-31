@@ -10,10 +10,10 @@
 	public function get(string $ownerName, string $repoName): string
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/signing-key.gpg";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/signing-key.gpg';
 
 		// Send the get request.
-		return $this->response->get(
+		return $this->response->raw(
 			$this->http->get(
 				$this->uri->get($path)
 			)

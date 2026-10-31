@@ -3,6 +3,8 @@
 > namespace: **VDM\Joomla\Gitea\Issue**
 > extends: **Api**
 
+Gitea 28.2.0: `set()` accepts HTTP 201. Supply a date in RFC 3339 format, or `null` to remove the deadline.
+
 ```uml
 @startuml
 

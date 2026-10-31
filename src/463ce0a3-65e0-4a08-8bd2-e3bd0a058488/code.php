@@ -41,7 +41,7 @@ class Hooks extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/hooks";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/hooks';
 
 		// Set up the URI with query parameters.
 		$uri = $this->uri->get($path);
@@ -79,7 +79,7 @@ class Hooks extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/hooks";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/hooks';
 
 		// Set the hook data.
 		$data = new \stdClass();
@@ -100,7 +100,7 @@ class Hooks extends Api
 		// Send the request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}
@@ -122,7 +122,7 @@ class Hooks extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/hooks/{$hookId}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/hooks/' . $this->segment((string) $hookId);
 
 		// Get the URI for the request path.
 		$uri = $this->uri->get($path);
@@ -156,7 +156,7 @@ class Hooks extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/hooks/{$id}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/hooks/' . $this->segment((string) $id);
 
 		// Set the hook data.
 		$data = new \stdClass();
@@ -168,7 +168,7 @@ class Hooks extends Api
 		return $this->response->get(
 			$this->http->patch(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			)
 		);
 	}
@@ -192,7 +192,7 @@ class Hooks extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/hooks/{$hookId}/tests";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/hooks/' . $this->segment((string) $hookId) . '/tests';
 
 		// Get the URI for the request path.
 		$uri = $this->uri->get($path);
@@ -204,7 +204,27 @@ class Hooks extends Api
 
 		// Send the POST request.
 		return $this->response->get(
-			$this->http->post($uri), 204, 'success'
+			$this->http->post($uri, ''), 204, 'success'
+		);
+	}
+
+
+	/**
+	 * Delete a repository webhook.
+	 *
+	 * @param   string  $owner   Repository owner.
+	 * @param   string  $repo    Repository name.
+	 * @param   int     $hookId  Webhook ID.
+	 *
+	 * @return  string
+	 * @since   1.1.0
+	 */
+	public function delete(string $owner, string $repo, int $hookId): string
+	{
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/hooks/' . $this->segment((string) $hookId);
+
+		return $this->response->get(
+			$this->http->delete($this->uri->get($path)), 204, 'success'
 		);
 	}
 

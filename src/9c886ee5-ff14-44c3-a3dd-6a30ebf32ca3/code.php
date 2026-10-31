@@ -39,6 +39,7 @@ class Teams extends Api
 	): ?array
 	{
 		// Build the request path.
+		$organization = $this->segment($organization);
 		$path = "/orgs/{$organization}/teams";
 
 		// Get the URI object.
@@ -81,12 +82,13 @@ class Teams extends Api
 	 * @param   string   $organization          The organization name.
 	 * @param   string   $name                  The name of the team.
 	 * @param   string   $description           The description of the team.
-	 * @param   array    $repoNames             An array of repository names for the team (optional).
+	 * @param   array    $repoNames             Legacy argument ignored by Gitea; use Organization\Teams\Repository::add().
 	 * @param   string   $permission            The team's permission level (optional).
 	 * @param   array    $units                 Units for the team (optional).
 	 * @param   array    $unitsMap              Units map for the team (optional).
 	 * @param   bool     $canCreateOrgRepo      Can create organization repository flag (optional).
 	 * @param   bool     $includesAllRepositories Includes all repositories flag (optional).
+	 * @param   string|null $visibility          Team visibility (public, limited, private).
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -100,10 +102,12 @@ class Teams extends Api
 		array $units = [],
 		array $unitsMap = [],
 		?bool $canCreateOrgRepo = null,
-		?bool $includesAllRepositories = null
+		?bool $includesAllRepositories = null,
+		?string $visibility = null
 	): ?object
 	{
 		// Build the request path.
+		$organization = $this->segment($organization);
 		$path = "/orgs/{$organization}/teams";
 
 		// Set the team data.
@@ -111,11 +115,6 @@ class Teams extends Api
 		$data->name = $name;
 		$data->description = $description;
 		$data->permission = $permission;
-
-		if (!empty($repoNames))
-		{
-			$data->repo_names = $repoNames;
-		}
 
 		if (!empty($units))
 		{
@@ -137,10 +136,15 @@ class Teams extends Api
 			$data->includes_all_repositories = $includesAllRepositories;
 		}
 
+		if ($visibility !== null)
+		{
+			$data->visibility = $visibility;
+		}
+
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}
@@ -166,6 +170,7 @@ class Teams extends Api
 	): ?object
 	{
 		// Build the request path.
+		$organization = $this->segment($organization);
 		$path = "/orgs/{$organization}/teams/search";
 
 		// Configure the request URI.
@@ -213,6 +218,7 @@ class Teams extends Api
 	 * @param   bool|null    $includesAllRepositories   Include all repositories (optional).
 	 * @param   array|null   $units                     List of units (optional).
 	 * @param   array|null   $unitsMap                  Units map (optional).
+	 * @param   string|null  $visibility                Team visibility (public, limited, private).
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -225,7 +231,8 @@ class Teams extends Api
 		?bool $canCreateOrgRepo = null,
 		?bool $includesAllRepositories = null,
 		?array $units = null,
-		?array $unitsMap = null
+		?array $unitsMap = null,
+		?string $visibility = null
 	): ?object
 	{
 		// Build the request path.
@@ -259,13 +266,18 @@ class Teams extends Api
 		}
 		if ($unitsMap !== null) 
 		{
-			$data->units_map = $unitsMap;
+			$data->units_map = (object) $unitsMap;
+		}
+
+		if ($visibility !== null)
+		{
+			$data->visibility = $visibility;
 		}
 
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			)
 		);
 	}

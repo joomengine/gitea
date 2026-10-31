@@ -6,35 +6,34 @@
 ```uml
 @startuml
 
-class Emails  #Gold {
+class Emails #Gold {
   + list() : ?array
   + add(array $emails) : ?array
   + delete(array $emails) : string
 }
 
 note right of Emails::list
-  List the authenticated user's email addresses.
-
-  since: 3.2.0
   return: ?array
 end note
 
 note right of Emails::add
-  Add email addresses for the authenticated user.
-
-  since: 3.2.0
   return: ?array
+  arguments:
+    array $emails
 end note
 
 note right of Emails::delete
-  Delete email addresses for the authenticated user.
-
-  since: 3.2.0
   return: string
+  arguments:
+    array $emails
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+`delete()` sends the email list in a JSON DELETE request body, as required by Gitea. It no longer puts the list into an ignored query parameter. Input array keys are reindexed for JSON arrays.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

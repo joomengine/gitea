@@ -6,16 +6,12 @@
 ```uml
 @startuml
 
-class Files  #Gold {
-  + get(string $owner, string $type, ...) : ?object
+class Files #Gold {
+  + get(string $owner, string $type, ...) : ?array
 }
 
 note right of Files::get
-  Gets all files of a package.
-
-  since: 3.2.0
-  return: ?object
-  
+  return: ?array
   arguments:
     string $owner
     string $type
@@ -25,6 +21,10 @@ end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+`get()` returns `?array`, matching Gitea's list of package files. The former `?object` declaration rejected valid responses; subclasses overriding it must update their return type. Package names and versions are supplied unencoded; scoped names such as `@scope/name` are encoded as a single path parameter.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

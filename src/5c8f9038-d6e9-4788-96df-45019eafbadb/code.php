@@ -61,6 +61,8 @@ class Issue extends Api
 	): ?array
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues";
 
 		// Build the URI.
@@ -99,6 +101,8 @@ class Issue extends Api
 	public function get(string $owner, string $repo, int $index): ?object
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}";
 
 		// Send the get request.
@@ -118,9 +122,11 @@ class Issue extends Api
 	 * @param   array|null  $assignees    The array of assignees, defaults to null.
 	 * @param   string|null $issueBody    The issue body, defaults to null.
 	 * @param   bool|null   $closed       If the issue is closed, defaults to null.
-	 * @param   string|null $dueDate      The deadline for the issue, format: "YYYY-MM-DD", defaults to null.
+	 * @param   string|null $dueDate      The deadline for the issue, format: RFC 3339, defaults to null.
 	 * @param   array|null  $labelIds     The array of label IDs to attach to the issue, defaults to null.
 	 * @param   int|null    $milestoneId  The milestone ID, defaults to null.
+	 * @param   array|null  $projects     Project IDs to assign.
+	 * @param   string|null $ref          Git reference associated with the issue.
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -134,10 +140,14 @@ class Issue extends Api
 		?bool $closed = null,
 		?string $dueDate = null,
 		?array $labelIds = null,
-		?int $milestoneId = null
+		?int $milestoneId = null,
+		?array $projects = null,
+		?string $ref = null
 	): ?object
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues";
 
 		// Build the request data.
@@ -150,10 +160,20 @@ class Issue extends Api
 		$data->labels = $labelIds;
 		$data->milestone = $milestoneId;
 
+		if ($projects !== null)
+		{
+			$data->projects = $projects;
+		}
+
+		if ($ref !== null)
+		{
+			$data->ref = $ref;
+		}
+
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}
@@ -167,7 +187,7 @@ class Issue extends Api
 	 * @param   string|null       $state              Issue state (default open).
 	 * @param   string|null       $labels             Label filter, comma-separated.
 	 * @param   string|null       $milestones         Milestone filter, comma-separated.
-	 * @param   int|null          $priorityRepoId     Repository to prioritize in the results.
+	 * @param   int|null          $priorityRepoId     Legacy argument retained for compatibility; ignored by the current API.
 	 * @param   string|null       $type               Filter by type (issues/pulls).
 	 * @param   string|null       $since              Only show notifications updated after the given time (RFC 3339 format).
 	 * @param   string|null       $before             Only show notifications updated before the given time (RFC 3339 format).
@@ -177,6 +197,8 @@ class Issue extends Api
 	 * @param   bool|null         $reviewRequested    Filter pulls requesting your review (default false).
 	 * @param   string|null       $owner              Filter by owner.
 	 * @param   string|null       $team               Filter by team (requires organization owner parameter).
+	 * @param   bool|null         $reviewed           Filter pulls reviewed by you.
+	 * @param   string|null       $createdBy          Filter by the issue author username.
 	 *
 	 * @return  array|null
 	 * @since   3.2.0
@@ -197,7 +219,9 @@ class Issue extends Api
 		?bool $mentioned = null,
 		?bool $reviewRequested = null,
 		?string $owner = null,
-		?string $team = null
+		?string $team = null,
+		?bool $reviewed = null,
+		?string $createdBy = null
 	): ?array
 	{
 		// Build the request path.
@@ -218,11 +242,6 @@ class Issue extends Api
 		if ($milestones !== null)
 		{
 			$uri->setVar('milestones', $milestones);
-		}
-
-		if ($priorityRepoId !== null)
-		{
-			$uri->setVar('priority_repo_id', $priorityRepoId);
 		}
 
 		if ($type !== null)
@@ -270,6 +289,16 @@ class Issue extends Api
 			$uri->setVar('team', $team);
 		}
 
+		if ($reviewed !== null)
+		{
+			$uri->setVar('reviewed', $reviewed);
+		}
+
+		if ($createdBy !== null)
+		{
+			$uri->setVar('created_by', $createdBy);
+		}
+
 		// Send the get request.
 		return $this->response->get(
 			$this->http->get($uri)
@@ -291,6 +320,8 @@ class Issue extends Api
 	 * @param   string|null $state          The issue state, defaults to null.
 	 * @param   string|null $title          The issue title, defaults to null.
 	 * @param   bool|null   $unsetDueDate   The flag to unset due date, defaults to null.
+	 * @param   array|null  $projects       Project IDs replacing the current assignment; [] clears it.
+	 * @param   int|null    $contentVersion Current content version for conflict detection.
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -307,28 +338,27 @@ class Issue extends Api
 		?string $ref = null,
 		?string $state = null,
 		?string $title = null,
-		?bool $unsetDueDate = null
+		?bool $unsetDueDate = null,
+		?array $projects = null,
+		?int $contentVersion = null
 	): ?object
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}";
 
 		// Prepare the issue data.
 		$editIssueData = new \stdClass();
 
-		if ($assignee !== null || $assignees !== null)
+		if ($assignee !== null)
 		{
-			$editIssueData->assignee = new \stdClass();
+			$editIssueData->assignee = $assignee;
+		}
 
-			if ($assignee !== null)
-			{
-				$editIssueData->assignee->name = $assignee;
-			}
-
-			if ($assignees !== null)
-			{
-				$editIssueData->assignee->names = $assignees;
-			}
+		if ($assignees !== null)
+		{
+			$editIssueData->assignees = $assignees;
 		}
 
 		if ($body !== null)
@@ -336,19 +366,24 @@ class Issue extends Api
 			$editIssueData->body = $body;
 		}
 
-		if ($dueDate !== null || $unsetDueDate !== null)
+		if ($dueDate !== null)
 		{
-			$editIssueData->dueDate = new \stdClass();
+			$editIssueData->due_date = $dueDate;
+		}
 
-			if ($dueDate !== null)
-			{
-				$editIssueData->dueDate->date = $dueDate;
-			}
+		if ($unsetDueDate !== null)
+		{
+			$editIssueData->unset_due_date = $unsetDueDate;
+		}
 
-			if ($unsetDueDate !== null)
-			{
-				$editIssueData->dueDate->unset = $unsetDueDate;
-			}
+		if ($projects !== null)
+		{
+			$editIssueData->projects = $projects;
+		}
+
+		if ($contentVersion !== null)
+		{
+			$editIssueData->content_version = $contentVersion;
 		}
 
 		if ($milestone !== null)
@@ -374,8 +409,8 @@ class Issue extends Api
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
-				$this->uri->get($path), json_encode($editIssueData)
-			)
+				$this->uri->get($path), $this->encode($editIssueData)
+			), 201
 		);
 	}
 
@@ -392,6 +427,8 @@ class Issue extends Api
 	public function delete(string $owner, string $repo, int $index): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}";
 
 		// Send the delete request.

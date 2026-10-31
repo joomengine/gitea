@@ -57,11 +57,11 @@ class Notifications extends Api
 		}
 		if ($statusTypes !== null)
 		{
-			$uri->setVar('status-types', implode(',', $statusTypes));
+			$uri->setVar('status-types', array_values($statusTypes));
 		}
 		if ($subjectType !== null)
 		{
-			$uri->setVar('subject-type', implode(',', $subjectType));
+			$uri->setVar('subject-type', array_values($subjectType));
 		}
 		if ($since !== null)
 		{
@@ -113,7 +113,7 @@ class Notifications extends Api
 		}
 		if ($statusTypes !== null)
 		{
-			$uri->setVar('status-types', implode(',', $statusTypes));
+			$uri->setVar('status-types', array_values($statusTypes));
 		}
 		if ($toStatus !== null)
 		{

@@ -4,49 +4,51 @@
 	 * @var    string|null
 	 * @since 3.2.0
 	 */
-	protected ?string $_token_; // to avoid collisions (but allow swapping)
+	protected ?string $_token_ = null; // to avoid collisions (but allow swapping)
 
 	/**
 	 * Constructor.
 	 *
-	 * @param   string|null     $token     The Gitea API token.
+	 * @param   string|null          $token      The Gitea API token.
+	 * @param   TransportInterface|null  $transport  An optional Joomla transport.
 	 *
 	 * @since   3.2.0
 	 * @throws  \InvalidArgumentException
 	 **/
-	public function __construct(?string $token = null)
+	public function __construct(?string $token = null, ?TransportInterface $transport = null)
 	{
 		// setup config
 		$config = [
 			'userAgent' => 'JoomlaGitea/3.0',
+			'follow_location' => false,
 			'headers' => [
 				'Content-Type' => 'application/json'
 			]
 		];
 
-		// add the token if given
-		if (is_string($token) && !empty($token))
-		{
-			$config['headers']['Authorization'] = 'token ' . $token;
-			$this->_token_ = $token;
-		}
-
 		$options = new Registry($config);
 
-		// Force-create the transport WITH your options
-		$transport = null;
-		if (UnsafeCurl::isSupported()) {
-			$transport = new UnsafeCurl($options);
-		} elseif (Curl::isSupported()) {
-			$transport = new Curl($options);
-		} elseif (Stream::isSupported()) {
-			$transport = new Stream($options);
-		} else {
-			$transport = new Socket($options);
+		// Use transports that honor redirect policy and share the mutable options.
+		// Joomla's Socket transport follows redirects unconditionally, including
+		// authorization headers, so it is not a safe fallback for an API token.
+		if ($transport === null)
+		{
+			if (Curl::isSupported())
+			{
+				$transport = new Curl($options);
+			}
+			elseif (Stream::isSupported())
+			{
+				$transport = new Stream($options);
+			}
+			else
+			{
+				throw new \RuntimeException('Gitea HTTP requires cURL or URL-aware streams, or an explicitly configured transport.');
+			}
 		}
 
-		// run parent constructor
 		parent::__construct($options, $transport);
+		$this->setToken($token ?? '');
 	}
 
 	/**
@@ -64,15 +66,20 @@
 			]
 		);
 
-		if (empty($token))
+		// Header names are case-insensitive. Remove every old authorization value.
+		foreach (array_keys($headers) as $name)
 		{
-			unset($headers['Authorization']);
+			if (strcasecmp((string) $name, 'Authorization') === 0)
+			{
+				unset($headers[$name]);
+			}
 		}
-		else
+
+		$this->_token_ = $token === '' ? null : $token;
+
+		if ($this->_token_ !== null)
 		{
-			// add the token
-			$headers['Authorization'] = 'token ' . $token;
-			$this->_token_ = $token;
+			$headers['Authorization'] = 'token ' . $this->_token_;
 		}
 
 		$this->setOption('headers', $headers);

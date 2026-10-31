@@ -1,4 +1,13 @@
-# JCB! Super Powers
+# Gitea API Super Powers
+
+Gitea API clients for Joomla Component Builder. This maintenance release targets
+**Gitea 28.2.0** while preserving the existing endpoint classes and Power GUIDs.
+
+- [Maintenance changes, migration notes and integration checks](docs/maintenance-gitea-28.md)
+- [Operation client: all 537 documented API operations](src/6a20613d-d232-4f5b-8f86-8e41a20cd1a1/README.md)
+- [API catalog provenance and regeneration](tools/openapi/README.md)
+- [Development checks](tests/README.md)
+- [Super Powers authoring documentation](https://github.com/joomengine/ai-doc/tree/main/super-powers)
 
 ### What Are JCB Super Powers?
 In simple terms, **JCB Super Powers are PHP classes** — but managed entirely from the Joomla Component Builder (JCB) interface.
@@ -54,6 +63,7 @@ This makes your logic both **reusable** and **component-aware**, without hardcod
 
 - **Namespace**: [VDM\Joomla\Gitea](#vdm-joomla-gitea)
 
+  - **class Client** | [Details](src/6a20613d-d232-4f5b-8f86-8e41a20cd1a1) | [Raw](src/6a20613d-d232-4f5b-8f86-8e41a20cd1a1/code.power) | [Settings](src/6a20613d-d232-4f5b-8f86-8e41a20cd1a1/settings.json) | SPK: `Super---6a20613d_d232_4f5b_8f86_8e41a20cd1a1---Power`
   - **abstract class Factory** | [Details](src/4612af84-5a42-4ea5-87bf-9d79cc19c330) | [Raw](src/4612af84-5a42-4ea5-87bf-9d79cc19c330/code.power) | [Settings](src/4612af84-5a42-4ea5-87bf-9d79cc19c330/settings.json) | SPK: `Super---4612af84_5a42_4ea5_87bf_9d79cc19c330---Power`
   - **class Issue** | [Details](src/5c8f9038-d6e9-4788-96df-45019eafbadb) | [Raw](src/5c8f9038-d6e9-4788-96df-45019eafbadb/code.power) | [Settings](src/5c8f9038-d6e9-4788-96df-45019eafbadb/settings.json) | SPK: `Super---5c8f9038_d6e9_4788_96df_45019eafbadb---Power`
   - **class Labels** | [Details](src/ca53d4cb-7800-4ea2-b06e-7466ded91e49) | [Raw](src/ca53d4cb-7800-4ea2-b06e-7466ded91e49/code.power) | [Settings](src/ca53d4cb-7800-4ea2-b06e-7466ded91e49/settings.json) | SPK: `Super---ca53d4cb_7800_4ea2_b06e_7466ded91e49---Power`
@@ -183,6 +193,7 @@ This makes your logic both **reusable** and **component-aware**, without hardcod
 - **Namespace**: [VDM\Joomla\Gitea\Utilities](#vdm-joomla-gitea-utilities)
 
   - **final class Http** | [Details](src/ce40b3d2-226c-4a64-b116-c19455822be1) | [Raw](src/ce40b3d2-226c-4a64-b116-c19455822be1/code.power) | [Settings](src/ce40b3d2-226c-4a64-b116-c19455822be1/settings.json) | SPK: `Super---ce40b3d2_226c_4a64_b116_c19455822be1---Power`
+  - **final class Operations** | [Details](src/b194b19f-e665-435a-925d-04158a61ef3e) | [Raw](src/b194b19f-e665-435a-925d-04158a61ef3e/code.power) | [Settings](src/b194b19f-e665-435a-925d-04158a61ef3e/settings.json) | SPK: `Super---b194b19f_e665_435a_925d_04158a61ef3e---Power`
   - **final class Response** | [Details](src/19eb68d7-1e19-4d14-a0ef-70d719c45e80) | [Raw](src/19eb68d7-1e19-4d14-a0ef-70d719c45e80/code.power) | [Settings](src/19eb68d7-1e19-4d14-a0ef-70d719c45e80/settings.json) | SPK: `Super---19eb68d7_1e19_4d14_a0ef_70d719c45e80---Power`
   - **final class Uri** | [Details](src/61e813c6-a872-4f55-8078-198241170e80) | [Raw](src/61e813c6-a872-4f55-8078-198241170e80/code.power) | [Settings](src/61e813c6-a872-4f55-8078-198241170e80/settings.json) | SPK: `Super---61e813c6_a872_4f55_8078_198241170e80---Power`
 - **Namespace**: [VDM\Joomla\Gitea\Admin\Users](#vdm-joomla-gitea-admin-users)

@@ -100,6 +100,23 @@
 	}
 
 	/**
+	 * Get the Deadline class.
+	 *
+	 * @param   Container  $container  The DI container.
+	 *
+	 * @return  Deadline
+	 * @since   3.2.0
+	 */
+	public function getDeadline(Container $container): Deadline
+	{
+		return new Deadline(
+			$container->get('Gitea.Utilities.Http'),
+			$container->get('Gitea.Dynamic.Uri'),
+			$container->get('Gitea.Utilities.Response')
+		);
+	}
+
+	/**
 	 * Get the Labels class
 	 *
 	 * @param   Container  $container  The DI container.

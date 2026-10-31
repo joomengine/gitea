@@ -42,7 +42,7 @@ class Tags extends Api implements TagsInterface
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/tags";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/tags';
 
 		// Get the URI with the path.
 		$uri = $this->uri->get($path);
@@ -77,7 +77,7 @@ class Tags extends Api implements TagsInterface
 	public function get(string $owner, string $repo, string $tag): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/tags/{$tag}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/tags/' . $this->segment($tag);
 
 		// Send the get request.
 		return $this->response->get(
@@ -104,7 +104,7 @@ class Tags extends Api implements TagsInterface
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/git/tags/{$sha}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/git/tags/' . $this->segment($sha);
 
 		// Get the URI with the path.
 		$uri = $this->uri->get($path);
@@ -136,7 +136,7 @@ class Tags extends Api implements TagsInterface
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/tags";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/tags';
 
 		// Set the tag data
 		$data = new \stdClass();
@@ -147,7 +147,7 @@ class Tags extends Api implements TagsInterface
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			)
 		);
 	}
@@ -169,7 +169,7 @@ class Tags extends Api implements TagsInterface
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/tags/{$tag}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/tags/' . $this->segment($tag);
 
 		// Send the delete request.
 		return $this->response->get(

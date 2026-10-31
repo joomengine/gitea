@@ -6,18 +6,14 @@
 ```uml
 @startuml
 
-class Tokens  #Gold {
+class Tokens #Gold {
   + list(string $username, ?int $page = null, ...) : ?array
-  + create(string $username, string $name) : ?object
+  + create(string $username, string $name, ...) : ?object
   + delete(string $username, string $token) : string
 }
 
 note right of Tokens::list
-  List the authenticated user's access tokens.
-
-  since: 3.2.0
   return: ?array
-  
   arguments:
     string $username
     ?int $page = null
@@ -25,21 +21,26 @@ note right of Tokens::list
 end note
 
 note right of Tokens::create
-  Create an access token for a user.
-
-  since: 3.2.0
   return: ?object
+  arguments:
+    string $username
+    string $name
+    ?array $scopes = null
 end note
 
 note right of Tokens::delete
-  Delete an access token for a user.
-
-  since: 3.2.0
   return: string
+  arguments:
+    string $username
+    string $token
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+`create()` accepts optional `scopes`. Null omits the field and uses the server default; `[]` is sent explicitly and is distinct from omission. Supply scopes such as `read:repository` deliberately. Token-management endpoints still require the authentication method configured by Gitea (normally HTTP Basic authentication); an API token alone does not grant access to them.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

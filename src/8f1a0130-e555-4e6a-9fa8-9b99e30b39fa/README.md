@@ -6,33 +6,32 @@
 ```uml
 @startuml
 
-class Markdown  #Gold {
+class Markdown #Gold {
   + render(string $markdownText, bool $isWikiPage = false, ...) : ?string
   + raw(string $rawMarkdown) : ?string
 }
 
 note right of Markdown::render
-  Render a markdown document as HTML.
-
-  since: 3.2.0
   return: ?string
-  
   arguments:
     string $markdownText
     bool $isWikiPage = false
-    string $context = 'string'
-    string $mode = 'string'
+    string $context = ''
+    string $mode = 'markdown'
 end note
 
 note right of Markdown::raw
-  Render raw markdown as HTML.
-
-  since: 3.2.0
   return: ?string
+  arguments:
+    string $rawMarkdown
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+`render()` now defaults to an empty context and `markdown` mode instead of the literal documentation example value `string`. Rendered output uses the raw response path so JSON-looking text and whitespace are not changed.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

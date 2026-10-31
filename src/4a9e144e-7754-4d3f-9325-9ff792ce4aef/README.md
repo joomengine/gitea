@@ -6,7 +6,7 @@
 ```uml
 @startuml
 
-class Applications  #Gold {
+class Applications #Gold {
   + get(int $page = 1, int $limit = 10) : ?array
   + id(int $id) : ?object
   + create(string $appName, array $redirectUris, ...) : ?object
@@ -15,53 +15,49 @@ class Applications  #Gold {
 }
 
 note right of Applications::get
-  List the authenticated user's oauth2 applications.
-
-  since: 3.2.0
   return: ?array
+  arguments:
+    int $page = 1
+    int $limit = 10
 end note
 
 note right of Applications::id
-  Get an OAuth2 application by ID.
-
-  since: 3.2.0
   return: ?object
+  arguments:
+    int $id
 end note
 
 note right of Applications::create
-  Creates a new OAuth2 application.
-
-  since: 3.2.0
   return: ?object
-  
   arguments:
     string $appName
     array $redirectUris
     bool $confidentialClient = true
+    ?bool $skipSecondaryAuthorization = null
 end note
 
 note right of Applications::delete
-  Delete an OAuth2 application by ID.
-
-  since: 3.2.0
   return: string
+  arguments:
+    int $id
 end note
 
 note right of Applications::update
-  Update an OAuth2 application by ID, this includes regenerating the client secret.
-
-  since: 3.2.0
   return: ?object
-  
   arguments:
     int $appId
     string $appName
     array $redirectUris
     bool $confidentialClient = true
+    ?bool $skipSecondaryAuthorization = null
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+Creation and updates accept an optional `skipSecondaryAuthorization` flag. Omitting it preserves the existing request shape; explicit false is retained.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

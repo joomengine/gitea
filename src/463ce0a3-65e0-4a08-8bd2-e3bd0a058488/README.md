@@ -86,6 +86,10 @@ end note
 @enduml
 ```
 
+### Added in Power 1.1.0
+
+- `delete()` — deletes a repository webhook by its numeric ID.
+
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,
 namespacing, and folder structure creation for you.

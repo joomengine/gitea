@@ -39,7 +39,7 @@ class Attachments extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/releases/{$releaseId}/assets";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/releases/' . $this->segment((string) $releaseId) . '/assets';
 
 		// Retrieve the URI object with the path.
 		$uri = $this->uri->get($path);
@@ -73,7 +73,7 @@ class Attachments extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/releases/{$releaseId}/assets";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/releases/' . $this->segment((string) $releaseId) . '/assets';
 
 		// Retrieve the URI object with the path.
 		$uri = $this->uri->get($path);
@@ -83,8 +83,7 @@ class Attachments extends Api
 
 		// Set the request headers.
 		$headers = [
-			"Content-Type: {$contentType}",
-			"Content-Disposition: attachment; filename={$attachmentName}"
+			'Content-Type' => $contentType
 		];
 
 		// Send the post request.
@@ -114,7 +113,7 @@ class Attachments extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/releases/{$id}/assets/{$attachmentId}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/releases/' . $this->segment((string) $id) . '/assets/' . $this->segment((string) $attachmentId);
 
 		// Send the get request.
 		return $this->response->get(
@@ -143,7 +142,7 @@ class Attachments extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/releases/{$id}/assets/{$attachmentId}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/releases/' . $this->segment((string) $id) . '/assets/' . $this->segment((string) $attachmentId);
 
 		// Send the delete request.
 		return $this->response->get(
@@ -174,7 +173,7 @@ class Attachments extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/releases/{$id}/assets/{$attachmentId}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/releases/' . $this->segment((string) $id) . '/assets/' . $this->segment((string) $attachmentId);
 
 		// Set the attachment data
 		$data = new \stdClass();
@@ -187,8 +186,8 @@ class Attachments extends Api
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
-				$this->uri->get($path), json_encode($data)
-			)
+				$this->uri->get($path), $this->encode($data)
+			), 201
 		);
 	}
 

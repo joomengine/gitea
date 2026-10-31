@@ -25,6 +25,8 @@ class NodeInfo extends Api
 	/**
 	 * Returns the nodeinfo of the Gitea application.
 	 *
+	 * Gitea 28.2.0 keeps this legacy route as Not Implemented.
+	 *
 	 * @return  object|null
 	 * @since   3.2.0
 	 **/

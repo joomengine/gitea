@@ -6,7 +6,7 @@
 ```uml
 @startuml
 
-class User  #Gold {
+class User #Gold {
   + authenticate() : ?object
   + search(string $keyword, ?int $uid = null, ...) : ?object
   + get(string $username) : ?object
@@ -18,21 +18,15 @@ class User  #Gold {
   + keys(string $userName, ?string $fingerprint = null, ...) : ?array
   + repos(string $userName, int $page = 1, ...) : ?array
   + watched(string $userName, int $page = 1, ...) : ?array
+  + repositories(string $username, int $page = 1, ...) : ?array
 }
 
 note right of User::authenticate
-  Get the authenticated user.
-
-  since: 3.2.0
   return: ?object
 end note
 
-note left of User::search
-  Search for users.
-
-  since: 3.2.0
+note right of User::search
   return: ?object
-  
   arguments:
     string $keyword
     ?int $uid = null
@@ -41,18 +35,13 @@ note left of User::search
 end note
 
 note right of User::get
-  Get a user by their username.
-
-  since: 3.2.0
   return: ?object
+  arguments:
+    string $username
 end note
 
-note left of User::followers
-  List the given user's followers.
-
-  since: 3.2.0
+note right of User::followers
   return: ?array
-  
   arguments:
     string $userName
     int $page = 1
@@ -60,49 +49,36 @@ note left of User::followers
 end note
 
 note right of User::following
-  List the users that the given user is following.
-
-  since: 3.2.0
   return: ?array
-  
   arguments:
     string $userName
     int $page = 1
     int $limit = 10
 end note
 
-note left of User::check
-  Check if one user is following another user.
-
-  since: 3.2.0
+note right of User::check
   return: string
+  arguments:
+    string $username
+    string $target
 end note
 
 note right of User::gpg
-  List the given user's GPG keys.
-
-  since: 3.2.0
   return: ?array
-  
   arguments:
     string $userName
     int $page = 1
     int $limit = 10
 end note
 
-note left of User::heatmap
-  Get a user's heatmap.
-
-  since: 3.2.0
+note right of User::heatmap
   return: ?array
+  arguments:
+    string $username
 end note
 
 note right of User::keys
-  List the given user's public keys.
-
-  since: 3.2.0
   return: ?array
-  
   arguments:
     string $userName
     ?string $fingerprint = null
@@ -110,12 +86,8 @@ note right of User::keys
     int $limit = 10
 end note
 
-note left of User::repos
-  List the repos that the given user has starred.
-
-  since: 3.2.0
+note right of User::repos
   return: ?array
-  
   arguments:
     string $userName
     int $page = 1
@@ -123,19 +95,27 @@ note left of User::repos
 end note
 
 note right of User::watched
-  List the repositories watched by a user.
-
-  since: 3.2.0
   return: ?array
-  
   arguments:
     string $userName
     int $page = 1
     int $limit = 10
 end note
 
+note right of User::repositories
+  return: ?array
+  arguments:
+    string $username
+    int $page = 1
+    int $limit = 10
+end note
+
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+Added `repositories()` for `/users/{username}/repos`. Existing `repos()` keeps its established meaning of starred repositories for compatibility. All dynamic username and repository path values are encoded as individual parameters.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

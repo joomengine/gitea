@@ -39,7 +39,7 @@ class Notes extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/git/notes/{$commitSha}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/git/notes/' . $this->segment($commitSha);
 
 		// Send the get request.
 		return $this->response->get(

@@ -91,7 +91,7 @@ class User extends Api
 	public function get(string $username): ?object
 	{
 		// Build the request path.
-		$path = "/users/{$username}";
+		$path = '/users/' . $this->segment($username);
 
 		// Send the get request.
 		return $this->response->get(
@@ -118,7 +118,7 @@ class User extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/users/{$userName}/followers";
+		$path = '/users/' . $this->segment($userName) . '/followers';
 
 		// Build the URI with query parameters.
 		$uri = $this->uri->get($path);
@@ -148,7 +148,7 @@ class User extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/users/{$userName}/following";
+		$path = '/users/' . $this->segment($userName) . '/following';
 
 		// Build the URI with query parameters.
 		$uri = $this->uri->get($path);
@@ -173,7 +173,7 @@ class User extends Api
 	public function check(string $username, string $target): string
 	{
 		// Build the request path.
-		$path = "/users/{$username}/following/{$target}";
+		$path = '/users/' . $this->segment($username) . '/following/' . $this->segment($target);
 
 		// Send the get request.
 		return $this->response->get(
@@ -200,7 +200,7 @@ class User extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/users/{$userName}/gpg_keys";
+		$path = '/users/' . $this->segment($userName) . '/gpg_keys';
 
 		// Build the URI with query parameters.
 		$uri = $this->uri->get($path);
@@ -224,7 +224,7 @@ class User extends Api
 	public function heatmap(string $username): ?array
 	{
 		// Build the request path.
-		$path = "/users/{$username}/heatmap";
+		$path = '/users/' . $this->segment($username) . '/heatmap';
 
 		// Send the get request.
 		return $this->response->get(
@@ -253,7 +253,7 @@ class User extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/users/{$userName}/keys";
+		$path = '/users/' . $this->segment($userName) . '/keys';
 
 		// Build the URI with query parameters.
 		$uri = $this->uri->get($path);
@@ -288,7 +288,7 @@ class User extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/users/{$userName}/starred";
+		$path = '/users/' . $this->segment($userName) . '/starred';
 
 		// Build the URI with query parameters.
 		$uri = $this->uri->get($path);
@@ -318,7 +318,7 @@ class User extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/users/{$userName}/subscriptions";
+		$path = '/users/' . $this->segment($userName) . '/subscriptions';
 
 		// Build the URI with query parameters.
 		$uri = $this->uri->get($path);
@@ -329,6 +329,27 @@ class User extends Api
 		return $this->response->get(
 			$this->http->get($uri)
 		);
+	}
+
+
+	/**
+	 * List repositories owned by the named user (repos() lists starred repositories).
+	 *
+	 * @param   string  $username  Repository owner.
+	 * @param   int     $page      One-based page number.
+	 * @param   int     $limit     Page size.
+	 *
+	 * @return  array|null
+	 * @since   1.1.0
+	 */
+	public function repositories(string $username, int $page = 1, int $limit = 10): ?array
+	{
+		$path = '/users/' . $this->segment($username) . '/repos';
+		$uri = $this->uri->get($path);
+		$uri->setVar('page', $page);
+		$uri->setVar('limit', $limit);
+
+		return $this->response->get($this->http->get($uri));
 	}
 
 }

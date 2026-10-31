@@ -61,7 +61,7 @@ class Applications extends Api
 	public function id(int $id): ?object
 	{
 		// Build the request path.
-		$path = "/user/applications/oauth2/{$id}";
+		$path = '/user/applications/oauth2/' . $id;
 
 		// Send the get request.
 		return $this->response->get(
@@ -77,6 +77,7 @@ class Applications extends Api
 	 * @param   string	 $appName	 	 The application name.
 	 * @param   array	 $redirectUris	 	 The application redirect URIs.
 	 * @param   bool 	 $confidentialClient	 The confidentiality of the client (default: true).
+	 * @param   bool|null $skipSecondaryAuthorization  Skip secondary authorization when explicitly requested.
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -84,7 +85,8 @@ class Applications extends Api
 	public function create(
 		string $appName,
 		array $redirectUris,
-		bool $confidentialClient = true
+		bool $confidentialClient = true,
+		?bool $skipSecondaryAuthorization = null
 	): ?object
 	{
 		// Build the request path.
@@ -96,11 +98,16 @@ class Applications extends Api
 		$data->redirect_uris = $redirectUris;
 		$data->confidential_client = $confidentialClient;
 
+		if ($skipSecondaryAuthorization !== null)
+		{
+			$data->skip_secondary_authorization = $skipSecondaryAuthorization;
+		}
+
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -116,7 +123,7 @@ class Applications extends Api
 	public function delete(int $id): string
 	{
 		// Build the request path.
-		$path = "/user/applications/oauth2/{$id}";
+		$path = '/user/applications/oauth2/' . $id;
 
 		// Send the delete request.
 		return $this->response->get(
@@ -133,6 +140,7 @@ class Applications extends Api
 	 * @param   string	 $appName 	 	 The application name.
 	 * @param   array	 $redirectUris	 	 The application redirect URIs.
 	 * @param   bool	 $confidentialClient	 The confidentiality of the client (default: true).
+	 * @param   bool|null $skipSecondaryAuthorization  Skip secondary authorization when explicitly requested.
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -141,11 +149,12 @@ class Applications extends Api
 		int $appId,
 		string $appName,
 		array $redirectUris,
-		bool $confidentialClient = true
+		bool $confidentialClient = true,
+		?bool $skipSecondaryAuthorization = null
 	): ?object
 	{
 		// Build the request path.
-		$path = "/user/applications/oauth2/{$appId}";
+		$path = '/user/applications/oauth2/' . $appId;
 
 		// Set the application data.
 		$data = new \stdClass();
@@ -153,11 +162,16 @@ class Applications extends Api
 		$data->redirect_uris = $redirectUris;
 		$data->confidential_client = $confidentialClient;
 
+		if ($skipSecondaryAuthorization !== null)
+		{
+			$data->skip_secondary_authorization = $skipSecondaryAuthorization;
+		}
+
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			)
 		);
 	}

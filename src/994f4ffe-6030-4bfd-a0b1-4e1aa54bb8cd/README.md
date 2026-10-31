@@ -20,7 +20,7 @@ note right of Remote::migrate
     string $cloneAddr
     string $repoName
     string $repoOwner
-    string $uid
+    string $uid = ''
     string $description = ''
     bool $private = false
     ?string $authToken = null

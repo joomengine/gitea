@@ -27,11 +27,12 @@ class Users extends Api
 	 *
 	 * @param   int  $page   Page number of results to return (1-based).
 	 * @param   int  $limit  Page size of results.
+	 * @param   array $filters  Additional documented admin user search filters.
 	 *
 	 * @return  array|null
 	 * @since   3.2.0
 	 **/
-	public function list(int $page = 1, int $limit = 10): ?array
+	public function list(int $page = 1, int $limit = 10, array $filters = []): ?array
 	{
 		// Build the request path.
 		$path = "/admin/users";
@@ -40,6 +41,19 @@ class Users extends Api
 		$url = $this->uri->get($path);
 		$url->setVar('page', $page);
 		$url->setVar('limit', $limit);
+
+		foreach ($filters as $name => $value)
+		{
+			if (!in_array($name, ['source_id', 'login_name', 'sort', 'order', 'q', 'visibility', 'is_active', 'is_admin', 'is_restricted', 'is_2fa_enabled', 'is_prohibit_login'], true))
+			{
+				throw new \InvalidArgumentException('Unknown user filter: ' . $name);
+			}
+
+			if ($value !== null)
+			{
+				$url->setVar($name, is_bool($value) ? ($value ? 'true' : 'false') : $value);
+			}
+		}
 
 		// Send the get request.
 		return $this->response->get(
@@ -60,6 +74,7 @@ class Users extends Api
 	 * @param   bool|null    $sendNotify          Send a notification email to the user (optional).
 	 * @param   int|null     $sourceId            Source ID (optional).
 	 * @param   string|null  $visibility          The user's visibility (optional).
+	 * @param   string|null  $createdAt           Original creation time in RFC 3339 format, for migrations.
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -74,7 +89,8 @@ class Users extends Api
 		?bool $restricted = null,
 		?bool $sendNotify = null,
 		?int $sourceId = null,
-		?string $visibility = null
+		?string $visibility = null,
+		?string $createdAt = null
 	): ?object
 	{
 		// Build the request path.
@@ -93,10 +109,15 @@ class Users extends Api
 		$data->source_id = $sourceId;
 		$data->visibility = $visibility;
 
+		if ($createdAt !== null)
+		{
+			$data->created_at = $createdAt;
+		}
+
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}
@@ -104,20 +125,28 @@ class Users extends Api
 	/**
 	 * Delete a user.
 	 *
+	 * @param   bool|null $purge  Explicitly purge all user data; null uses the server default.
+	 *
 	 * @param   string  $username  The user's display name.
 	 *
 	 * @return  string
 	 * @since   3.2.0
 	 **/
-	public function delete(string $username): string
+	public function delete(string $username, ?bool $purge = null): string
 	{
 		// Build the request path.
-		$path = "/admin/users/{$username}";
+		$path = '/admin/users/' . $this->segment($username);
+
+		$uri = $this->uri->get($path);
+		if ($purge !== null)
+		{
+			$uri->setVar('purge', $purge ? 'true' : 'false');
+		}
 
 		// Send the delete request.
 		return $this->response->get(
 			$this->http->delete(
-				$this->uri->get($path)
+				$uri
 			), 204, 'success'
 		);
 	}
@@ -128,22 +157,23 @@ class Users extends Api
 	 * @param   string  $username                   The user's display name.
 	 * @param   string  $loginName                  The user's login name.
 	 * @param   int     $sourceId                   The user's source ID.
-	 * @param   bool    $active                     Optional. Is the user active? Default: false.
-	 * @param   bool    $admin                      Optional. Is the user an admin? Default: false.
-	 * @param   bool    $allowCreateOrganization    Optional. Can the user create an organization? Default: false.
-	 * @param   bool    $allowGitHook               Optional. Can the user create Git hooks? Default: false.
-	 * @param   bool    $allowImportLocal           Optional. Can the user import local repositories? Default: false.
-	 * @param   string  $description                Optional. The user's description. Default: ''.
-	 * @param   string  $email                      Optional. The user's email address. Default: ''.
-	 * @param   string  $fullName                   Optional. The user's full name. Default: ''.
-	 * @param   string  $location                   Optional. The user's location. Default: ''.
-	 * @param   int     $maxRepoCreation            Optional. Maximum repositories the user can create. Default: 0.
-	 * @param   bool    $mustChangePassword         Optional. Must the user change their password? Default: false.
-	 * @param   string  $password                   Optional. The user's password. Default: ''.
-	 * @param   bool    $prohibitLogin              Optional. Is the user's login prohibited? Default: false.
-	 * @param   bool    $restricted                 Optional. Is the user restricted? Default: false.
-	 * @param   string  $visibility                 Optional. The user's visibility setting. Default: ''.
-	 * @param   string  $website                    Optional. The user's website. Default: ''.
+	 * @param   bool|null $active                     Optional. Is the user active? Omit to leave unchanged.
+	 * @param   bool|null $admin                      Optional. Is the user an admin? Omit to leave unchanged.
+	 * @param   bool|null $allowCreateOrganization    Optional. Can the user create an organization? Omit to leave unchanged.
+	 * @param   bool|null $allowGitHook               Optional. Can the user create Git hooks? Omit to leave unchanged.
+	 * @param   bool|null $allowImportLocal           Optional. Can the user import local repositories? Omit to leave unchanged.
+	 * @param   string|null $description                Optional. The user's description. Omit to leave unchanged.
+	 * @param   string|null $email                      Optional. The user's email address. Omit to leave unchanged.
+	 * @param   string|null $fullName                   Optional. The user's full name. Omit to leave unchanged.
+	 * @param   string|null $location                   Optional. The user's location. Omit to leave unchanged.
+	 * @param   int|null $maxRepoCreation            Optional. Maximum repositories the user can create. Omit to leave unchanged.
+	 * @param   bool|null $mustChangePassword         Optional. Must the user change their password? Omit to leave unchanged.
+	 * @param   string|null $password                   Optional. The user's password. Omit to leave unchanged.
+	 * @param   bool|null $prohibitLogin              Optional. Is the user's login prohibited? Omit to leave unchanged.
+	 * @param   bool|null $restricted                 Optional. Is the user restricted? Omit to leave unchanged.
+	 * @param   string|null $visibility                 Optional. The user's visibility setting. Omit to leave unchanged.
+	 * @param   string|null $website                    Optional. The user's website. Omit to leave unchanged.
+	 * @param   string|null $type                     User type (User or Bot), when explicitly changing it.
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -152,26 +182,27 @@ class Users extends Api
 		string $username,
 		string $loginName,
 		int $sourceId,
-		bool $active = false,
-		bool $admin = false,
-		bool $allowCreateOrganization = false,
-		bool $allowGitHook = false,
-		bool $allowImportLocal = false,
-		string $description = '',
-		string $email = '',
-		string $fullName = '',
-		string $location = '',
-		int $maxRepoCreation = 0,
-		bool $mustChangePassword = false,
-		string $password = '',
-		bool $prohibitLogin = false,
-		bool $restricted = false,
-		string $visibility = '',
-		string $website = ''
+		?bool $active = null,
+		?bool $admin = null,
+		?bool $allowCreateOrganization = null,
+		?bool $allowGitHook = null,
+		?bool $allowImportLocal = null,
+		?string $description = null,
+		?string $email = null,
+		?string $fullName = null,
+		?string $location = null,
+		?int $maxRepoCreation = null,
+		?bool $mustChangePassword = null,
+		?string $password = null,
+		?bool $prohibitLogin = null,
+		?bool $restricted = null,
+		?string $visibility = null,
+		?string $website = null,
+		?string $type = null
 	): ?object
 	{
 		// Build the request path.
-		$path = "/admin/users/{$username}";
+		$path = '/admin/users/' . $this->segment($username);
 
 		// Set the data.
 		$data = [
@@ -192,13 +223,18 @@ class Users extends Api
 			'prohibit_login' => $prohibitLogin,
 			'restricted' => $restricted,
 			'visibility' => $visibility,
-			'website' => $website
+			'website' => $website,
+			'type' => $type
 		];
+
+		$data = array_filter($data, static function ($value) {
+			return $value !== null;
+		});
 
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			)
 		);
 	}

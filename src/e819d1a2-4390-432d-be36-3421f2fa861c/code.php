@@ -36,6 +36,8 @@ class Labels extends Api
 	public function list(string $owner, string $repo, int $page = 1, int $limit = 10): ?array
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/labels";
 
 		// Get the URI object with the request path.
@@ -64,6 +66,8 @@ class Labels extends Api
 	public function get(string $owner, string $repo, int $index): ?array
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/labels";
 
 		// Send the get request.
@@ -82,12 +86,14 @@ class Labels extends Api
 	 * @param   int            $index      The issue index.
 	 * @param   array          $labels     An array of labels to replace the current issue labels.
 	 *
-	 * @return  object
+	 * @return  array|null
 	 * @since   3.2.0
 	 **/
-	public function replace(string $owner, string $repo, int $index, array $labels): object
+	public function replace(string $owner, string $repo, int $index, array $labels): ?array
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/labels";
 
 		// Build the request data.
@@ -97,7 +103,7 @@ class Labels extends Api
 		// Send the put request.
 		return $this->response->get(
 			$this->http->put(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			)
 		);
 	}
@@ -116,6 +122,8 @@ class Labels extends Api
 	public function add(string $owner, string $repo, int $index, array $labels): ?array
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/labels";
 
 		// Build the request data.
@@ -125,7 +133,7 @@ class Labels extends Api
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			)
 		);
 	}
@@ -144,6 +152,8 @@ class Labels extends Api
 	public function remove(string $owner, string $repo, int $index, int $labelId): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/labels/{$labelId}";
 
 		// Send the delete request.
@@ -167,6 +177,8 @@ class Labels extends Api
 	public function clear(string $owner, string $repo, int $index): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/labels";
 
 		// Send the delete request.

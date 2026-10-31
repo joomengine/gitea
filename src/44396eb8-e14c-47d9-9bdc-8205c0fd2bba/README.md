@@ -7,6 +7,7 @@
 
 class Issue  #Gold {
   + register(Container $container) : void
+  + getDeadline(Container $container) : Deadline
   + getIssue(Container $container) : Issu
   + getComments(Container $container) : Comments
   + getRepoComments(Container $container) : RepoComments
@@ -110,6 +111,13 @@ note right of Issue::getTimes
 
   since: 3.2.0
   return: Times
+end note
+
+note right of Issue::getDeadline
+  Get the Deadline class.
+
+  since: 3.2.0
+  return: Deadline
 end note
 
 @enduml

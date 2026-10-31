@@ -39,7 +39,7 @@ class Tokens extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/users/{$username}/tokens";
+		$path = '/users/' . $this->segment($username) . '/tokens';
 
 		// Build the URL
 		$url = $this->uri->get($path);
@@ -63,24 +63,30 @@ class Tokens extends Api
 	 *
 	 * @param   string   $username  The username of the user to create the access token for.
 	 * @param   string   $name      The name of the access token.
+	 * @param   array|null $scopes   Explicit access-token scopes; null uses the server default.
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
 	 **/
-	public function create(string $username, string $name): ?object
+	public function create(string $username, string $name, ?array $scopes = null): ?object
 	{
 		// Build the request path.
-		$path = "/users/{$username}/tokens";
+		$path = '/users/' . $this->segment($username) . '/tokens';
 
 		// Set the token data
 		$data = new \stdClass();
 		$data->name = $name;
 
+		if ($scopes !== null)
+		{
+			$data->scopes = array_values($scopes);
+		}
+
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -97,7 +103,7 @@ class Tokens extends Api
 	public function delete(string $username, string $token): string
 	{
 		// Build the request path.
-		$path = "/users/{$username}/tokens/{$token}";
+		$path = '/users/' . $this->segment($username) . '/tokens/' . $this->segment($token);
 
 		// Send the delete request.
 		return $this->response->get(

@@ -51,7 +51,7 @@ class Repository extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/notifications";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/notifications';
 
 		// Configure the URI with query parameters.
 		$uri = $this->uri->get($path);
@@ -63,12 +63,12 @@ class Repository extends Api
 		
 		if (!empty($statusTypes))
 		{
-			$uri->setVar('status-types', implode(',', $statusTypes));
+			$uri->setVar('status-types', array_values($statusTypes));
 		}
 		
 		if (!empty($subjectTypes))
 		{
-			$uri->setVar('subject-type', implode(',', $subjectTypes));
+			$uri->setVar('subject-type', array_values($subjectTypes));
 		}
 		
 		if (!empty($since))
@@ -113,7 +113,7 @@ class Repository extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/notifications";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/notifications';
 
 		// Configure the URI with query parameters.
 		$uri = $this->uri->get($path);
@@ -123,7 +123,7 @@ class Repository extends Api
 		}
 		if ($statusTypes !== null)
 		{
-			$uri->setVar('status-types', implode(',', $statusTypes));
+			$uri->setVar('status-types', array_values($statusTypes));
 		}
 		if ($toStatus !== null)
 		{

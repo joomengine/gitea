@@ -8,10 +8,14 @@
     ],
     "load_selection": null,
     "name": "Utilities",
-    "power_version": "1.0.0",
+    "power_version": "1.1.0",
     "system_name": "Joomla.Gitea.Service.Utilities",
     "type": "class",
     "use_selection": {
+        "use_selection2": {
+            "use": "6a20613d-d232-4f5b-8f86-8e41a20cd1a1",
+            "as": "default"
+        },
         "use_selection0": {
             "use": "61e813c6-a872-4f55-8078-198241170e80",
             "as": "default"

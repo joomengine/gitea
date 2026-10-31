@@ -45,7 +45,7 @@ class Releases extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/releases";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/releases';
 
 		// Set additional URI values.
 		$this->uri->setVar('page', $page);
@@ -81,6 +81,8 @@ class Releases extends Api
 	 * @param	bool     $isDraft			Whether the release is a draft.
 	 * @param	bool     $isPrerelease		Whether the release is a pre-release.
 	 *
+	 * @param   string|null $tagMessage Message for the annotated Git tag.
+	 *
 	 * @return  object|null
 	 * @since   3.2.0
 	 **/
@@ -92,11 +94,12 @@ class Releases extends Api
 		string $releaseName,
 		string $releaseBody,
 		bool $isDraft = false,
-		bool $isPrerelease = false
+		bool $isPrerelease = false,
+		?string $tagMessage = null
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/releases";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/releases';
 
 		// Set the release data
 		$data = new \stdClass();
@@ -107,10 +110,15 @@ class Releases extends Api
 		$data->draft = $isDraft;
 		$data->prerelease = $isPrerelease;
 
+		if ($tagMessage !== null)
+		{
+			$data->tag_message = $tagMessage;
+		}
+
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}
@@ -132,7 +140,7 @@ class Releases extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/releases/{$releaseId}";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/releases/' . $this->segment((string) $releaseId);
 
 		// Send the get request.
 		return $this->response->get(
@@ -159,7 +167,7 @@ class Releases extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/releases/{$releaseId}";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/releases/' . $this->segment((string) $releaseId);
 
 		// Send the delete request.
 		return $this->response->get(
@@ -198,50 +206,45 @@ class Releases extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/releases/{$releaseId}";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/releases/' . $this->segment((string) $releaseId);
 
 		// Set the release data
 		$data = new \stdClass();
 
-		if ($tagName !== null || $targetCommitish !== null || $releaseName !== null || $description !== null || $isDraft !== null || $isPrerelease !== null)
+		if ($tagName !== null)
 		{
-			$data->editReleaseOption = new \stdClass();
+			$data->tag_name = $tagName;
+		}
 
-			if ($tagName !== null)
-			{
-				$data->editReleaseOption->tag_name = $tagName;
-			}
+		if ($targetCommitish !== null)
+		{
+			$data->target_commitish = $targetCommitish;
+		}
 
-			if ($targetCommitish !== null)
-			{
-				$data->editReleaseOption->target_commitish = $targetCommitish;
-			}
+		if ($releaseName !== null)
+		{
+			$data->name = $releaseName;
+		}
 
-			if ($releaseName !== null)
-			{
-				$data->editReleaseOption->name = $releaseName;
-			}
+		if ($description !== null)
+		{
+			$data->body = $description;
+		}
 
-			if ($description !== null)
-			{
-				$data->editReleaseOption->body = $description;
-			}
+		if ($isDraft !== null)
+		{
+			$data->draft = $isDraft;
+		}
 
-			if ($isDraft !== null)
-			{
-				$data->editReleaseOption->draft = $isDraft;
-			}
-
-			if ($isPrerelease !== null)
-			{
-				$data->editReleaseOption->prerelease = $isPrerelease;
-			}
+		if ($isPrerelease !== null)
+		{
+			$data->prerelease = $isPrerelease;
 		}
 
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			)
 		);
 	}
@@ -263,12 +266,7 @@ class Releases extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/releases/tags/{$tagName}";
-
-		// Configure the URI with the path.
-		$this->uri->setVar('owner', $ownerName);
-		$this->uri->setVar('repo', $repoName);
-		$this->uri->setVar('tag', $tagName);
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/releases/tags/' . $this->segment($tagName);
 
 		// Send the get request.
 		return $this->response->get(
@@ -295,7 +293,7 @@ class Releases extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/releases/tags/{$tagName}";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/releases/tags/' . $this->segment($tagName);
 
 		// Send the delete request.
 		return $this->response->get(

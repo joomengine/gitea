@@ -34,7 +34,7 @@ class Teams extends Api
 	public function list(string $ownerOfRepo, string $nameOfRepo): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerOfRepo}/{$nameOfRepo}/teams";
+		$path = '/repos/' . $this->segment($ownerOfRepo) . '/' . $this->segment($nameOfRepo) . '/teams';
 
 		// Get the URI with the path.
 		$uri = $this->uri->get($path);
@@ -62,7 +62,7 @@ class Teams extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerOfRepo}/{$nameOfRepo}/teams/{$teamName}";
+		$path = '/repos/' . $this->segment($ownerOfRepo) . '/' . $this->segment($nameOfRepo) . '/teams/' . $this->segment($teamName);
 
 		// Get the URI with the path.
 		$uri = $this->uri->get($path);
@@ -90,7 +90,7 @@ class Teams extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/teams/{$teamName}";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/teams/' . $this->segment($teamName);
 
 		// Send the put request.
 		return $this->response->get(
@@ -117,7 +117,7 @@ class Teams extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/teams/{$teamName}";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/teams/' . $this->segment($teamName);
 
 		// Prepare the URI with the path.
 		$uri = $this->uri->get($path);

@@ -85,6 +85,19 @@ note right of Repository::edit
     ?object $internalTracker = null
     ?string $mirrorInterval = null
     ?bool $template = null
+    ?string $name = null
+    ?bool $hasActions = null
+    ?bool $hasPackages = null
+    ?bool $hasReleases = null
+    ?bool $hasCode = null
+    ?bool $allowFastForwardOnlyMerge = null
+    ?bool $allowMergeUpdate = null
+    ?bool $defaultAllowMaintainerEdit = null
+    ?string $defaultUpdateStyle = null
+    ?string $projectsMode = null
+    ?string $mirrorUsername = null
+    ?string $mirrorPassword = null
+    ?string $mirrorToken = null
 end note
 
 note right of Repository::create
@@ -105,10 +118,15 @@ note right of Repository::create
     ?string $readme = null
     ?bool $template = null
     ?string $trustModel = null
+    ?string $objectFormatName = null
 end note
 
 @enduml
 ```
+
+### Added in Power 1.1.0
+
+- `getById()` — retrieves `/repositories/{id}` without changing the existing `id(owner, repo)` alias.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

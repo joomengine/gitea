@@ -8,6 +8,9 @@
 class Response << (F,LightGreen) >> #RoyalBlue {
   + get(JoomlaResponse $response, int $expectedCode = 200, ...) : mixed
   + get_(JoomlaResponse $response, array $validate = [200 => null]) : mixed
+  + raw(JoomlaResponse $response, int $expectedCode = 200, ...) : mixed
+  # validate(JoomlaResponse $response, array $validate) : int
+  # read(JoomlaResponse $response) : string
   # body(JoomlaResponse $response, mixed $default = null) : mixed
   # error(JoomlaResponse $response) : string
 }
@@ -47,6 +50,14 @@ end note
 
 @enduml
 ```
+
+## Response behavior (Power 1.1.0)
+
+`get()` accepts one expected HTTP status; `get_()` accepts a status-to-default map, including null defaults. Unexpected statuses throw `DomainException` with the HTTP status code and available Gitea error details. PSR-7 response methods and legacy response properties are both supported.
+
+Valid JSON is decoded once. Integers larger than PHP's integer range remain strings to preserve precision. Empty bodies use the supplied default; nonempty whitespace and other non-JSON bytes are preserved. Valid `content_base64` fields retain the existing decoded `content` convenience; invalid base64 does not overwrite content.
+
+Use `raw($response, $expectedCode = 200, $default = null)` for exact file, archive, patch, or rendered Markdown bytes. It validates status without JSON decoding. Pass `''` as the default when an empty file must be returned as a string.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

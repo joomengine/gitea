@@ -1,0 +1,27 @@
+{
+    "guid": "6a20613d-d232-4f5b-8f86-8e41a20cd1a1",
+    "name": "Client",
+    "system_name": "Joomla.Gitea.Client",
+    "type": "final class",
+    "power_version": "1.0.0",
+    "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Client",
+    "description": "Gitea 28.2.0 operation client.",
+    "extends": "3d7af7a2-dabe-4111-b5fd-c5bfa8755469",
+    "extends_custom": "",
+    "implements": null,
+    "implements_custom": "",
+    "extendsinterfaces": null,
+    "extendsinterfaces_custom": "",
+    "use_selection": {
+        "use_selection0": {
+            "use": "b194b19f-e665-435a-925d-04158a61ef3e",
+            "as": "default"
+        }
+    },
+    "load_selection": null,
+    "add_head": 1,
+    "head": "use Joomla\\Http\\Response as JoomlaResponse;",
+    "add_licensing_template": 2,
+    "licensing_template": "/**\n * @package Joomla.Gitea\n * @copyright Copyright (C) 2026 Vast Development Method. All rights reserved.\n * @license GNU General Public License version 2 or later; see LICENSE.txt\n */\n",
+    "composer": ""
+}

@@ -61,19 +61,25 @@ class Following extends Api
 	public function check(string $username): bool
 	{
 		// Build the request path.
-		$path = "/user/following/{$username}";
+		$path = '/user/following/' . $this->segment($username);
 
 		// Send the get request.
 		$response = $this->http->get(
 			$this->uri->get($path)
 		);
 
-		// Check if the user is followed by the authenticated user.
-		if ($response->code === 204)
-        {
-			return true;
+		$code = method_exists($response, 'getStatusCode')
+			? (int) $response->getStatusCode()
+			: (int) ($response->code ?? 0);
+
+		if ($code === 404)
+		{
+			return false;
 		}
-		return false;
+
+		$this->response->get($response, 204, 'success');
+
+		return true;
 	}
 
 	/**
@@ -87,7 +93,7 @@ class Following extends Api
 	public function follow(string $username): string
 	{
 		// Build the request path.
-		$path = "/user/following/{$username}";
+		$path = '/user/following/' . $this->segment($username);
 
 		// Send the put request.
 		return $this->response->get(
@@ -108,7 +114,7 @@ class Following extends Api
 	public function unfollow(string $username): string
 	{
 		// Build the request path.
-		$path = "/user/following/{$username}";
+		$path = '/user/following/' . $this->segment($username);
 
 		// Send the delete request.
 		return $this->response->get(

@@ -35,6 +35,7 @@ class PublicMembers extends Api
 	public function list(string $orgName, int $page = 1, int $limit = 10): ?array
 	{
 		// Build the request path.
+		$orgName = $this->segment($orgName);
 		$path = "/orgs/{$orgName}/public_members";
 
 		// Configure the request URI.
@@ -61,6 +62,8 @@ class PublicMembers extends Api
 	public function check(string $org, string $username): ?string
 	{
 		// Build the request path.
+		$org = $this->segment($org);
+		$username = $this->segment($username);
 		$path = "/orgs/{$org}/public_members/{$username}";
 
 		// Send the get request.
@@ -83,6 +86,8 @@ class PublicMembers extends Api
 	public function publicize(string $org, string $username): ?string
 	{
 		// Build the request path.
+		$org = $this->segment($org);
+		$username = $this->segment($username);
 		$path = "/orgs/{$org}/public_members/{$username}";
 
 		// Send the put request.
@@ -105,6 +110,8 @@ class PublicMembers extends Api
 	public function conceal(string $org, string $username): string
 	{
 		// Build the request path.
+		$org = $this->segment($org);
+		$username = $this->segment($username);
 		$path = "/orgs/{$org}/public_members/{$username}";
 
 		// Send the delete request.

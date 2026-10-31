@@ -6,27 +6,30 @@
 ```uml
 @startuml
 
-class Cron  #Gold {
+class Cron #Gold {
   + list(int $page = 1, int $limit = 10) : ?array
   + run(string $task) : string
 }
 
 note right of Cron::list
-  List cron tasks.
-
-  since: 3.2.0
   return: ?array
+  arguments:
+    int $page = 1
+    int $limit = 10
 end note
 
 note right of Cron::run
-  Run cron task.
-
-  since: 3.2.0
   return: string
+  arguments:
+    string $task
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+`run()` sends an explicit empty POST body, as required by the Joomla HTTP method signature.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

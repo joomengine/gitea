@@ -37,8 +37,8 @@ note right of Mirrors::add
     string $owner
     string $repo
     string $remoteAddress
-    ?string $remoteUsername = null
-    ?string $remotePassword = null
+    ?string $remoteUsername
+    ?string $remotePassword
     string $interval
     bool $syncOnCommit
 end note

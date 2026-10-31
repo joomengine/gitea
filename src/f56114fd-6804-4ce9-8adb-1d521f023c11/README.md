@@ -53,6 +53,9 @@ note left of Pulls::create
     ?array $labels = null
     ?int $milestone = null
     ?string $dueDate = null
+    ?array $reviewers = null
+    ?array $teamReviewers = null
+    ?bool $allowMaintainerEdit = null
 end note
 
 note right of Pulls::get
@@ -88,6 +91,7 @@ note left of Pulls::update
     ?string $dueDate = null
     ?bool $unsetDueDate = null
     ?bool $allowMaintainerEdit = null
+    ?int $contentVersion = null
 end note
 
 note right of Pulls::diff

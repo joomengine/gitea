@@ -3,6 +3,8 @@
 > namespace: **VDM\Joomla\Gitea\Organization**
 > extends: **Api**
 
+`update()` leaves the description unchanged when omitted; an explicit empty string clears it.
+
 ```uml
 @startuml
 
@@ -64,7 +66,7 @@ note right of Labels::update
     int $id
     string $name = ''
     string $color = ''
-    string $description = ''
+    ?string $description = null
 end note
 
 @enduml

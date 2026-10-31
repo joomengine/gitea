@@ -6,7 +6,7 @@
 ```uml
 @startuml
 
-class Repos  #Gold {
+class Repos #Gold {
   + create(string $name, ?string $description = null, ...) : ?object
   + list(int $page = 1, int $limit = 10) : ?array
   + star(string $owner, string $repo) : string
@@ -14,11 +14,7 @@ class Repos  #Gold {
 }
 
 note right of Repos::create
-  Create a repository for the authenticated user.
-
-  since: 3.2.0
   return: ?object
-  
   arguments:
     string $name
     ?string $description = null
@@ -31,31 +27,36 @@ note right of Repos::create
     ?string $readme = null
     ?bool $template = null
     ?string $trustModel = null
+    ?string $objectFormatName = null
 end note
 
 note right of Repos::list
-  List the repos that the authenticated user owns.
-
-  since: 3.2.0
   return: ?array
+  arguments:
+    int $page = 1
+    int $limit = 10
 end note
 
 note right of Repos::star
-  Star the given repo for the authenticated user.
-
-  since: 3.2.0
   return: string
+  arguments:
+    string $owner
+    string $repo
 end note
 
 note right of Repos::unstar
-  Unstar the given repo for the authenticated user.
-
-  since: 3.2.0
   return: string
+  arguments:
+    string $owner
+    string $repo
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+`create()` accepts optional `objectFormatName` (`sha1` or `sha256`). Existing creation arguments keep their order and names. JSON encoding errors fail before network access.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

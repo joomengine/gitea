@@ -27,13 +27,15 @@ class Activitypub extends Api
 	 *
 	 * @param   string  $username  The user's username.
 	 *
+	 * Gitea 28.2.0 keeps this legacy route as Not Implemented.
+	 *
 	 * @return  object|null
 	 * @since   3.2.0
 	 **/
 	public function get(string $username): ?object
 	{
 		// Build the request path.
-		$path = "/activitypub/user/{$username}";
+		$path = '/activitypub/user/' . $this->segment($username);
 
 		// Send the GET request.
 		return $this->response->get(
@@ -49,18 +51,20 @@ class Activitypub extends Api
 	 * @param   string  $username   The user's username.
 	 * @param   object  $postData   The post data.
 	 *
+	 * Gitea 28.2.0 keeps this legacy route as Not Implemented.
+	 *
 	 * @return  string
 	 * @since   3.2.0
 	 **/
 	public function send(string $username, object $postData): string
 	{
 		// Build the request path.
-		$path = "/activitypub/user/{$username}/inbox";
+		$path = '/activitypub/user/' . $this->segment($username) . '/inbox';
 
 		// Send the POST request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($postData)
+				$this->uri->get($path), $this->encode($postData)
 			), 204, 'success'
 		);
 	}

@@ -6,27 +6,30 @@
 ```uml
 @startuml
 
-class Activitypub  #Gold {
+class Activitypub #Gold {
   + get(string $username) : ?object
   + send(string $username, object $postData) : string
 }
 
 note right of Activitypub::get
-  Returns the Person actor for a user.
-
-  since: 3.2.0
   return: ?object
+  arguments:
+    string $username
 end note
 
 note right of Activitypub::send
-  Send to the user's inbox.
-
-  since: 3.2.0
   return: string
+  arguments:
+    string $username
+    object $postData
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+Gitea 28.2.0 deliberately routes the legacy ActivityPub API to Not Implemented. Existing methods remain available for older servers and report the upstream failure on 28.2.0; they are not advertised as current functionality.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

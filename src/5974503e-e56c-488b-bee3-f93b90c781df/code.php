@@ -34,7 +34,7 @@ class Gpg extends Api
 		$path = "/signing-key.gpg";
 
 		// Send the get request.
-		return $this->response->get(
+		return $this->response->raw(
 			$this->http->get(
 				$this->uri->get($path)
 			)

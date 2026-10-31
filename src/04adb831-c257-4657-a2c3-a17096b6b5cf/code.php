@@ -41,7 +41,7 @@ class Transfer extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/transfer";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/transfer';
 
 		// Set the transfer data.
 		$data = new \stdClass();
@@ -55,7 +55,7 @@ class Transfer extends Api
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 202
 		);
 	}
@@ -72,13 +72,11 @@ class Transfer extends Api
 	public function accept(string $owner, string $repo): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/transfer/accept";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/transfer/accept';
 
 		// Send the post request.
 		return $this->response->get(
-			$this->http->post(
-				$this->uri->get($path)
-			), 202
+			$this->http->post($this->uri->get($path), ''), 202
 		);
 	}
 
@@ -94,13 +92,11 @@ class Transfer extends Api
 	public function reject(string $owner, string $repo): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/transfer/reject";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/transfer/reject';
 
 		// Send the post request.
 		return $this->response->get(
-			$this->http->post(
-				$this->uri->get($path)
-			)
+			$this->http->post($this->uri->get($path), '')
 		);
 	}
 

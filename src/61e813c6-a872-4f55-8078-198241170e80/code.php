@@ -80,9 +80,42 @@ final class Uri
 	public function get(string $path): JoomlaUri
 	{
 		// Get a new Uri object focusing the api url and given path.
-		$uri = new JoomlaUri($this->api() . $path);
+		return new class($this->api() . ($path === '' ? '' : '/' . ltrim($path, '/'))) extends JoomlaUri
+		{
+			/**
+			 * Encode API query values without Joomla's URL-decoding step.
+			 * Flat arrays use OpenAPI collectionFormat=multi (repeated keys).
+			 */
+			protected static function buildQuery(array $params)
+			{
+				$query = [];
 
-		return $uri;
+				foreach ($params as $name => $values)
+				{
+					foreach (is_array($values) ? $values : [$values] as $value)
+					{
+						if ($value === null)
+						{
+							continue;
+						}
+
+						if (!is_scalar($value))
+						{
+							throw new \InvalidArgumentException('Gitea query values must be scalars or flat arrays of scalars.');
+						}
+
+						if (is_bool($value))
+						{
+							$value = $value ? 'true' : 'false';
+						}
+
+						$query[] = rawurlencode((string) $name) . '=' . rawurlencode((string) $value);
+					}
+				}
+
+				return implode('&', $query);
+			}
+		};
 	}
 
 	/**
@@ -107,7 +140,7 @@ final class Uri
 	 **/
 	public function setUrl(string $url)
 	{
-		$this->url = $url;
+		$this->url = rtrim($url, '/');
 	}
 
 	/**
@@ -131,7 +164,7 @@ final class Uri
 	 **/
 	private function setEndpoint(string $endpoint)
 	{
-		$this->endpoint = $endpoint;
+		$this->endpoint = trim($endpoint, '/');
 	}
 
 	/**
@@ -144,7 +177,7 @@ final class Uri
 	 **/
 	private function setVersion($version)
 	{
-		$this->version = $version;
+		$this->version = trim($version, '/');
 	}
 }
 

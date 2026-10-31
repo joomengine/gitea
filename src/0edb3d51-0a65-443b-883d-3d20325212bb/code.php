@@ -34,7 +34,7 @@ class Protection extends Api
 	public function list(string $ownerName, string $repositoryName): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repositoryName}/branch_protections";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repositoryName) . '/branch_protections';
 
 		// Get the URI with the path.
 		$uri = $this->uri->get($path);
@@ -73,6 +73,8 @@ class Protection extends Api
 	 * @param	array   $statusCheckContexts				An array of status check contexts (optional).
 	 * @param	string  $unprotectedFilePatterns			Unprotected file patterns (optional).
 	 *
+	 * @param   string|null $ruleName Branch protection pattern (current replacement for branch_name).
+	 *
 	 * @return  object|null
 	 * @since   3.2.0
 	 **/
@@ -100,16 +102,17 @@ class Protection extends Api
 		bool $requireSignedCommits = false,
 		int $requiredApprovals = 0,
 		array $statusCheckContexts = [],
-		string $unprotectedFilePatterns = ''
+		string $unprotectedFilePatterns = '',
+		?string $ruleName = null
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/branch_protections";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/branch_protections';
 
 		// Set the branch protection data.
 		$data = new \stdClass();
 		$data->branch_name = $branchName;
-		$data->approvals_whitelist_usernames = $approvalsWhitelistUsernames;
+		$data->approvals_whitelist_username = $approvalsWhitelistUsernames;
 		$data->approvals_whitelist_teams = $approvalsWhitelistTeams;
 		$data->block_on_official_review_requests = $blockOnOfficialReviewRequests;
 		$data->block_on_outdated_branch = $blockOnOutdatedBranch;
@@ -131,10 +134,15 @@ class Protection extends Api
 		$data->status_check_contexts = $statusCheckContexts;
 		$data->unprotected_file_patterns = $unprotectedFilePatterns;
 
+		if ($ruleName !== null)
+		{
+			$data->rule_name = $ruleName;
+		}
+
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}
@@ -156,7 +164,7 @@ class Protection extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/branch_protections/{$branchName}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/branch_protections/' . $this->segment($branchName);
 
 		// Get the URI object with the given path.
 		$uri = $this->uri->get($path);
@@ -184,12 +192,9 @@ class Protection extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/branch_protections/{$branchName}";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/branch_protections/' . $this->segment($branchName);
 
 		// Set the required variables in the URI.
-		$this->uri->setVar('owner', $ownerName);
-		$this->uri->setVar('repo', $repoName);
-		$this->uri->setVar('name', $branchName);
 
 		// Send the delete request.
 		return $this->response->get(
@@ -258,7 +263,7 @@ class Protection extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/branch_protections/{$name}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/branch_protections/' . $this->segment($name);
 
 		// Set the branch protection data.
 		$data = new \stdClass();
@@ -270,7 +275,7 @@ class Protection extends Api
 
 		if ($approvalsWhitelistUsernames !== null)
 		{
-		    $data->approvals_whitelist_usernames = $approvalsWhitelistUsernames;
+		    $data->approvals_whitelist_username = $approvalsWhitelistUsernames;
 		}
 
 		if ($blockOnOfficialReviewRequests !== null)
@@ -371,7 +376,7 @@ class Protection extends Api
 		// Send the patch request.
 		return $this->response->get(
 		    $this->http->patch(
-		        $this->uri->get($path), json_encode($data)
+		        $this->uri->get($path), $this->encode($data)
 		    )
 		);
 	}

@@ -1,0 +1,389 @@
+	/**
+	 * Call any documented Gitea 28.2.0 operation.
+	 *
+	 * Path/query names are those in the upstream schema, not the legacy wrappers.
+	 * JSON bodies are PHP arrays/objects. Plain bodies are strings. Multipart
+	 * bodies contain attachment => [filename => string, content => string].
+	 *
+	 * @return mixed Decoded JSON, exact text/binary, null for an empty JSON body,
+	 *               or JoomlaResponse for a documented redirect.
+	 * @throws \InvalidArgumentException for malformed operation parameters.
+	 * @throws \DomainException for an unexpected HTTP status.
+	 */
+	public function call(string $operationId, array $path = [], array $query = [], $body = null, array $headers = [])
+	{
+		$operation = Operations::get($operationId);
+		$response = $this->request($operationId, $path, $query, $body, $headers);
+		$status = $this->status($response);
+
+		// Redirects are returned intact so callers can inspect Location without
+		// forwarding a Gitea token to an artifact's external storage service.
+		if ($status >= 300)
+		{
+			return $response;
+		}
+
+		$contentType = method_exists($response, 'getHeaderLine')
+			? strtolower($response->getHeaderLine('Content-Type')) : '';
+		// File endpoints must preserve bytes even when serving a JSON file.
+		$raw = count(array_intersect($operation['produces'], ['application/octet-stream', 'application/zip'])) > 0;
+		$json = !$raw && ($contentType !== ''
+			? strpos($contentType, 'application/json') !== false || strpos($contentType, '+json') !== false
+			: $operation['produces'] === ['application/json']);
+
+		return $json ? $this->response->get($response, $status)
+			: $this->response->raw($response, $status, '');
+	}
+
+	/**
+	 * Execute an operation and retain headers, status and exact response bytes.
+	 *
+	 * Useful for pagination, rate limits, downloads and documented redirects.
+	 * Requests are never retried or paginated implicitly. Standard transports do
+	 * not follow redirects; injected transports must honor the same contract.
+	 */
+	public function request(string $operationId, array $path = [], array $query = [], $body = null, array $headers = []): JoomlaResponse
+	{
+		$operation = Operations::get($operationId);
+		$headers = $this->headers($headers);
+		$url = $this->url($operation, $path, $query);
+		[$data, $contentType] = $this->payload($operation, $body);
+
+		if ($contentType !== null)
+		{
+			if (isset($headers['Content-Type']) && $headers['Content-Type'] !== $contentType)
+			{
+				throw new \InvalidArgumentException('Content-Type is determined by the operation and body.');
+			}
+
+			$headers['Content-Type'] = $contentType;
+		}
+
+		if (!isset($headers['Accept']) && $operation['produces'] !== [])
+		{
+			$headers['Accept'] = implode(', ', $operation['produces']);
+		}
+
+		$method = $operation['method'];
+		$followLocation = $this->http->getOption('follow_location', true);
+		$this->http->setOption('follow_location', false);
+
+		try
+		{
+			if (in_array($method, ['get', 'head', 'options'], true))
+			{
+				$response = $this->http->{$method}($url, $headers);
+			}
+			elseif ($method === 'delete')
+			{
+				$response = $this->http->delete($url, $headers, null, $data);
+			}
+			else
+			{
+				$response = $this->http->{$method}($url, $data, $headers);
+			}
+		}
+		finally
+		{
+			$this->http->setOption('follow_location', $followLocation);
+		}
+
+		$status = $this->status($response);
+
+		if (!in_array($status, $operation['success'], true))
+		{
+			// Reuse the shared error handling; an unexpected status must not become
+			// a success merely because its body looks like JSON.
+			$this->response->raw($response, $operation['success'][0]);
+		}
+
+		return $response;
+	}
+
+	/** Validate path/query parameters and encode each value independently. */
+	private function url(array $operation, array $path, array $query): string
+	{
+		$route = $operation['path'];
+		$provided = ['path' => $path, 'query' => $query];
+		$parts = [];
+
+		foreach ($operation['parameters'] as $parameter)
+		{
+			$location = $parameter['in'];
+
+			if (!isset($provided[$location]))
+			{
+				continue;
+			}
+
+			$name = $parameter['name'];
+			$exists = array_key_exists($name, $provided[$location]);
+			$value = $exists ? $provided[$location][$name] : null;
+			unset($provided[$location][$name]);
+
+			if ($value === null)
+			{
+				if (!empty($parameter['required']))
+				{
+					throw new \InvalidArgumentException('Missing ' . $location . ' parameter: ' . $name);
+				}
+
+				continue;
+			}
+
+			$this->validateValue($value, $parameter, $name);
+
+			if ($location === 'path')
+			{
+				if ((string) $value === '')
+				{
+					throw new \InvalidArgumentException('Empty path parameter: ' . $name);
+				}
+
+				$route = str_replace('{' . $name . '}', $this->segment((string) $value), $route);
+			}
+			elseif (is_array($value))
+			{
+				$format = $parameter['collectionFormat'] ?? 'csv';
+
+				if ($format === 'multi')
+				{
+					foreach ($value as $item)
+					{
+						$parts[] = rawurlencode($name) . '=' . rawurlencode($this->scalar($item));
+					}
+				}
+				else
+				{
+					$separators = ['csv' => ',', 'ssv' => ' ', 'tsv' => "\t", 'pipes' => '|'];
+
+					if (!isset($separators[$format]))
+					{
+						throw new \LogicException('Unsupported query collection format: ' . $format);
+					}
+
+					$parts[] = rawurlencode($name) . '=' . rawurlencode(implode($separators[$format], array_map([$this, 'scalar'], $value)));
+				}
+			}
+			else
+			{
+				$parts[] = rawurlencode($name) . '=' . rawurlencode($this->scalar($value));
+			}
+		}
+
+		foreach ($provided as $location => $values)
+		{
+			if ($values !== [])
+			{
+				throw new \InvalidArgumentException('Unknown ' . $location . ' parameter: ' . (string) array_key_first($values));
+			}
+		}
+
+		// The URI constructor preserves repeated query keys; setQuery() would
+		// parse and collapse them in Joomla's URI implementation.
+		return (string) $this->uri->get($route) . ($parts === [] ? '' : '?' . implode('&', $parts));
+	}
+
+	/** Validate only transport parameter types; object schemas remain server-owned. */
+	private function validateValue($value, array $parameter, string $name): void
+	{
+		$type = $parameter['type'] ?? 'string';
+		$valid = ($type === 'string' && is_string($value))
+			|| ($type === 'integer' && is_int($value))
+			|| ($type === 'number' && (is_int($value) || is_float($value)))
+			|| ($type === 'boolean' && is_bool($value))
+			|| ($type === 'array' && is_array($value) && array_is_list($value));
+
+		if (!$valid || (isset($parameter['enum']) && !in_array($value, $parameter['enum'], true))
+			|| (isset($parameter['minimum']) && $value < $parameter['minimum'])
+			|| (isset($parameter['maximum']) && $value > $parameter['maximum']))
+		{
+			throw new \InvalidArgumentException('Invalid ' . $type . ' parameter: ' . $name);
+		}
+
+		if ($type === 'array')
+		{
+			foreach ($value as $item)
+			{
+				$this->validateValue($item, $parameter['items'] ?? ['type' => 'string'], $name);
+			}
+		}
+	}
+
+	/** Serialize boolean query values as Gitea's documented true/false values. */
+	private function scalar($value): string
+	{
+		return is_bool($value) ? ($value ? 'true' : 'false') : (string) $value;
+	}
+
+	/** Encode JSON/plain/multipart input without reading arbitrary local files. */
+	private function payload(array $operation, $body): array
+	{
+		$bodyParameter = null;
+		$form = [];
+
+		foreach ($operation['parameters'] as $parameter)
+		{
+			if ($parameter['in'] === 'body')
+			{
+				$bodyParameter = $parameter;
+			}
+			elseif ($parameter['in'] === 'formData')
+			{
+				$form[$parameter['name']] = $parameter;
+			}
+		}
+
+		if (is_string($body) && in_array('application/octet-stream', $operation['consumes'], true))
+		{
+			return [$body, 'application/octet-stream'];
+		}
+
+		if ($form !== [])
+		{
+			return $this->multipart($form, $body);
+		}
+
+		if ($bodyParameter === null)
+		{
+			if ($body !== null)
+			{
+				throw new \InvalidArgumentException('This operation does not accept a body.');
+			}
+
+			return ['', null];
+		}
+
+		if ($body === null)
+		{
+			if (!empty($bodyParameter['required']))
+			{
+				throw new \InvalidArgumentException('This operation requires a body.');
+			}
+
+			return ['', null];
+		}
+
+		$type = $bodyParameter['type'];
+
+		if ($type === 'object')
+		{
+			if (!(is_object($body) || (is_array($body) && ($body === [] || !array_is_list($body)))))
+			{
+				throw new \InvalidArgumentException('This operation requires an object body.');
+			}
+
+			$body = (object) $body;
+
+			foreach ($bodyParameter['requiredProperties'] as $property)
+			{
+				if (!isset($body->{$property}))
+				{
+					throw new \InvalidArgumentException('Missing body property: ' . $property);
+				}
+			}
+		}
+		else
+		{
+			$this->validateValue($body, ['type' => $type], 'body');
+		}
+
+		if (in_array('text/plain', $operation['consumes'], true))
+		{
+			return [$body, 'text/plain'];
+		}
+
+		return [json_encode($body, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES), 'application/json'];
+	}
+
+	/** Build binary-safe multipart content for attachment endpoints. */
+	private function multipart(array $parameters, $body): array
+	{
+		if (!is_array($body))
+		{
+			throw new \InvalidArgumentException('Multipart body must be an array of attachment fields.');
+		}
+
+		$boundary = 'gitea-' . bin2hex(random_bytes(24));
+		$data = '';
+
+		foreach ($parameters as $name => $parameter)
+		{
+			if (!array_key_exists($name, $body))
+			{
+				if (!empty($parameter['required']))
+				{
+					throw new \InvalidArgumentException('Missing attachment: ' . $name);
+				}
+
+				continue;
+			}
+
+			$file = $body[$name];
+			unset($body[$name]);
+
+			if (!is_array($file) || !isset($file['filename'], $file['content'])
+				|| !is_string($file['filename']) || $file['filename'] === '' || !is_string($file['content'])
+				|| preg_match('/[\r\n\x00]/', $file['filename']))
+			{
+				throw new \InvalidArgumentException('Attachment requires a filename and string content: ' . $name);
+			}
+
+			$contentType = $file['contentType'] ?? 'application/octet-stream';
+
+			if (!is_string($contentType) || !preg_match('~^[a-zA-Z0-9!#$&^_.+-]+/[a-zA-Z0-9!#$&^_.+-]+$~D', $contentType))
+			{
+				throw new \InvalidArgumentException('Invalid attachment content type.');
+			}
+
+			$filename = str_replace(['\\', '"'], ['\\\\', '\\"'], $file['filename']);
+			$data .= '--' . $boundary . "\r\nContent-Disposition: form-data; name=\"" . $name
+				. '"; filename="' . $filename . "\"\r\nContent-Type: " . $contentType
+				. "\r\n\r\n" . $file['content'] . "\r\n";
+		}
+
+		if ($body !== [])
+		{
+			throw new \InvalidArgumentException('Unknown multipart field: ' . (string) array_key_first($body));
+		}
+
+		return [$data . '--' . $boundary . "--\r\n", 'multipart/form-data; boundary=' . $boundary];
+	}
+
+	/** Normalize casing to prevent duplicate default authentication/content headers. */
+	private function headers(array $headers): array
+	{
+		$normalized = [];
+
+		foreach ($headers as $name => $value)
+		{
+			if (!is_string($name) || !preg_match('/^[A-Za-z0-9-]+$/D', $name)
+				|| !is_string($value) || preg_match('/[\r\n\x00]/', $value))
+			{
+				throw new \InvalidArgumentException('Invalid HTTP header.');
+			}
+
+			$name = implode('-', array_map('ucfirst', explode('-', strtolower($name))));
+
+			if ($name === 'Content-Length' || $name === 'Host')
+			{
+				throw new \InvalidArgumentException('HTTP transport determines ' . $name . '.');
+			}
+
+			if (isset($normalized[$name]))
+			{
+				throw new \InvalidArgumentException('Duplicate HTTP header: ' . $name);
+			}
+
+			$normalized[$name] = $value;
+		}
+
+		return $normalized;
+	}
+
+	/** Read both the supported Joomla response representations. */
+	private function status(JoomlaResponse $response): int
+	{
+		return method_exists($response, 'getStatusCode')
+			? $response->getStatusCode() : (int) $response->code;
+	}

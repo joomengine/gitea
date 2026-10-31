@@ -3,6 +3,8 @@
 > namespace: **VDM\Joomla\Gitea\Issue\Reactions**
 > extends: **Api**
 
+Gitea 28.2.0: adding a reaction accepts HTTP 200 (already present) and 201 (created). Removing a reaction sends `content` in the JSON DELETE body and expects HTTP 204.
+
 ```uml
 @startuml
 

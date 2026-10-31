@@ -44,7 +44,7 @@ class Unadopted extends Api
 
 		if (!empty($pattern)) 
 		{
-			$uri->setVar('pattern', $pattern);
+			$uri->setVar('query', $pattern);
 		}
 
 		// Send the get request.
@@ -65,7 +65,7 @@ class Unadopted extends Api
 	public function adopt(string $owner, string $repo): string
 	{
 		// Build the request path.
-		$path = "/admin/unadopted/{$owner}/{$repo}";
+		$path = '/admin/unadopted/' . $this->segment($owner) . '/' . $this->segment($repo);
 
 		// Send the post request.
 		return $this->response->get(
@@ -87,7 +87,7 @@ class Unadopted extends Api
 	public function delete(string $owner, string $repo): string
 	{
 		// Build the request path.
-		$path = "/admin/unadopted/{$owner}/{$repo}";
+		$path = '/admin/unadopted/' . $this->segment($owner) . '/' . $this->segment($repo);
 
 		// Send the delete request.
 		return $this->response->get(

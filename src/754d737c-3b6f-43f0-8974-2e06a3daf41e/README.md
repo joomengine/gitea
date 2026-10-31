@@ -46,6 +46,7 @@ note right of Releases::create
     string $releaseBody
     bool $isDraft = false
     bool $isPrerelease = false
+    ?string $tagMessage = null
 end note
 
 note right of Releases::get

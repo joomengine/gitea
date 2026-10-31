@@ -35,6 +35,8 @@ class Stopwatch extends Api
 	public function start(string $owner, string $repo, int $index): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/stopwatch/start";
 
 		// Send the post request.
@@ -58,6 +60,8 @@ class Stopwatch extends Api
 	public function stop(string $owner, string $repo, int $index): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/stopwatch/stop";
 
 		// Send the post request.
@@ -81,6 +85,8 @@ class Stopwatch extends Api
 	public function delete(string $owner, string $repo, int $index): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/stopwatch/delete";
 
 		// Send the delete request.

@@ -29,7 +29,7 @@ note right of Git::get
   arguments:
     string $ownerName
     string $repoName
-    int $hookId
+    string|int $hookId
 end note
 
 note right of Git::delete

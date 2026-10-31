@@ -3,6 +3,8 @@
 > namespace: **VDM\Joomla\Gitea**
 > extends: **Api**
 
+Gitea 28.2.0: issue edits send flat `assignee`, `assignees`, `due_date` and `unset_due_date` fields and accept HTTP 201. Creation accepts optional project IDs and a Git reference; editing accepts project IDs and `contentVersion` for conflict detection. Search accepts `reviewed` and `createdBy`. The legacy `priorityRepoId` argument is retained but no longer transmitted because the current API does not support it. Dates use RFC 3339.
+
 ```uml
 @startuml
 
@@ -66,6 +68,8 @@ note right of Issue::create
     ?string $dueDate = null
     ?array $labelIds = null
     ?int $milestoneId = null
+    ?array $projects = null
+    ?string $ref = null
 end note
 
 note right of Issue::search
@@ -91,6 +95,8 @@ note right of Issue::search
     ?bool $reviewRequested = null
     ?string $owner = null
     ?string $team = null
+    ?bool $reviewed = null
+    ?string $createdBy = null
 end note
 
 note right of Issue::edit
@@ -112,6 +118,8 @@ note right of Issue::edit
     ?string $state = null
     ?string $title = null
     ?bool $unsetDueDate = null
+    ?array $projects = null
+    ?int $contentVersion = null
 end note
 
 note right of Issue::delete

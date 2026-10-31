@@ -31,7 +31,7 @@ class Subscriptions extends Api
 	 * @param   int|null    $page       Optional. Page number of results to return (1-based).
 	 * @param   int|null    $limit      Optional. Page size of results.
 	 *
-	 * @return  object|null
+	 * @return  array|null
 	 * @since   3.2.0
 	 **/
 	public function get(
@@ -40,9 +40,11 @@ class Subscriptions extends Api
 		int $index,
 		?int $page = null,
 		?int $limit = null
-	): ?object
+	): ?array
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/subscriptions";
 
 		// Set the query parameters.
@@ -75,6 +77,8 @@ class Subscriptions extends Api
 	public function check(string $owner, string $repo, int $index): ?object
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/subscriptions/check";
 
 		// Send the get request.
@@ -99,6 +103,9 @@ class Subscriptions extends Api
 	public function subscribe(string $owner, string $repo, int $index, string $user): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
+		$user = $this->segment($user);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/subscriptions/{$user}";
 
 		// Send the put request.
@@ -123,6 +130,9 @@ class Subscriptions extends Api
 	public function unsubscribe(string $owner, string $repo, int $index, string $user): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
+		$user = $this->segment($user);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/subscriptions/{$user}";
 
 		// Send the delete request.

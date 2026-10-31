@@ -38,7 +38,7 @@ class Contents extends Api implements ContentsInterface
 	public function get(string $owner, string $repo, string $filepath, ?string $ref = null)
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/raw/{$filepath}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/raw/' . $this->path($filepath);
 
 		// Get the URI with the specified path.
 		$uri = $this->uri->get($path);
@@ -71,7 +71,7 @@ class Contents extends Api implements ContentsInterface
 	public function metadata(string $owner, string $repo, string $filepath, ?string $ref = null): null|array|object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/contents/{$filepath}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/contents/' . $this->path($filepath);
 
 		// Get the URI with the specified path.
 		$uri = $this->uri->get($path);
@@ -126,7 +126,7 @@ class Contents extends Api implements ContentsInterface
 		?bool $signoff = null
 	): ?object {
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/contents/{$filepath}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/contents/' . $this->path($filepath);
 
 		// Set the post data
 		$data = new \stdClass();
@@ -186,7 +186,7 @@ class Contents extends Api implements ContentsInterface
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}
@@ -204,7 +204,7 @@ class Contents extends Api implements ContentsInterface
 	public function root(string $owner, string $repo, ?string $ref = null): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/contents";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/contents';
 
 		// Get the URI with the specified path.
 		$uri = $this->uri->get($path);
@@ -265,7 +265,7 @@ class Contents extends Api implements ContentsInterface
 		?bool $signoff = null
 	): ?object {
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/contents/{$filepath}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/contents/' . $this->path($filepath);
 
 		// Set the file data.
 		$data = new \stdClass();
@@ -338,7 +338,7 @@ class Contents extends Api implements ContentsInterface
 		return $this->response->get(
 			$this->http->put(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			)
 		);
 	}
@@ -381,7 +381,7 @@ class Contents extends Api implements ContentsInterface
 		?bool $signoff = null
 	): ?object {
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/contents/{$filepath}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/contents/' . $this->path($filepath);
 
 		// Set the file data.
 		$data = new \stdClass();
@@ -451,7 +451,7 @@ class Contents extends Api implements ContentsInterface
 		return $this->response->get(
 			$this->http->delete(
 				$this->uri->get($path), [], null,
-				json_encode($data)
+				$this->encode($data)
 			)
 		);
 	}
@@ -470,7 +470,7 @@ class Contents extends Api implements ContentsInterface
 	public function editor(string $owner, string $repo, string $filepath, ?string $ref = null): ?string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/editorconfig/{$filepath}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/editorconfig/' . $this->path($filepath);
 
 		// Set the request parameters.
 		$uri = $this->uri->get($path);
@@ -481,9 +481,7 @@ class Contents extends Api implements ContentsInterface
 		}
 
 		// Send the get request.
-		return $this->response->get(
-			$this->http->get($uri)
-		);
+		return $this->response->raw($this->http->get($uri), 200, '');
 	}
 
 	/**
@@ -499,7 +497,7 @@ class Contents extends Api implements ContentsInterface
 	public function blob(string $owner, string $repo, string $sha): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/git/blobs/{$sha}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/git/blobs/' . $this->segment($sha);
 
 		// Send the get request.
 		return $this->response->get(
@@ -508,5 +506,30 @@ class Contents extends Api implements ContentsInterface
 			)
 		);
 	}
+
+	/**
+	 * Read repository file bytes without JSON decoding or whitespace changes.
+	 *
+	 * @param   string       $owner     Repository owner.
+	 * @param   string       $repo      Repository name.
+	 * @param   string       $filepath  File path relative to the repository root.
+	 * @param   string|null  $ref       Branch, tag or commit; null uses the default branch.
+	 *
+	 * @return  string
+	 * @since   1.1.0
+	 */
+	public function raw(string $owner, string $repo, string $filepath, ?string $ref = null): string
+	{
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/raw/' . $this->path($filepath);
+		$uri = $this->uri->get($path);
+
+		if ($ref !== null)
+		{
+			$uri->setVar('ref', $ref);
+		}
+
+		return $this->response->raw($this->http->get($uri), 200, '');
+	}
+
 }
 

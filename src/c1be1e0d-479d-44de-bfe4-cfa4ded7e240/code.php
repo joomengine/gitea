@@ -39,6 +39,7 @@ class Members extends Api
 	): ?array
 	{
 		// Build the request path.
+		$orgName = $this->segment($orgName);
 		$path = "/orgs/{$orgName}/members";
 
 		// Get the URI and set query parameters.
@@ -64,6 +65,8 @@ class Members extends Api
 	public function check(string $org, string $username): string
 	{
 		// Build the request path.
+		$org = $this->segment($org);
+		$username = $this->segment($username);
 		$path = "/orgs/{$org}/members/{$username}";
 
 		// Send the request.
@@ -86,6 +89,8 @@ class Members extends Api
 	public function remove(string $org, string $username): string
 	{
 		// Build the request path.
+		$org = $this->segment($org);
+		$username = $this->segment($username);
 		$path = "/orgs/{$org}/members/{$username}";
 
 		// Send the request.

@@ -6,17 +6,18 @@
 ```uml
 @startuml
 
-class Package  #Gold {
+class Package #Gold {
   + get(string $owner, string $type, ...) : ?object
   + delete(string $owner, string $type, ...) : string
+  + versions(string $owner, string $type, ...) : ?array
+  + latest(string $owner, string $type, ...) : ?object
+  + link(string $owner, string $type, ...) : string
+  + unlink(string $owner, string $type, ...) : string
+  + deleteAll(string $owner, string $type, ...) : string
 }
 
 note right of Package::get
-  Gets a package.
-
-  since: 3.2.0
   return: ?object
-  
   arguments:
     string $owner
     string $type
@@ -25,11 +26,7 @@ note right of Package::get
 end note
 
 note right of Package::delete
-  Delete a package.
-
-  since: 3.2.0
   return: string
-  
   arguments:
     string $owner
     string $type
@@ -37,8 +34,55 @@ note right of Package::delete
     string $version
 end note
 
+note right of Package::versions
+  return: ?array
+  arguments:
+    string $owner
+    string $type
+    string $name
+    int $page = 1
+    int $limit = 10
+end note
+
+note right of Package::latest
+  return: ?object
+  arguments:
+    string $owner
+    string $type
+    string $name
+end note
+
+note right of Package::link
+  return: string
+  arguments:
+    string $owner
+    string $type
+    string $name
+    string $repo
+end note
+
+note right of Package::unlink
+  return: string
+  arguments:
+    string $owner
+    string $type
+    string $name
+end note
+
+note right of Package::deleteAll
+  return: string
+  arguments:
+    string $owner
+    string $type
+    string $name
+end note
+
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+Added `versions()`, `latest()`, `link()`, `unlink()` and `deleteAll()`. Existing `delete()` still removes only the requested version. `deleteAll()` deliberately removes all versions. Package names and versions must be supplied unencoded; scoped names are encoded as one path parameter.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

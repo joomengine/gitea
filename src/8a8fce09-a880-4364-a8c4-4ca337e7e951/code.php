@@ -27,7 +27,7 @@ class Archive extends Api
 	 *
 	 * @param   string  $owner     The owner name.
 	 * @param   string  $repo      The repository name.
-	 * @param   string  $archive   The archive format, e.g., "zip" or "tar.gz".
+	 * @param   string  $archive   The ref and archive format, e.g., "main.zip" or "v1.0.tar.gz".
 	 *
 	 * @return  string
 	 * @since   3.2.0
@@ -39,18 +39,13 @@ class Archive extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/archive/{$archive}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/archive/' . $this->segment($archive);
 
 		// Set the required variables to the URI.
 		$uri = $this->uri->get($path);
-		$uri->setVar('owner', $owner);
-		$uri->setVar('repo', $repo);
-		$uri->setVar('archive', $archive);
 
 		// Send the get request.
-		return $this->response->get(
-			$this->http->get($uri), 200, 'success'
-		);
+		return $this->response->raw($this->http->get($uri), 200, '');
 	}
 
 

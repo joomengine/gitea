@@ -3,6 +3,8 @@
 > namespace: **VDM\Joomla\Gitea\Organization**
 > extends: **Api**
 
+Gitea 28.2.0: `create()` accepts an array of event names; the existing boolean form remains supported (`true` selects push, `false` selects no events). The default content type is JSON. Creation accepts branch filtering, a display name and an authorization header; updates accept the display name and authorization header too.
+
 ```uml
 @startuml
 
@@ -37,8 +39,12 @@ note right of Hooks::create
     string $type
     string $url
     string $secret = ''
-    bool $events = true
+    bool|array $events = true
     bool $active = true
+    string $contentType = 'json'
+    ?string $branchFilter = null
+    ?string $name = null
+    ?string $authorizationHeader = null
 end note
 
 note right of Hooks::get
@@ -68,6 +74,8 @@ note right of Hooks::update
     ?string $branchFilter = null
     ?array $config = null
     ?array $events = null
+    ?string $name = null
+    ?string $authorizationHeader = null
 end note
 
 @enduml

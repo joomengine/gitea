@@ -30,7 +30,7 @@ class Files extends Api
 	 * @param   string   $name     The name of the package.
 	 * @param   string   $version  The version of the package.
 	 *
-	 * @return  object|null
+	 * @return  array|null
 	 * @since   3.2.0
 	 **/
 	public function get(
@@ -38,10 +38,10 @@ class Files extends Api
 		string $type,
 		string $name,
 		string $version
-	): ?object
+	): ?array
 	{
 		// Build the request path.
-		$path = "/packages/{$owner}/{$type}/{$name}/{$version}/files";
+		$path = '/packages/' . $this->segment($owner) . '/' . $this->segment($type) . '/' . $this->segment($name) . '/' . $this->segment($version) . '/files';
 
 		// Send the get request.
 		return $this->response->get(

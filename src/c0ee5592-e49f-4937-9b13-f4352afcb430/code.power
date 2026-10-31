@@ -17,8 +17,7 @@
 	): string
 	{
 		// Build the request path.
-		$encodedFilepath = rawurlencode($filepath);
-		$path = "/repos/{$owner}/{$repo}/media/{$encodedFilepath}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/media/' . $this->path($filepath);
 
 		// Prepare the URI.
 		$uri = $this->uri->get($path);
@@ -30,7 +29,5 @@
 		}
 
 		// Send the GET request.
-		return $this->response->get(
-			$this->http->get($uri), 200, 'success'
-		);
+		return $this->response->raw($this->http->get($uri), 200, '');
 	}

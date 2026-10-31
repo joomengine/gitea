@@ -39,7 +39,7 @@ class Merge extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/merge";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/merge';
 
 		// Send the get request.
 		return $this->response->get(
@@ -82,7 +82,7 @@ class Merge extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/merge";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/merge';
 
 		// Set the merge data.
 		$data = new \stdClass();
@@ -130,7 +130,7 @@ class Merge extends Api
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 200, 'success'
 		);
 	}
@@ -152,7 +152,7 @@ class Merge extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/merge";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/merge';
 
 		// Get the URI with the path.
 		$uri = $this->uri->get($path);

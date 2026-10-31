@@ -34,7 +34,7 @@ class Refs extends Api
 	public function list(string $owner, string $repo): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/git/refs";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/git/refs';
 
 		// Build the URI.
 		$uri = $this->uri->get($path);
@@ -62,7 +62,7 @@ class Refs extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/git/refs/{$ref}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/git/refs/' . $this->path($ref);
 
 		// Build the URI.
 		$uri = $this->uri->get($path);

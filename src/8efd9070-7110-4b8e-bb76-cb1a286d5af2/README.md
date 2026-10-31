@@ -3,6 +3,8 @@
 > namespace: **VDM\Joomla\Gitea**
 > extends: **Api**
 
+Gitea 28.2.0: creation accepts optional location, website and visibility. Editing now transmits the `email` argument, including an empty string to clear the address. The legacy `teamAdmin` argument remains accepted but is not transmitted: it is not a Gitea organization option.
+
 ```uml
 @startuml
 
@@ -27,6 +29,9 @@ note right of Organization::create
     string $description = ''
     bool $repoAdmin = false
     bool $teamAdmin = false
+    ?string $location = null
+    ?string $website = null
+    ?string $visibility = null
 end note
 
 note right of Organization::get

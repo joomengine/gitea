@@ -39,6 +39,7 @@ class Labels extends Api
 	): ?array
 	{
 		// Build the request path.
+		$orgName = $this->segment($orgName);
 		$path = "/orgs/{$orgName}/labels";
 
 		// Build the URL
@@ -77,13 +78,14 @@ class Labels extends Api
 		$data->description = $description;
 
 		// Build the request path.
+		$org = $this->segment($org);
 		$path = "/orgs/{$org}/labels";
 
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -100,6 +102,7 @@ class Labels extends Api
 	public function get(string $org, int $id): ?object
 	{
 		// Build the request path.
+		$org = $this->segment($org);
 		$path = "/orgs/{$org}/labels/{$id}";
 
 		// Send the get request.
@@ -122,6 +125,7 @@ class Labels extends Api
 	public function delete(string $org, int $id): string
 	{
 		// Build the request path.
+		$org = $this->segment($org);
 		$path = "/orgs/{$org}/labels/{$id}";
 
 		// Send the delete request.
@@ -149,7 +153,7 @@ class Labels extends Api
 		int $id,
 		string $name = '',
 		string $color = '',
-		string $description = ''
+		?string $description = null
 	): ?object
 	{
 		// Set the lines data
@@ -163,18 +167,19 @@ class Labels extends Api
 			$data->color = $color;
 		}
 
-		if ($description) {
+		if ($description !== null) {
 			$data->description = $description;
 		}
 
 		// Build the request path.
+		$org = $this->segment($org);
 		$path = "/orgs/{$org}/labels/{$id}";
 
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			)
 		);
 	}

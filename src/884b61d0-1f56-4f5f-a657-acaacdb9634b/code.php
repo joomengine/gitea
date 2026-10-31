@@ -62,7 +62,7 @@ class Starred extends Api
 	public function check(string $owner, string $repo): string
 	{
 		// Build the request path.
-		$path = "/user/starred/{$owner}/{$repo}";
+		$path = '/user/starred/' . $this->segment($owner) . '/' . $this->segment($repo);
 
 		// Send the get request.
 		return $this->response->get(
