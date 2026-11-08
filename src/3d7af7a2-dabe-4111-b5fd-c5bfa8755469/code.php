@@ -66,6 +66,14 @@ abstract class Api implements ApiInterface
 	protected ?string $token = null;
 
 	/**
+	 * Whether a token was backed up, including an anonymous (null) token.
+	 *
+	 * @var    bool
+	 * @since  1.1.0
+	 */
+	protected bool $tokenBackedUp = false;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param   Http        $http       The http class.
@@ -106,6 +114,7 @@ abstract class Api implements ApiInterface
 			if ($token !== null)
 			{
 				$this->token = $this->http->getToken();
+				$this->tokenBackedUp = true;
 			}
 		}
 
@@ -121,7 +130,7 @@ abstract class Api implements ApiInterface
 	}
 
 	/**
-	 * Reset to previous toke, url it set
+	 * Restore the backed-up URL and token, including anonymous access.
 	 *
 	 * @return  void
 	 * @since   3.2.0
@@ -134,10 +143,11 @@ abstract class Api implements ApiInterface
 			$this->url = null;
 		}
 
-		if ($this->token !== null)
+		if ($this->tokenBackedUp)
 		{
-			$this->http->setToken($this->token);
+			$this->http->setToken($this->token ?? '');
 			$this->token = null;
+			$this->tokenBackedUp = false;
 		}
 	}
 
@@ -150,6 +160,51 @@ abstract class Api implements ApiInterface
 	public function api()
 	{
 		return $this->uri->api();
+	}
+
+	/**
+	 * Encode one API path parameter, including reserved characters and slashes.
+	 *
+	 * @param   string  $value  The unencoded parameter value.
+	 *
+	 * @return  string
+	 * @since   1.1.0
+	 */
+	protected function segment(string $value): string
+	{
+		if ($value === '.' || $value === '..')
+		{
+			throw new \InvalidArgumentException('Gitea path parameters cannot contain standalone dot segments.');
+		}
+
+		return rawurlencode($value);
+	}
+
+	/**
+	 * Encode a repository file path while preserving directory separators.
+	 *
+	 * @param   string  $value  The unencoded repository path.
+	 *
+	 * @return  string
+	 * @since   1.1.0
+	 */
+	protected function path(string $value): string
+	{
+		return implode('/', array_map([$this, 'segment'], explode('/', $value)));
+	}
+
+	/**
+	 * Encode a JSON request, rejecting invalid input before any network request.
+	 *
+	 * @param   mixed  $data  The request payload.
+	 *
+	 * @return  string
+	 * @since   1.1.0
+	 * @throws  \JsonException
+	 */
+	protected function encode($data): string
+	{
+		return json_encode($data, JSON_THROW_ON_ERROR);
 	}
 }
 

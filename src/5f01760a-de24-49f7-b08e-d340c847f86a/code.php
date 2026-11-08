@@ -47,7 +47,7 @@ class Statuses extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/statuses/{$commitSha}";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/statuses/' . $this->segment($commitSha);
 
 		// Prepare the URI with the path.
 		$uri = $this->uri->get($path);
@@ -89,7 +89,7 @@ class Statuses extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/statuses/{$commitSha}";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/statuses/' . $this->segment($commitSha);
 
 		// Set the commit status data
 		$data = new \stdClass();
@@ -113,7 +113,7 @@ class Statuses extends Api
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}

@@ -6,26 +6,23 @@
 ```uml
 @startuml
 
-class Users  #Gold {
-  + list(int $page = 1, int $limit = 10) : ?array
+class Users #Gold {
+  + list(int $page = 1, int $limit = 10, ...) : ?array
   + create(string $loginName, string $email, ...) : ?object
-  + delete(string $username) : string
+  + delete(string $username, ?bool $purge = null) : string
   + edit(string $username, string $loginName, ...) : ?object
 }
 
 note right of Users::list
-  List all users.
-
-  since: 3.2.0
   return: ?array
+  arguments:
+    int $page = 1
+    int $limit = 10
+    array $filters = []
 end note
 
 note right of Users::create
-  Create a user with extended options.
-
-  since: 3.2.0
   return: ?object
-  
   arguments:
     string $loginName
     string $email
@@ -37,45 +34,47 @@ note right of Users::create
     ?bool $sendNotify = null
     ?int $sourceId = null
     ?string $visibility = null
+    ?string $createdAt = null
 end note
 
 note right of Users::delete
-  Delete a user.
-
-  since: 3.2.0
   return: string
+  arguments:
+    string $username
+    ?bool $purge = null
 end note
 
 note right of Users::edit
-  Edit an existing user.
-
-  since: 3.2.0
   return: ?object
-  
   arguments:
     string $username
     string $loginName
     int $sourceId
-    bool $active = false
-    bool $admin = false
-    bool $allowCreateOrganization = false
-    bool $allowGitHook = false
-    bool $allowImportLocal = false
-    string $description = ''
-    string $email = ''
-    string $fullName = ''
-    string $location = ''
-    int $maxRepoCreation
-    bool $mustChangePassword = false
-    string $password = ''
-    bool $prohibitLogin = false
-    bool $restricted = false
-    string $visibility = ''
-    string $website = ''
+    ?bool $active = null
+    ?bool $admin = null
+    ?bool $allowCreateOrganization = null
+    ?bool $allowGitHook = null
+    ?bool $allowImportLocal = null
+    ?string $description = null
+    ?string $email = null
+    ?string $fullName = null
+    ?string $location = null
+    ?int $maxRepoCreation = null
+    ?bool $mustChangePassword = null
+    ?string $password = null
+    ?bool $prohibitLogin = null
+    ?bool $restricted = null
+    ?string $visibility = null
+    ?string $website = null
+    ?string $type = null
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+Optional edit fields now default to `null` and are omitted. Explicit `false`, `0` and empty strings are preserved, so changing a name no longer disables the account or resets permissions. Callers that intentionally relied on old defaults must now pass those values explicitly. `list()` accepts documented search filters. `create()` adds `createdAt`; `edit()` adds `type`; `delete()` adds an explicit optional `purge` flag.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

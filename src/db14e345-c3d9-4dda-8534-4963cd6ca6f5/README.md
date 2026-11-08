@@ -6,24 +6,19 @@
 ```uml
 @startuml
 
-class Thread  #Gold {
+class Thread #Gold {
   + get(int $id) : ?object
   + mark(int $id, ?string $lastReadAt = null, ...) : ?object
 }
 
 note right of Thread::get
-  Get notification thread by ID.
-
-  since: 3.2.0
   return: ?object
+  arguments:
+    int $id
 end note
 
 note right of Thread::mark
-  Mark notification threads as read, pinned, or unread by ID.
-
-  since: 3.2.0
   return: ?object
-  
   arguments:
     int $id
     ?string $lastReadAt = null
@@ -34,6 +29,10 @@ end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+`mark()` uses PATCH, as required by the thread endpoint. Only `toStatus` is sent. The legacy `lastReadAt`, `all` and `statusTypes` parameters remain accepted for named/positional compatibility but are ignored, since Gitea does not support those options on one thread.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

@@ -41,7 +41,7 @@ class Mirrors extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/push_mirrors";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/push_mirrors';
 
 		// Set query parameters.
 		$uri = $this->uri->get($path);
@@ -72,14 +72,14 @@ class Mirrors extends Api
 		string $owner,
 		string $repo,
 		string $remoteAddress,
-		?string $remoteUsername = null,
-		?string $remotePassword = null,
+		?string $remoteUsername,
+		?string $remotePassword,
 		string $interval,
 		bool $syncOnCommit
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/push_mirrors";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/push_mirrors';
 
 		// Set the mirror data.
 		$data = new \stdClass();
@@ -100,8 +100,8 @@ class Mirrors extends Api
 		// Send the request.
 		return $this->response->get(
 		    $this->http->post(
-		        $this->uri->get($path), json_encode($data)
-		    ), 201
+		        $this->uri->get($path), $this->encode($data)
+		    ), 200
 		);
 	}
 
@@ -120,13 +120,11 @@ class Mirrors extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/push_mirrors-sync";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/push_mirrors-sync';
 
 		// Send the request.
 		return $this->response->get(
-		    $this->http->post(
-		        $this->uri->get($path)
-		    ), 200, 'success'
+		    $this->http->post($this->uri->get($path), ''), 200, 'success'
 		);
 	}
 
@@ -147,7 +145,7 @@ class Mirrors extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/push_mirrors/{$name}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/push_mirrors/' . $this->segment($name);
 
 		// Get the URI with the path.
 		$uri = $this->uri->get($path);
@@ -175,7 +173,7 @@ class Mirrors extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/push_mirrors/{$name}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/push_mirrors/' . $this->segment($name);
 
 		// Get the URI with the path.
 		$uri = $this->uri->get($path);

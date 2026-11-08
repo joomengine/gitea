@@ -11,7 +11,7 @@ class Topics  #Gold {
   + replace(string $ownerName, string $repoName, ...) : string
   + add(string $ownerName, string $repoName, ...) : string
   + delete(string $ownerName, string $repoName, ...) : string
-  + search(string $searchKeyword, int $page = 1, ...) : ?array
+  + search(string $searchKeyword, int $page = 1, ...) : ?object
 }
 
 note right of Topics::get
@@ -67,7 +67,7 @@ note right of Topics::search
   Search topics via keyword.
 
   since: 3.2.0
-  return: ?array
+  return: ?object
   
   arguments:
     string $searchKeyword

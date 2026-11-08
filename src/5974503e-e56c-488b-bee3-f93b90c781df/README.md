@@ -6,19 +6,20 @@
 ```uml
 @startuml
 
-class Gpg  #Gold {
+class Gpg #Gold {
   + get() : ?string
 }
 
 note right of Gpg::get
-  Get default signing-key.gpg.
-
-  since: 3.2.0
   return: ?string
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+Signing-key bytes use the raw response path without JSON decoding or whitespace changes.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

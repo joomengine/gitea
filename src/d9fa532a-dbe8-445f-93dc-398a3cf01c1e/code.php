@@ -66,6 +66,7 @@ class Members extends Api
 	public function get(int $id, string $username): ?object
 	{
 		// Build the request path.
+		$username = $this->segment($username);
 		$path = "/teams/{$id}/members/{$username}";
 
 		// Send the get request.
@@ -88,6 +89,7 @@ class Members extends Api
 	public function add(int $id, string $username): string
 	{
 		// Build the request path.
+		$username = $this->segment($username);
 		$path = "/teams/{$id}/members/{$username}";
 
 		// Send the put request.
@@ -110,6 +112,7 @@ class Members extends Api
 	public function remove(int $id, string $username): string
 	{
 		// Build the request path.
+		$username = $this->segment($username);
 		$path = "/teams/{$id}/members/{$username}";
 
 		// Send the delete request.

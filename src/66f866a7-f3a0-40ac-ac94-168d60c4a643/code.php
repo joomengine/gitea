@@ -34,12 +34,10 @@ class Assignees extends Api
 	public function get(string $owner, string $repo): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/assignees";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/assignees';
 
 		// Set the required variables to the URI.
 		$uri = $this->uri->get($path);
-		$uri->setVar('owner', $owner);
-		$uri->setVar('repo', $repo);
 
 		// Send the get request.
 		return $this->response->get(

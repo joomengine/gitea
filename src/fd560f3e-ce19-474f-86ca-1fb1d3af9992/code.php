@@ -36,6 +36,7 @@ class Repos extends Api
 	 * @param   string|null $readme               Optional. Readme of the repository to create.
 	 * @param   bool|null   $template             Optional. Whether the repository is a template.
 	 * @param   string|null $trustModel           Optional. TrustModel of the repository.
+	 * @param   string|null $objectFormatName  Git object format (sha1 or sha256).
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -51,7 +52,8 @@ class Repos extends Api
 		?string $license = null,
 		?string $readme = null,
 		?bool $template = null,
-		?string $trustModel = null
+		?string $trustModel = null,
+		?string $objectFormatName = null
 	): ?object {
 		// Build the request path.
 		$path = '/user/repos';
@@ -103,11 +105,16 @@ class Repos extends Api
 			$data->trust_model = $trustModel;
 		}
 
+		if ($objectFormatName !== null)
+		{
+			$data->object_format_name = $objectFormatName;
+		}
+
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -152,7 +159,7 @@ class Repos extends Api
 	public function star(string $owner, string $repo): string
 	{
 		// Build the request path.
-		$path = "/user/starred/{$owner}/{$repo}";
+		$path = '/user/starred/' . $this->segment($owner) . '/' . $this->segment($repo);
 
 		// Send the put request.
 		return $this->response->get(
@@ -174,7 +181,7 @@ class Repos extends Api
 	public function unstar(string $owner, string $repo): string
 	{
 		// Build the request path.
-		$path = "/user/starred/{$owner}/{$repo}";
+		$path = '/user/starred/' . $this->segment($owner) . '/' . $this->segment($repo);
 
 		// Send the delete request.
 		return $this->response->get(

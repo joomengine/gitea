@@ -7,6 +7,7 @@
 
 class Utilities  #Gold {
   + register(Container $container) : void
+  + getClient(Container $container) : Client
   + getUri(Container $container) : Uri
   + getResponse(Container $container) : Response
 }
@@ -30,6 +31,13 @@ note right of Utilities::getResponse
 
   since: 3.2.0
   return: Response
+end note
+
+note right of Utilities::getClient
+  Get the schema-backed Gitea client.
+
+  since: 3.2.0
+  return: Client
 end note
 
 @enduml

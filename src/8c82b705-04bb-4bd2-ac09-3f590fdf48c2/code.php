@@ -34,7 +34,7 @@ class Templates extends Api
 	public function issue(string $owner, string $repo): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/issue_templates";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/issue_templates';
 
 		// Get the URI.
 		$uri = $this->uri->get($path);
@@ -64,7 +64,7 @@ class Templates extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$templateOwner}/{$templateRepo}/generate";
+		$path = '/repos/' . $this->segment($templateOwner) . '/' . $this->segment($templateRepo) . '/generate';
 
 		// Set the repo data.
 		$data = new \stdClass();
@@ -82,7 +82,7 @@ class Templates extends Api
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}

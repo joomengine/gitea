@@ -45,7 +45,7 @@ class Trees extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/git/trees/{$sha}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/git/trees/' . $this->segment($sha);
 
 		// Set URI variables.
 		$uri = $this->uri->get($path);

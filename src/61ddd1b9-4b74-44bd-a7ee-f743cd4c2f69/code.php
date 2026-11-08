@@ -28,7 +28,7 @@ class Deadline extends Api
 	 * @param   string         $owner      The owner name.
 	 * @param   string         $repo       The repo name.
 	 * @param   int            $index      The issue index.
-	 * @param   string|null    $dueDate    The deadline date string in the format YYYY-MM-DD or null to delete the deadline.
+	 * @param   string|null    $dueDate    The deadline date string in the RFC 3339 format or null to delete the deadline.
 	 *
 	 * @return  object
 	 * @since   3.2.0
@@ -36,6 +36,8 @@ class Deadline extends Api
 	public function set(string $owner, string $repo, int $index, ?string $dueDate): object
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/deadline";
 
 		// Build the request data.
@@ -45,8 +47,8 @@ class Deadline extends Api
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
-			)
+				$this->uri->get($path), $this->encode($data)
+			), 201
 		);
 	}
 

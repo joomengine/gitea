@@ -3,6 +3,8 @@
 > namespace: **VDM\Joomla\Gitea\Organization**
 > extends: **Api**
 
+Gitea 28.2.0: create/edit accept optional visibility. `units_map` is always encoded as a JSON object, including an empty map. The legacy `repoNames` argument remains accepted but is not transmitted: add repositories with `Organization\Teams\Repository::add()` after creating the team. Prefer `unitsMap` over the deprecated `units` API field.
+
 ```uml
 @startuml
 
@@ -50,6 +52,7 @@ note right of Teams::create
     array $unitsMap = []
     ?bool $canCreateOrgRepo = null
     ?bool $includesAllRepositories = null
+    ?string $visibility = null
 end note
 
 note right of Teams::search
@@ -88,6 +91,7 @@ note right of Teams::edit
     ?bool $includesAllRepositories = null
     ?array $units = null
     ?array $unitsMap = null
+    ?string $visibility = null
 end note
 
 @enduml

@@ -43,7 +43,7 @@ class Reviewers extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/requested_reviewers";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/requested_reviewers';
 
 		// Set the review requests data.
 		$data = new \stdClass();
@@ -57,7 +57,7 @@ class Reviewers extends Api
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}
@@ -83,20 +83,21 @@ class Reviewers extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/requested_reviewers";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/requested_reviewers';
 
 		// Get the URI and set the required variables.
 		$uri = $this->uri->get($path);
-		$uri->setVar('reviewers', json_encode($reviewers));
+		$data = new \stdClass();
+		$data->reviewers = $reviewers;
 
 		if ($teamReviewers !== null)
 		{
-			$uri->setVar('teamReviewers', json_encode($teamReviewers));
+			$data->team_reviewers = $teamReviewers;
 		}
 
 		// Send the delete request.
 		return $this->response->get(
-			$this->http->delete($uri), 204, 'success'
+			$this->http->delete($uri, [], null, $this->encode($data)), 204, 'success'
 		);
 	}
 
@@ -112,7 +113,7 @@ class Reviewers extends Api
 	public function get(string $owner, string $repo): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/reviewers";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/reviewers';
 
 		// Send the get request.
 		return $this->response->get(

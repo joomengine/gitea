@@ -37,6 +37,7 @@ class Repository extends Api
 	 * @param   string|null  $readme          Readme of the repository to create (optional).
 	 * @param   bool   $template         Whether the repository is template (optional).
 	 * @param   string|null  $trust_model    TrustModel of the repository (optional).
+	 * @param   string|null $objectFormatName  Git object format (sha1 or sha256).
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -53,11 +54,12 @@ class Repository extends Api
 		bool $private = false,
 		?string $readme = null,
 		bool $template = false,
-		?string $trust_model = null
+		?string $trust_model = null,
+		?string $objectFormatName = null
 	): ?object
 	{
 		// Build the request path.
-		$path = "/admin/users/{$username}/repos";
+		$path = '/admin/users/' . $this->segment($username) . '/repos';
 
 		// Set the repository data.
 		$data = new \stdClass();
@@ -73,10 +75,15 @@ class Repository extends Api
 		$data->template = $template;
 		$data->trust_model = $trust_model;
 
+		if ($objectFormatName !== null)
+		{
+			$data->object_format_name = $objectFormatName;
+		}
+
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}

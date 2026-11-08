@@ -7,7 +7,7 @@
 @startuml
 
 class Subscriptions  #Gold {
-  + get(string $owner, string $repo, ...) : ?object
+  + get(string $owner, string $repo, ...) : ?array
   + check(string $owner, string $repo, ...) : ?object
   + subscribe(string $owner, string $repo, ...) : string
   + unsubscribe(string $owner, string $repo, ...) : string
@@ -17,7 +17,7 @@ note right of Subscriptions::get
   Get users who subscribed on an issue.
 
   since: 3.2.0
-  return: ?object
+  return: ?array
   
   arguments:
     string $owner
@@ -67,6 +67,8 @@ end note
 
 @enduml
 ```
+
+`get()` returns the API user list as `?array`; the previous `?object` declaration rejected every successful non-null list response.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

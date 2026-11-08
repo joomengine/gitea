@@ -505,6 +505,17 @@
         "spk": "Super---68f930bc_d24f_4ade_bcec_576f82c3c13d---Power",
         "guid": "68f930bc-d24f-4ade-bcec-576f82c3c13d"
     },
+    "6a20613d-d232-4f5b-8f86-8e41a20cd1a1": {
+        "name": "Client",
+        "type": "final class",
+        "namespace": "VDM\\Joomla\\Gitea",
+        "code": "src\/6a20613d-d232-4f5b-8f86-8e41a20cd1a1\/code.php",
+        "power": "src\/6a20613d-d232-4f5b-8f86-8e41a20cd1a1\/code.power",
+        "settings": "src\/6a20613d-d232-4f5b-8f86-8e41a20cd1a1\/settings.json",
+        "path": "src\/6a20613d-d232-4f5b-8f86-8e41a20cd1a1",
+        "spk": "Super---6a20613d_d232_4f5b_8f86_8e41a20cd1a1---Power",
+        "guid": "6a20613d-d232-4f5b-8f86-8e41a20cd1a1"
+    },
     "6a2fffb5-63ff-4a96-b458-632a5ff90814": {
         "name": "Reviews",
         "type": "class",
@@ -867,6 +878,17 @@
         "path": "src\/b1788488-f557-4746-9929-73e1d049b4a2",
         "spk": "Super---b1788488_f557_4746_9929_73e1d049b4a2---Power",
         "guid": "b1788488-f557-4746-9929-73e1d049b4a2"
+    },
+    "b194b19f-e665-435a-925d-04158a61ef3e": {
+        "name": "Operations",
+        "type": "final class",
+        "namespace": "VDM\\Joomla\\Gitea\\Utilities",
+        "code": "src\/b194b19f-e665-435a-925d-04158a61ef3e\/code.php",
+        "power": "src\/b194b19f-e665-435a-925d-04158a61ef3e\/code.power",
+        "settings": "src\/b194b19f-e665-435a-925d-04158a61ef3e\/settings.json",
+        "path": "src\/b194b19f-e665-435a-925d-04158a61ef3e",
+        "spk": "Super---b194b19f_e665_435a_925d_04158a61ef3e---Power",
+        "guid": "b194b19f-e665-435a-925d-04158a61ef3e"
     },
     "b3f6728b-8c88-4ee8-9aa0-bcef400a35bf": {
         "name": "User",

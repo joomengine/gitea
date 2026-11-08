@@ -1,0 +1,40 @@
+{
+  "userVerifyGPGKey": {
+    "reason": "The Swagger annotation omits the bound request body and declares 201; the route binds VerifyGPGKeyOption and the implementation returns 200.",
+    "sources": [
+      "https://github.com/go-gitea/gitea/blob/829b49c1ae96015e345f9d2a0eb1ea7acd5f31e1/routers/api/v1/api.go#L1239",
+      "https://github.com/go-gitea/gitea/blob/829b49c1ae96015e345f9d2a0eb1ea7acd5f31e1/routers/api/v1/user/gpg_key.go#L186",
+      "https://github.com/go-gitea/gitea/blob/829b49c1ae96015e345f9d2a0eb1ea7acd5f31e1/modules/structs/user_gpgkey.go#L63"
+    ],
+    "replace": {
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true,
+          "type": "object",
+          "requiredProperties": [
+            "key_id",
+            "armored_signature"
+          ]
+        }
+      ],
+      "success": [
+        200
+      ]
+    }
+  },
+  "repoGetRawFileOrLFS": {
+    "reason": "When LFS storage enables ServeDirect, the implementation returns a 303 redirect to the signed storage URL, absent from the Swagger responses.",
+    "sources": [
+      "https://github.com/go-gitea/gitea/blob/829b49c1ae96015e345f9d2a0eb1ea7acd5f31e1/routers/api/v1/repo/file.go#L185",
+      "https://github.com/go-gitea/gitea/blob/829b49c1ae96015e345f9d2a0eb1ea7acd5f31e1/services/context/base.go#L150"
+    ],
+    "replace": {
+      "success": [
+        200,
+        303
+      ]
+    }
+  }
+}

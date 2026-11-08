@@ -65,13 +65,15 @@ class Milestones extends Api
 		}
 
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/milestones";
 
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -99,6 +101,8 @@ class Milestones extends Api
 	): ?array
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/milestones";
 
 		// Build the URI.
@@ -136,6 +140,9 @@ class Milestones extends Api
 	public function get(string $owner, string $repo, string $milestoneId): ?object
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
+		$milestoneId = $this->segment($milestoneId);
 		$path = "/repos/{$owner}/{$repo}/milestones/{$milestoneId}";
 
 		// Send the get request.
@@ -159,6 +166,9 @@ class Milestones extends Api
 	public function delete(string $owner, string $repo, string $milestoneId): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
+		$milestoneId = $this->segment($milestoneId);
 		$path = "/repos/{$owner}/{$repo}/milestones/{$milestoneId}";
 
 		// Send the delete request.
@@ -215,13 +225,16 @@ class Milestones extends Api
 		}
 
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
+		$milestoneId = $this->segment($milestoneId);
 		$path = "/repos/{$owner}/{$repo}/milestones/{$milestoneId}";
 
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			)
 		);
 	}

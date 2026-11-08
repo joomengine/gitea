@@ -41,7 +41,7 @@ class Stargazers extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/stargazers";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/stargazers';
 
 		// Set the page and limit values.
 		$this->uri->setVar('page', $page);

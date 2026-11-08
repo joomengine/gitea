@@ -34,7 +34,7 @@ class Languages extends Api
 	public function getLanguages(string $owner, string $repo): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/languages";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/languages';
 
 		// Build the URI.
 		$uri = $this->uri->get($path);

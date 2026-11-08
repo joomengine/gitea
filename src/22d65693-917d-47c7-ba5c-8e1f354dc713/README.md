@@ -3,6 +3,8 @@
 > namespace: **VDM\Joomla\Gitea\Issue**
 > extends: **Api**
 
+Gitea 28.2.0: `get()` and `edit()` accept HTTP 200 or an empty HTTP 204 response. `list()` returns all matching issue comments; its legacy `page` and `limit` arguments remain accepted but are not sent because Gitea does not paginate that endpoint. Use `since`/`before` to bound results.
+
 ```uml
 @startuml
 

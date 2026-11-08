@@ -58,12 +58,12 @@ class Cron extends Api
 	public function run(string $task): string
 	{
 		// Build the request path.
-		$path = "/admin/cron/{$task}";
+		$path = '/admin/cron/' . $this->segment($task);
 
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path)
+				$this->uri->get($path), ''
 			), 204, 'success'
 		);
 	}

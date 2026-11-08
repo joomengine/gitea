@@ -6,24 +6,17 @@
 ```uml
 @startuml
 
-class Settings  #Gold {
+class Settings #Gold {
   + get() : ?object
-  + update(?string $description = null, ?string $diffViewStyle = null, ...) : ?array
+  + update(?string $description = null, ?string $diffViewStyle = null, ...) : ?object
 }
 
 note right of Settings::get
-  Get user settings for the authenticated user.
-
-  since: 3.2.0
   return: ?object
 end note
 
 note right of Settings::update
-  Update user settings for the authenticated user.
-
-  since: 3.2.0
-  return: ?array
-  
+  return: ?object
   arguments:
     ?string $description = null
     ?string $diffViewStyle = null
@@ -38,6 +31,10 @@ end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+`update()` returns `?object`, matching the Gitea settings response. The old `?array` declaration raised a TypeError on successful responses; subclasses overriding it must update their return type. An empty update is encoded as `{}` and explicit false values are retained.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

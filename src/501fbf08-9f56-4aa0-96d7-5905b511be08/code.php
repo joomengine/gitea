@@ -38,7 +38,7 @@ class Keys extends Api
 	public function list(string $owner, string $repo, ?int $keyId = null, ?string $fingerprint = null, int $page = 1, int $limit = 10): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/keys";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/keys';
 
 		// Prepare the URI.
 		$uri = $this->uri->get($path);
@@ -84,7 +84,7 @@ class Keys extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/keys";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/keys';
 
 		// Set the key data.
 		$data = new \stdClass();
@@ -96,7 +96,7 @@ class Keys extends Api
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -118,7 +118,7 @@ class Keys extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/keys/{$id}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/keys/' . $this->segment((string) $id);
 
 		// Send the GET request.
 		return $this->response->get(
@@ -145,7 +145,7 @@ class Keys extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/keys/{$id}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/keys/' . $this->segment((string) $id);
 
 		// Send the DELETE request.
 		return $this->response->get(

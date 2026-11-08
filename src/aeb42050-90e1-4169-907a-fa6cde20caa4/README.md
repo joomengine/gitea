@@ -3,6 +3,8 @@
 > namespace: **VDM\Joomla\Gitea\Organization**
 > extends: **Api**
 
+Gitea 28.2.0: repository creation accepts HTTP 201.
+
 ```uml
 @startuml
 

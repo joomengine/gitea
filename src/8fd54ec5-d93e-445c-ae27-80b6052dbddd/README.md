@@ -36,7 +36,8 @@ note right of Branch::create
     string $owner
     string $repo
     string $branch_name
-    string $old_branch
+    string $old_branch = ''
+    ?string $oldRefName = null
 end note
 
 note right of Branch::get

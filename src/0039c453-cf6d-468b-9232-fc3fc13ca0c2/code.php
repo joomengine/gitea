@@ -32,6 +32,8 @@ class Organization extends Api
 	 * @param   bool         $repoAdminChangeTeamAccess Whether repo admin can change team access (optional).
 	 * @param   string       $visibility                The organization visibility (optional).
 	 * @param   string|null  $website                   The organization website (optional).
+	 * @param   string|null  $organization  Organization username; defaults to fullName for legacy calls.
+	 * @param   string|null  $email         Organization contact email.
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -43,14 +45,17 @@ class Organization extends Api
 		?string $location = null,
 		bool $repoAdminChangeTeamAccess = false,
 		string $visibility = 'public',
-		?string $website = null
+		?string $website = null,
+		?string $organization = null,
+		?string $email = null
 	): ?object
 	{
 		// Build the request path.
-		$path = "/admin/users/{$username}/orgs";
+		$path = '/admin/users/' . $this->segment($username) . '/orgs';
 
 		// Set the organization data.
 		$data = new \stdClass();
+		$data->username = $organization ?? $fullName;
 		$data->full_name = $fullName;
 		$data->description = $description;
 		$data->location = $location;
@@ -58,10 +63,15 @@ class Organization extends Api
 		$data->visibility = $visibility;
 		$data->website = $website;
 
+		if ($email !== null)
+		{
+			$data->email = $email;
+		}
+
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}

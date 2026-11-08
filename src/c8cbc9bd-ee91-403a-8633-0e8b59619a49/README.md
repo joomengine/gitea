@@ -6,18 +6,14 @@
 ```uml
 @startuml
 
-class Notifications  #Gold {
+class Notifications #Gold {
   + list(?bool $all = null, ?array $statusTypes = null, ...) : ?array
   + update(?string $lastReadAt = null, ?bool $all = null, ...) : ?array
   + check() : ?object
 }
 
 note right of Notifications::list
-  List user's notification threads.
-
-  since: 3.2.0
   return: ?array
-  
   arguments:
     ?bool $all = null
     ?array $statusTypes = null
@@ -29,11 +25,7 @@ note right of Notifications::list
 end note
 
 note right of Notifications::update
-  Mark notification threads as read, pinned, or unread.
-
-  since: 3.2.0
   return: ?array
-  
   arguments:
     ?string $lastReadAt = null
     ?bool $all = null
@@ -42,14 +34,15 @@ note right of Notifications::update
 end note
 
 note right of Notifications::check
-  Check if unread notifications exist.
-
-  since: 3.2.0
   return: ?object
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+`status-types` and `subject-type` use repeated query keys (`collectionFormat: multi`), not comma-separated values. The 205 update response is decoded as a notification list.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

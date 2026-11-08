@@ -1,0 +1,22 @@
+{
+    "guid": "b194b19f-e665-435a-925d-04158a61ef3e",
+    "name": "Operations",
+    "system_name": "Joomla.Gitea.Utilities.Operations",
+    "type": "final class",
+    "power_version": "1.0.0",
+    "namespace": "[[[NamespacePrefix]]]\\Joomla\\Gitea\\Utilities.Operations",
+    "description": "Gitea 28.2.0 operation catalog generated from the official API specification.",
+    "extends": "",
+    "extends_custom": "",
+    "implements": null,
+    "implements_custom": "",
+    "extendsinterfaces": null,
+    "extendsinterfaces_custom": "",
+    "use_selection": null,
+    "load_selection": null,
+    "add_head": 0,
+    "head": "",
+    "add_licensing_template": 2,
+    "licensing_template": "/**\n * @package Joomla.Gitea\n * @copyright Copyright (C) 2026 Vast Development Method. All rights reserved.\n * @license GNU General Public License version 2 or later; see LICENSE.txt\n */\n",
+    "composer": ""
+}

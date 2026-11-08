@@ -25,7 +25,7 @@
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -41,7 +41,7 @@
 	public function get(int $id): ?object
 	{
 		// Build the request path.
-		$path = "/user/gpg_keys/{$id}";
+		$path = '/user/gpg_keys/' . $id;
 
 		// Send the get request.
 		return $this->response->get(
@@ -63,7 +63,7 @@
 		$path = '/user/gpg_key_token';
 
 		// Send the get request.
-		return $this->response->get(
+		return $this->response->raw(
 			$this->http->get(
 				$this->uri->get($path)
 			)
@@ -71,28 +71,46 @@
 	}
 
 	/**
-	 * Verify a GPG key.
+	 * Verify an existing GPG key (legacy parameter name retained).
 	 *
-	 * @param   string   $armoredPublicKey   The armored public GPG key.
+	 * @param   string       $armoredPublicKey  The GPG key ID, not armored key material.
+	 * @param   string|null  $armoredSignature  Armored signature of token().
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
-	 **/
-	public function verify(string $armoredPublicKey): ?object
+	 * @deprecated Use verifyKey($keyId, $armoredSignature).
+	 * @throws  \InvalidArgumentException When the required signature is absent.
+	 */
+	public function verify(string $armoredPublicKey, ?string $armoredSignature = null): ?object
 	{
-		// Build the request path.
-		$path = '/user/gpg_key_verify';
+		if ($armoredSignature === null || $armoredSignature === '')
+		{
+			throw new \InvalidArgumentException('GPG verification requires a key ID and an armored signature of the verification token.');
+		}
 
-		// Set the GPG key data.
-		$data = new \stdClass();
-		$data->armoredPublicKey = $armoredPublicKey;
+		return $this->verifyKey($armoredPublicKey, $armoredSignature);
+	}
 
-		// Send the post request.
-		return $this->response->get(
-			$this->http->post(
-				$this->uri->get($path),
-				json_encode($data)
-			), 201
+	/**
+	 * Verify an existing GPG key using a signature of the token from token().
+	 *
+	 * @param   string  $keyId             The existing GPG key ID.
+	 * @param   string  $armoredSignature  The armored signature of the verification token.
+	 *
+	 * @return  object|null
+	 * @since   1.1.0
+	 */
+	public function verifyKey(string $keyId, string $armoredSignature): ?object
+	{
+		$data = [
+			'key_id' => $keyId,
+			'armored_signature' => $armoredSignature
+		];
+
+		// Gitea 28.2.0 returns 200; its Swagger response still documents 201.
+		return $this->response->get_(
+			$this->http->post($this->uri->get('/user/gpg_key_verify'), $this->encode($data)),
+			[200 => null, 201 => null]
 		);
 	}
 
@@ -135,7 +153,7 @@
 	public function remove(int $id): string
 	{
 		// Build the request path.
-		$path = "/user/gpg_keys/{$id}";
+		$path = '/user/gpg_keys/' . $id;
 
 		// Send the delete request.
 		return $this->response->get(

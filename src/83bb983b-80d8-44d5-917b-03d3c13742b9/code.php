@@ -47,6 +47,8 @@ class Timeline extends Api
 	): ?array
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/timeline";
 
 		// Set the query parameters.

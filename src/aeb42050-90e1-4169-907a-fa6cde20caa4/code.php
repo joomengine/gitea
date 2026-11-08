@@ -39,6 +39,7 @@ class Repository extends Api
 	): ?array
 	{
 		// Build the request path.
+		$org = $this->segment($org);
 		$path = "/orgs/{$org}/repos";
 
 		// Configure the request URI.
@@ -87,6 +88,7 @@ class Repository extends Api
 	): ?object
 	{
 		// Build the request path.
+		$org = $this->segment($org);
 		$path = "/orgs/{$org}/repos";
 
 		// Set the repository data.
@@ -136,8 +138,8 @@ class Repository extends Api
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
-			)
+				$this->uri->get($path), $this->encode($data)
+			), 201
 		);
 	}
 

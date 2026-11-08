@@ -41,12 +41,10 @@ class Branch extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/branches";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/branches';
 
 		// Set the required variables to the URI.
 		$uri = $this->uri->get($path);
-		$uri->setVar('owner', $owner);
-		$uri->setVar('repo', $repo);
 		$uri->setVar('page', $page);
 		$uri->setVar('limit', $limit);
 
@@ -64,6 +62,8 @@ class Branch extends Api
 	 * @param   string  $branch_name   The name of the new branch.
 	 * @param   string  $old_branch    The name of the existing branch from which to create the new branch.
 	 *
+	 * @param   string|null $oldRefName Branch, tag or commit to create from; takes precedence over old_branch.
+	 *
 	 * @return  object|null
 	 * @since   3.2.0
 	 **/
@@ -71,21 +71,27 @@ class Branch extends Api
 		string $owner,
 		string $repo,
 		string $branch_name,
-		string $old_branch
+		string $old_branch = '',
+		?string $oldRefName = null
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/branches";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/branches';
 
 		// Set the branch data.
 		$data = new \stdClass();
-		$data->branch_name = $branch_name;
-		$data->old_branch = $old_branch;
+		$data->new_branch_name = $branch_name;
+		$data->old_branch_name = $old_branch;
+
+		if ($oldRefName !== null)
+		{
+			$data->old_ref_name = $oldRefName;
+		}
 
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}
@@ -103,13 +109,10 @@ class Branch extends Api
 	public function get(string $owner, string $repo, string $branch): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/branches/{$branch}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/branches/' . $this->segment($branch);
 
 		// Set the required variables to the URI.
 		$uri = $this->uri->get($path);
-		$uri->setVar('owner', $owner);
-		$uri->setVar('repo', $repo);
-		$uri->setVar('branch', $branch);
 
 		// Send the get request.
 		return $this->response->get(
@@ -134,7 +137,7 @@ class Branch extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/branches/{$branch}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/branches/' . $this->segment($branch);
 
 		// Send the delete request.
 		return $this->response->get(

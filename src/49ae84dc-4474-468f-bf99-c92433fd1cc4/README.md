@@ -6,16 +6,12 @@
 ```uml
 @startuml
 
-class Repository  #Gold {
+class Repository #Gold {
   + create(string $username, string $repoName, ...) : ?object
 }
 
 note right of Repository::create
-  Create a repository on behalf of a user.
-
-  since: 3.2.0
   return: ?object
-  
   arguments:
     string $username
     string $repoName
@@ -29,10 +25,15 @@ note right of Repository::create
     ?string $readme = null
     bool $template = false
     ?string $trust_model = null
+    ?string $objectFormatName = null
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+`create()` accepts optional `objectFormatName` (`sha1` or `sha256`) and omits the field when not supplied. Path arguments are supplied unencoded. JSON encoding errors are raised before a request is sent.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

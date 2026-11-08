@@ -7,7 +7,7 @@
 @startuml
 
 class Http << (F,LightGreen) >> #RoyalBlue {
-  + __construct(?string $token = null)
+  + __construct(?string $token = null, ?TransportInterface $transport = null)
   + setToken(string $token) : void
   + getToken() : ?string
 }
@@ -34,6 +34,16 @@ end note
 
 @enduml
 ```
+
+## Transport behavior (Power 1.1.0)
+
+`Http` extends `Joomla\Http\Http`, the Framework HTTP client supported by Joomla 5/6, and uses Joomla's cURL or stream transport with certificate validation and automatic redirects disabled. The Socket fallback is deliberately excluded because it forwards authorization headers across redirects and ignores the redirect option. The first constructor argument remains the API token. An optional second `Joomla\Http\TransportInterface` argument allows a configured transport or test transport to be injected.
+
+The old implicit `UnsafeCurl` dependency and component `allow_selfsigned_certificates` switch are no longer consulted. For a private certificate authority, configure a trusted CA in the environment/transport; applications requiring a custom transport must explicitly inject it. The client no longer depends on a component's global parameters to select its HTTP transport.
+
+`setToken('')` removes authorization headers case-insensitively and `getToken()` returns `null`. Changing tokens preserves unrelated headers.
+
+Injected transports must retain certificate validation and must not automatically follow redirects. Their own configuration is authoritative: arbitrary `TransportInterface` implementations may not share the HTTP client options. The built-in transports share the client Registry so per-request redirect settings take effect. With neither cURL nor URL-aware streams available, construction raises a clear `RuntimeException`.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

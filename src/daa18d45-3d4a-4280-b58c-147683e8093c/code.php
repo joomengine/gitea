@@ -44,10 +44,10 @@ class Commits extends Api
 		?bool $stat = true,
 		?int $page = 1,
 		?int $limit = 10
-	): ?object
+	): ?array
 	{
 		// Build the request path.
-		$uriPath = "/repos/{$owner}/{$repo}/commits";
+		$uriPath = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/commits';
 
 		// Set query parameters.
 		$uri = $this->uri->get($uriPath);
@@ -96,7 +96,7 @@ class Commits extends Api
 	public function getCommit(string $owner, string $repo, string $sha): ?object
 	{
 		// Build the request path.
-		$uriPath = "/repos/{$owner}/{$repo}/git/commits/{$sha}";
+		$uriPath = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/git/commits/' . $this->segment($sha);
 
 		// Send the GET request.
 		return $this->response->get(
@@ -127,7 +127,7 @@ class Commits extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/commits/{$ref}/status";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/commits/' . $this->segment($ref) . '/status';
 
 		// Set up the URI with the required parameters.
 		$uri = $this->uri->get($path);
@@ -165,7 +165,7 @@ class Commits extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/commits/{$ref}/statuses";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/commits/' . $this->segment($ref) . '/statuses';
 		
 		// Add query parameters to the URI.
 		$uri = $this->uri->get($path);
@@ -206,14 +206,17 @@ class Commits extends Api
 		string $diffType
 	): string
 	{
-		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/git/commits/{$sha}";
+		// Validate the requested representation before constructing the endpoint.
+		if (!in_array($diffType, ['diff', 'patch'], true))
+		{
+			throw new \InvalidArgumentException('Invalid diff type. Allowed types are "diff" and "patch".');
+		}
 
-		// Set the diffType as a variable in the URI.
-		$this->uri->setVar('diffType', $diffType);
+		// Build the request path.
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/git/commits/' . $this->segment($sha) . '.' . $this->segment($diffType);
 
 		// Send the get request.
-		return $this->response->get(
+		return $this->response->raw(
 			$this->http->get(
 				$this->uri->get($path)
 			)

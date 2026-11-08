@@ -6,19 +6,20 @@
 ```uml
 @startuml
 
-class NodeInfo  #Gold {
+class NodeInfo #Gold {
   + get() : ?object
 }
 
 note right of NodeInfo::get
-  Returns the nodeinfo of the Gitea application.
-
-  since: 3.2.0
   return: ?object
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+Gitea 28.2.0 deliberately routes this legacy endpoint to Not Implemented. The existing class and method are retained for compatibility with older servers; this endpoint is not advertised as functioning on 28.2.0.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

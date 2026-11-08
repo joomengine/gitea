@@ -49,7 +49,7 @@ class Pulls extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls';
 
 		// Set query parameters.
 		$this->uri->setVar('page', $page);
@@ -98,6 +98,10 @@ class Pulls extends Api
 	 * @param	int|null $milestone		ID of the milestone (optional).
 	 * @param	string|null $dueDate	Due date of the pull request (optional).
 	 *
+	 * @param   array|null $reviewers Reviewer usernames.
+	 * @param   array|null $teamReviewers Reviewer team names.
+	 * @param   bool|null $allowMaintainerEdit Allow maintainers to edit the pull request.
+	 *
 	 * @return object|null
 	 * @since 3.2.0
 	 */
@@ -112,11 +116,14 @@ class Pulls extends Api
 		?array $assignees = null,
 		?array $labels = null,
 		?int $milestone = null,
-		?string $dueDate = null
+		?string $dueDate = null,
+		?array $reviewers = null,
+		?array $teamReviewers = null,
+		?bool $allowMaintainerEdit = null
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls';
 
 		// Set the pull request data.
 		$data = new \stdClass();
@@ -154,10 +161,25 @@ class Pulls extends Api
 			$data->due_date = $dueDate;
 		}
 
+		if ($reviewers !== null)
+		{
+			$data->reviewers = $reviewers;
+		}
+
+		if ($teamReviewers !== null)
+		{
+			$data->team_reviewers = $teamReviewers;
+		}
+
+		if ($allowMaintainerEdit !== null)
+		{
+			$data->allow_maintainer_edit = $allowMaintainerEdit;
+		}
+
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}
@@ -175,7 +197,7 @@ class Pulls extends Api
 	public function get(string $owner, string $repo, int $index): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index);
 
 		// Send the get request.
 		return $this->response->get(
@@ -203,6 +225,8 @@ class Pulls extends Api
 	 * @param	bool|null $unsetDueDate 		Whether to unset the due date (optional).
 	 * @param	bool|null $allowMaintainerEdit 	Allow maintainer to edit the pull request (optional).
 	 *
+	 * @param   int|null $contentVersion Current content version for optimistic concurrency checks.
+	 *
 	 * @return object|null
 	 * @since 3.2.0
 	 */
@@ -220,11 +244,12 @@ class Pulls extends Api
 		?int $milestone = null,
 		?string $dueDate = null,
 		?bool $unsetDueDate = null,
-		?bool $allowMaintainerEdit = null
+		?bool $allowMaintainerEdit = null,
+		?int $contentVersion = null
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index);
 
 		// Set the pull request data.
 		$data = new \stdClass();
@@ -284,10 +309,15 @@ class Pulls extends Api
 			$data->allow_maintainer_edit = $allowMaintainerEdit;
 		}
 
+		if ($contentVersion !== null)
+		{
+			$data->content_version = $contentVersion;
+		}
+
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}
@@ -319,7 +349,7 @@ class Pulls extends Api
 		}
 
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}.{$diffType}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '.' . $this->segment($diffType);
 
 		// Get the URI with the path.
 		$uri = $this->uri->get($path);
@@ -331,9 +361,7 @@ class Pulls extends Api
 		}
 
 		// Send the get request.
-		return $this->response->get(
-			$this->http->get($uri)
-		);
+		return $this->response->raw($this->http->get($uri), 200, '');
 	}
 
 	/**
@@ -357,7 +385,7 @@ class Pulls extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/commits";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/commits';
 
 		// Get the URI with the path.
 		$uri = $this->uri->get($path);
@@ -397,7 +425,7 @@ class Pulls extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/files";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/files';
 
 		// Get the URI with the path.
 		$uri = $this->uri->get($path);
@@ -453,7 +481,7 @@ class Pulls extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/merge";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/merge';
 
 		// Set the merge data.
 		$data = new \stdClass();
@@ -501,7 +529,7 @@ class Pulls extends Api
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 200, 'success'
 		);
 	}
@@ -525,21 +553,19 @@ class Pulls extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/pulls/{$index}/update";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/pulls/' . $this->segment((string) $index) . '/update';
 
 		// Set the merge data.
-		$data = new \stdClass();
+		$uri = $this->uri->get($path);
 
 		if ($style !== null)
 		{
-			$data->style = $style;
+			$uri->setVar('style', $style);
 		}
 
 		// Send the request.
 		return $this->response->get(
-			$this->http->post(
-				$this->uri->get($path), json_encode($data)
-			), 200, 'success'
+			$this->http->post($uri, ''), 200, 'success'
 		);
 	}
 

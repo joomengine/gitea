@@ -6,17 +6,13 @@
 ```uml
 @startuml
 
-class Keys  #Gold {
+class Keys #Gold {
   + add(string $userName, string $publicKey, ...) : ?object
   + delete(string $username, int $id) : string
 }
 
 note right of Keys::add
-  Add a public key on behalf of a user.
-
-  since: 3.2.0
   return: ?object
-  
   arguments:
     string $userName
     string $publicKey
@@ -26,14 +22,18 @@ note right of Keys::add
 end note
 
 note right of Keys::delete
-  Delete a user's public key.
-
-  since: 3.2.0
   return: string
+  arguments:
+    string $username
+    int $id
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+The legacy `description` argument is retained for caller compatibility but is not sent because Gitea does not support it for SSH keys. Key paths are encoded safely.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

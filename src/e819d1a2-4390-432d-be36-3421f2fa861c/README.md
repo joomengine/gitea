@@ -3,13 +3,15 @@
 > namespace: **VDM\Joomla\Gitea\Issue**
 > extends: **Api**
 
+Gitea 28.2.0: `replace()` returns the decoded label array (`?array`), consistent with `get()` and `add()`. Its previous `object` declaration caused a TypeError for successful array responses. Consumers overriding this method must update their return declaration.
+
 ```uml
 @startuml
 
 class Labels  #Gold {
   + list(string $owner, string $repo, ...) : ?array
   + get(string $owner, string $repo, ...) : ?array
-  + replace(string $owner, string $repo, ...) : object
+  + replace(string $owner, string $repo, ...) : ?array
   + add(string $owner, string $repo, ...) : ?array
   + remove(string $owner, string $repo, ...) : string
   + clear(string $owner, string $repo, ...) : string
@@ -44,7 +46,7 @@ note right of Labels::replace
   Replace an issue's labels.
 
   since: 3.2.0
-  return: object
+  return: ?array
   
   arguments:
     string $owner

@@ -6,17 +6,13 @@
 ```uml
 @startuml
 
-class Repository  #Gold {
+class Repository #Gold {
   + get(string $owner, string $repo, ...) : ?array
   + update(string $owner, string $repo, ...) : ?array
 }
 
 note right of Repository::get
-  List user's notification threads on a specific repo.
-
-  since: 3.2.0
   return: ?array
-  
   arguments:
     string $owner
     string $repo
@@ -30,11 +26,7 @@ note right of Repository::get
 end note
 
 note right of Repository::update
-  Mark notification threads as read, pinned, or unread on a specific repo.
-
-  since: 3.2.0
   return: ?array
-  
   arguments:
     string $owner
     string $repo
@@ -46,6 +38,10 @@ end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+Notification filters use repeated query keys. The 205 response is decoded as a notification list, including any body returned with that status.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

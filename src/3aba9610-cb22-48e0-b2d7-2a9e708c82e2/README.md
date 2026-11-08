@@ -41,6 +41,8 @@ end note
 @enduml
 ```
 
+The existing `$pattern` argument is sent as Gitea's `query` parameter, supporting owner and owner/repository glob patterns.
+
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,
 namespacing, and folder structure creation for you.

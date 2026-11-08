@@ -49,9 +49,10 @@ note right of Protection::create
     array $pushWhitelistUsernames = []
     array $pushWhitelistTeams = []
     bool $requireSignedCommits = false
-    int $requiredApprovals
+    int $requiredApprovals = 0
     array $statusCheckContexts = []
     string $unprotectedFilePatterns = ''
+    ?string $ruleName = null
 end note
 
 note right of Protection::get

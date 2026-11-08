@@ -41,7 +41,7 @@ class Topics extends Api
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/topics";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/topics';
 
 		// Set query parameters for pagination.
 		$uri = $this->uri->get($path);
@@ -71,7 +71,7 @@ class Topics extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/topics";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/topics';
 
 		// Set the topics data.
 		$data = new \stdClass();
@@ -81,7 +81,7 @@ class Topics extends Api
 		return $this->response->get(
 			$this->http->put(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 204, 'success'
 		);
 	}
@@ -103,7 +103,7 @@ class Topics extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/topics/{$topicName}";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/topics/' . $this->segment($topicName);
 
 		// Send the put request.
 		return $this->response->get(
@@ -130,7 +130,7 @@ class Topics extends Api
 	): string
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/topics/{$topicName}";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/topics/' . $this->segment($topicName);
 
 		// Send the delete request.
 		return $this->response->get(
@@ -147,14 +147,14 @@ class Topics extends Api
 	 * @param	int      $page			The page number of results to return (1-based).
 	 * @param	int      $limit			The page size of results.
 	 *
-	 * @return  array|null
+	 * @return  object|null
 	 * @since   3.2.0
 	 **/
 	public function search(
 		string $searchKeyword,
 		int $page = 1,
 		int $limit = 10
-	): ?array
+	): ?object
 	{
 		// Build the request path.
 		$path = "/topics/search";

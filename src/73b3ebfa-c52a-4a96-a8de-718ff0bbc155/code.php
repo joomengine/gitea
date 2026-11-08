@@ -35,6 +35,8 @@ class Comment extends Api
 	public function list(string $owner, string $repo, int $commentId): ?array
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/comments/{$commentId}/reactions";
 
 		// Send the get request.
@@ -59,6 +61,8 @@ class Comment extends Api
 	public function add(string $owner, string $repo, int $commentId, string $content): ?object
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/comments/{$commentId}/reactions";
 
 		// Build the request data.
@@ -66,10 +70,10 @@ class Comment extends Api
 		$data->content = $content;
 
 		// Send the post request.
-		return $this->response->get(
+		return $this->response->get_(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
-			)
+				$this->uri->get($path), $this->encode($data)
+			), [200 => null, 201 => null]
 		);
 	}
 
@@ -87,15 +91,19 @@ class Comment extends Api
 	public function remove(string $owner, string $repo, int $commentId, string $content): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/comments/{$commentId}/reactions";
 
-		// Build the URI.
-		$uri = $this->uri->get($path);
-		$uri->setVar('content', $content);
+		// The reaction is a JSON body, including for DELETE requests.
+		$data = new \stdClass();
+		$data->content = $content;
 
 		// Send the delete request.
 		return $this->response->get(
-			$this->http->delete($uri), 200, 'success'
+			$this->http->delete(
+				$this->uri->get($path), [], null, $this->encode($data)
+			), 204, 'success'
 		);
 	}
 

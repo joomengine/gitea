@@ -51,7 +51,7 @@ class Keys extends Api
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -100,7 +100,7 @@ class Keys extends Api
 	public function get(int $id): ?object
 	{
 		// Build the request path.
-		$path = "/user/keys/{$id}";
+		$path = '/user/keys/' . $id;
 
 		// Send the get request.
 		return $this->response->get(
@@ -121,7 +121,7 @@ class Keys extends Api
 	public function delete(int $id): string
 	{
 		// Build the request path.
-		$path = "/user/keys/{$id}";
+		$path = '/user/keys/' . $id;
 
 		// Send the delete request.
 		return $this->response->get(

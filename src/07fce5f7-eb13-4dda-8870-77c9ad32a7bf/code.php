@@ -71,6 +71,8 @@ class Repository extends Api
 	): ?object
 	{
 		// Build the request path.
+		$organization = $this->segment($organization);
+		$repository = $this->segment($repository);
 		$path = "/teams/{$teamId}/repos/{$organization}/{$repository}";
 
 		// Send the get request.
@@ -98,6 +100,8 @@ class Repository extends Api
 	): string
 	{
 		// Build the request path.
+		$org = $this->segment($org);
+		$repo = $this->segment($repo);
 		$path = "/teams/{$id}/repos/{$org}/{$repo}";
 
 		// Send the put request.
@@ -121,6 +125,8 @@ class Repository extends Api
 	public function remove(int $id, string $org, string $repo): string
 	{
 		// Build the request path.
+		$org = $this->segment($org);
+		$repo = $this->segment($repo);
 		$path = "/teams/{$id}/repos/{$org}/{$repo}";
 
 		// Send the delete request.

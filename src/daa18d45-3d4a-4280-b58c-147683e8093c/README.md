@@ -7,7 +7,7 @@
 @startuml
 
 class Commits  #Gold {
-  + getList(string $owner, string $repo, ...) : ?object
+  + getList(string $owner, string $repo, ...) : ?array
   + getCommit(string $owner, string $repo, ...) : ?object
   + status(string $owner, string $repo, ...) : ?object
   + statuses(string $owner, string $repo, ...) : ?array
@@ -18,7 +18,7 @@ note right of Commits::getList
   Get a list of all commits from a repository.
 
   since: 3.2.0
-  return: ?object
+  return: ?array
   
   arguments:
     string $owner

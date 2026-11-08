@@ -49,6 +49,8 @@ class Times extends Api
 	): ?array
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/times";
 
 		// Prepare the query parameters.
@@ -117,13 +119,15 @@ class Times extends Api
 		}
 
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/times";
 
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			)
 		);
 	}
@@ -141,6 +145,8 @@ class Times extends Api
 	public function reset(string $owner, string $repo, int $index): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/times";
 
 		// Send the delete request.
@@ -165,6 +171,8 @@ class Times extends Api
 	public function delete(string $owner, string $repo, int $index, int $id): string
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/{$index}/times/{$id}";
 
 		// Send the delete request.

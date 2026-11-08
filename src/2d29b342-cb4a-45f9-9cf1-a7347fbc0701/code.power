@@ -5,7 +5,7 @@
 	 * @param   string  $publicKey       The public key to add.
 	 * @param   string  $keyTitle        Title of the key to add.
 	 * @param   bool    $readOnly        Whether the key has only read access or read/write (optional).
-	 * @param   string|null  $description Description of the key (optional).
+	 * @param   string|null  $description Deprecated; Gitea does not support a key description.
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -19,19 +19,18 @@
 	): ?object
 	{
 		// Build the request path.
-		$path = "/admin/users/{$userName}/keys";
+		$path = '/admin/users/' . $this->segment($userName) . '/keys';
 
 		// Set the key data.
 		$data = new \stdClass();
 		$data->key = $publicKey;
 		$data->title = $keyTitle;
 		$data->read_only = $readOnly;
-		$data->description = $description;
 
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			), 201
 		);
 	}
@@ -48,7 +47,7 @@
 	public function delete(string $username, int $id): string
 	{
 		// Build the request path.
-		$path = "/admin/users/{$username}/keys/{$id}";
+		$path = '/admin/users/' . $this->segment($username) . '/keys/' . $id;
 
 		// Send the delete request.
 		return $this->response->get(

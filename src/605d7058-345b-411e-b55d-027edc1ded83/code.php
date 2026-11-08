@@ -39,6 +39,7 @@ class Hooks extends Api
 	): ?array
 	{
 		// Build the request path.
+		$orgName = $this->segment($orgName);
 		$path = "/orgs/{$orgName}/hooks";
 
 		// Get the URI and set query parameters.
@@ -59,8 +60,12 @@ class Hooks extends Api
 	 * @param   string   $type      The type of hook (e.g. "gitea", "slack", "discord", etc.).
 	 * @param   string   $url       The URL of the hook.
 	 * @param   string   $secret    Optional. The secret for the hook.
-	 * @param   bool     $events    Optional. The events that trigger the hook.
+	 * @param   bool|array $events Optional. Event names; true selects push, false selects none.
 	 * @param   bool     $active    Optional. Whether the hook is active.
+	 * @param   string   $contentType Content type (json or form).
+	 * @param   string|null $branchFilter Branch filter pattern.
+	 * @param   string|null $name Human-readable hook name.
+	 * @param   string|null $authorizationHeader Authorization header for hook deliveries.
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -70,8 +75,12 @@ class Hooks extends Api
 		string $type,
 		string $url,
 		string $secret = '',
-		bool $events = true,
-		bool $active = true
+		bool|array $events = true,
+		bool $active = true,
+		string $contentType = 'json',
+		?string $branchFilter = null,
+		?string $name = null,
+		?string $authorizationHeader = null
 	): ?object
 	{
 		// Set the lines data
@@ -80,17 +89,34 @@ class Hooks extends Api
 		$data->config = new \stdClass();
 		$data->config->url = $url;
 		$data->config->secret = $secret;
-		$data->events = [];
+		$data->config->content_type = $contentType;
+		$data->events = is_array($events) ? array_values($events) : ($events ? ['push'] : []);
 		$data->active = $active;
 
+		if ($branchFilter !== null)
+		{
+			$data->branch_filter = $branchFilter;
+		}
+
+		if ($name !== null)
+		{
+			$data->name = $name;
+		}
+
+		if ($authorizationHeader !== null)
+		{
+			$data->authorization_header = $authorizationHeader;
+		}
+
 		// Build the request path.
+		$org = $this->segment($org);
 		$path = "/orgs/{$org}/hooks";
 
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -107,6 +133,7 @@ class Hooks extends Api
 	public function get(string $org, int $id): ?object
 	{
 		// Build the request path.
+		$org = $this->segment($org);
 		$path = "/orgs/{$org}/hooks/{$id}";
 
 		// Send the get request.
@@ -129,6 +156,7 @@ class Hooks extends Api
 	public function delete(string $org, int $id): string
 	{
 		// Build the request path.
+		$org = $this->segment($org);
 		$path = "/orgs/{$org}/hooks/{$id}";
 
 		// Send the DELETE request.
@@ -148,6 +176,8 @@ class Hooks extends Api
 	 * @param   string|null   $branchFilter   Optional. Branch filter for the hook.
 	 * @param   array|null    $config    Optional. Configuration for the hook.
 	 * @param   array|null    $events    Optional. Events for the hook.
+	 * @param   string|null   $name      Human-readable hook name.
+	 * @param   string|null   $authorizationHeader Authorization header for hook deliveries.
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -158,7 +188,9 @@ class Hooks extends Api
 		?bool $active = null,
 		?string $branchFilter = null,
 		?array $config = null,
-		?array $events = null
+		?array $events = null,
+		?string $name = null,
+		?string $authorizationHeader = null
 	): ?object
 	{
 		// Set the lines data
@@ -185,13 +217,24 @@ class Hooks extends Api
 		}
 
 		// Build the request path.
+		if ($name !== null)
+		{
+			$data->name = $name;
+		}
+
+		if ($authorizationHeader !== null)
+		{
+			$data->authorization_header = $authorizationHeader;
+		}
+
+		$orgName = $this->segment($orgName);
 		$path = "/orgs/{$orgName}/hooks/{$hookId}";
 
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			)
 		);
 	}

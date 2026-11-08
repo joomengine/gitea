@@ -38,6 +38,8 @@ class Comments extends Api
 	public function list(string $owner, string $repo, int $page = 1, int $limit = 10, ?string $since = null, ?string $before = null): ?array
 	{
 		// Build the request path.
+		$owner = $this->segment($owner);
+		$repo = $this->segment($repo);
 		$path = "/repos/{$owner}/{$repo}/issues/comments";
 
 		// Build the URI.

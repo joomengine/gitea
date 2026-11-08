@@ -78,6 +78,14 @@ end note
 @enduml
 ```
 
+## URL behavior (Power 1.1.0)
+
+Base URLs retain installation subpaths; trailing base/endpoint/version slashes and a missing leading resource slash are normalized. Every `get()` call returns an independent `Joomla\Uri\Uri` instance.
+
+The returned URI specializes Joomla's query serializer to preserve RFC 3986 escaping. Use `setVar($name, $value)` with unencoded values: spaces, `&`, `+`, and Unicode are escaped rather than interpreted as query syntax. Boolean values become `true`/`false`; zero is preserved; `null` is omitted. A flat array produces repeated keys (`status-types=unread&status-types=pinned`), matching OpenAPI `collectionFormat: multi`. For CSV parameters, pass an explicitly comma-joined string. Nested arrays and objects are rejected. Do not use `setQuery(string)` for repeated parameters because Joomla's parser collapses repeated keys.
+
+Resource paths must already encode their parameter segments; the API abstraction supplies `segment()` and `path()` for that purpose.
+
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,
 namespacing, and folder structure creation for you.

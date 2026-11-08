@@ -6,7 +6,7 @@
 ```uml
 @startuml
 
-class Following  #Gold {
+class Following #Gold {
   + list(int $page = 1, int $limit = 10) : ?array
   + check(string $username) : bool
   + follow(string $username) : string
@@ -14,35 +14,36 @@ class Following  #Gold {
 }
 
 note right of Following::list
-  List the users that the authenticated user is following.
-
-  since: 3.2.0
   return: ?array
+  arguments:
+    int $page = 1
+    int $limit = 10
 end note
 
 note right of Following::check
-  Check whether a user is followed by the authenticated user.
-
-  since: 3.2.0
   return: bool
+  arguments:
+    string $username
 end note
 
 note right of Following::follow
-  Follow a user.
-
-  since: 3.2.0
   return: string
+  arguments:
+    string $username
 end note
 
 note right of Following::unfollow
-  Unfollow a user.
-
-  since: 3.2.0
   return: string
+  arguments:
+    string $username
 end note
 
 @enduml
 ```
+
+## Gitea 28.2.0 maintenance
+
+`check()` returns false only for HTTP 404. Authentication, permission and server failures raise the normal response exception instead of being silently reported as “not following”.
 
 The **Power** feature in JCB allows you to write PHP classes and their implementations,
 making it easy to include them in your Joomla project. JCB handles linking, autoloading,

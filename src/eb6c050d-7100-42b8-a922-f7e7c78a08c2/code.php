@@ -78,7 +78,7 @@ class Repository extends Api
 	public function get(string $owner, string $repo): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo);
 
 		// Send the get request.
 		return $this->response->get(
@@ -100,7 +100,7 @@ class Repository extends Api
 	public function id(string $owner, string $repo): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo);
 
 		// Send the get request.
 		return $this->response->get(
@@ -122,7 +122,7 @@ class Repository extends Api
 	public function delete(string $owner, string $repo): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo);
 
 		// Send the delete request.
 		return $this->response->get(
@@ -164,6 +164,20 @@ class Repository extends Api
 	 * @param   string|null $mirrorInterval                     Set the mirror interval time (optional).
 	 * @param   bool|null   $template                           Set to true to make this repository a template (optional).
 	 *
+	 * @param   string|null $name New repository name.
+	 * @param   bool|null $hasActions Enable the Actions unit.
+	 * @param   bool|null $hasPackages Enable the packages unit.
+	 * @param   bool|null $hasReleases Enable the releases unit.
+	 * @param   bool|null $hasCode Enable the code unit.
+	 * @param   bool|null $allowFastForwardOnlyMerge Allow fast-forward-only pull request merges.
+	 * @param   bool|null $allowMergeUpdate Allow pull request branch updates by merge.
+	 * @param   bool|null $defaultAllowMaintainerEdit Allow maintainer edits by default.
+	 * @param   string|null $defaultUpdateStyle Default pull request update style: merge or rebase.
+	 * @param   string|null $projectsMode Project visibility mode: repo, owner or all.
+	 * @param   string|null $mirrorUsername Pull mirror authentication username.
+	 * @param   string|null $mirrorPassword Pull mirror authentication password.
+	 * @param   string|null $mirrorToken Pull mirror authentication token.
+	 *
 	 * @return  object|null
 	 * @since   3.2.0
 	 **/
@@ -194,11 +208,24 @@ class Repository extends Api
 		?bool $ignoreWhitespaceConflicts = null,
 		?object $internalTracker = null,
 		?string $mirrorInterval = null,
-		?bool $template = null
+		?bool $template = null,
+		?string $name = null,
+		?bool $hasActions = null,
+		?bool $hasPackages = null,
+		?bool $hasReleases = null,
+		?bool $hasCode = null,
+		?bool $allowFastForwardOnlyMerge = null,
+		?bool $allowMergeUpdate = null,
+		?bool $defaultAllowMaintainerEdit = null,
+		?string $defaultUpdateStyle = null,
+		?string $projectsMode = null,
+		?string $mirrorUsername = null,
+		?string $mirrorPassword = null,
+		?string $mirrorToken = null
 	): ?object
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo);
 
 		// Set the repository properties to update.
 		$data = new \stdClass();
@@ -330,10 +357,75 @@ class Repository extends Api
 			$data->template = $template;
 		}
 
+		if ($name !== null)
+		{
+			$data->name = $name;
+		}
+
+		if ($hasActions !== null)
+		{
+			$data->has_actions = $hasActions;
+		}
+
+		if ($hasPackages !== null)
+		{
+			$data->has_packages = $hasPackages;
+		}
+
+		if ($hasReleases !== null)
+		{
+			$data->has_releases = $hasReleases;
+		}
+
+		if ($hasCode !== null)
+		{
+			$data->has_code = $hasCode;
+		}
+
+		if ($allowFastForwardOnlyMerge !== null)
+		{
+			$data->allow_fast_forward_only_merge = $allowFastForwardOnlyMerge;
+		}
+
+		if ($allowMergeUpdate !== null)
+		{
+			$data->allow_merge_update = $allowMergeUpdate;
+		}
+
+		if ($defaultAllowMaintainerEdit !== null)
+		{
+			$data->default_allow_maintainer_edit = $defaultAllowMaintainerEdit;
+		}
+
+		if ($defaultUpdateStyle !== null)
+		{
+			$data->default_update_style = $defaultUpdateStyle;
+		}
+
+		if ($projectsMode !== null)
+		{
+			$data->projects_mode = $projectsMode;
+		}
+
+		if ($mirrorUsername !== null)
+		{
+			$data->mirror_username = $mirrorUsername;
+		}
+
+		if ($mirrorPassword !== null)
+		{
+			$data->mirror_password = $mirrorPassword;
+		}
+
+		if ($mirrorToken !== null)
+		{
+			$data->mirror_token = $mirrorToken;
+		}
+
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
-				$this->uri->get($path), json_encode($data)
+				$this->uri->get($path), $this->encode($data)
 			)
 		);
 	}
@@ -353,6 +445,8 @@ class Repository extends Api
 	 * @param   bool|null $template          Optional. Set to true if the repository is a template.
 	 * @param   string|null $trustModel      Optional. TrustModel of the repository.
 	 *
+	 * @param   string|null $objectFormatName Git object format: sha1 or sha256.
+	 *
 	 * @return  object|null
 	 * @since   3.2.0
 	 **/
@@ -367,7 +461,8 @@ class Repository extends Api
 		?string $license = null,
 		?string $readme = null,
 		?bool $template = null,
-		?string $trustModel = null
+		?string $trustModel = null,
+		?string $objectFormatName = null
 	): ?object {
 		// Build the request path.
 		$path = "/user/repos";
@@ -426,13 +521,34 @@ class Repository extends Api
 			$data->trust_model = $trustModel;
 		}
 
+		if ($objectFormatName !== null)
+		{
+			$data->object_format_name = $objectFormatName;
+		}
+
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
+	}
+
+
+	/**
+	 * Get a repository by its numeric database ID.
+	 *
+	 * @param   int  $id  Repository ID.
+	 *
+	 * @return  object|null
+	 * @since   1.1.0
+	 */
+	public function getById(int $id): ?object
+	{
+		$path = '/repositories/' . $this->segment((string) $id);
+
+		return $this->response->get($this->http->get($this->uri->get($path)));
 	}
 
 }

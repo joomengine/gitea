@@ -69,6 +69,7 @@ class User extends Api
 	): ?array
 	{
 		// Build the request path.
+		$username = $this->segment($username);
 		$path = "/users/{$username}/orgs";
 
 		// Get the URI object.
@@ -96,6 +97,8 @@ class User extends Api
 	public function permissions(string $username, string $org): ?object
 	{
 		// Build the request path.
+		$username = $this->segment($username);
+		$org = $this->segment($org);
 		$path = "/users/{$username}/orgs/{$org}/permissions";
 
 		// Send the get request.

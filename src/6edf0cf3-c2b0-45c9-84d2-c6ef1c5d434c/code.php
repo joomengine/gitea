@@ -14,6 +14,7 @@ namespace VDM\Joomla\Gitea\Service;
 
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
+use VDM\Joomla\Gitea\Client;
 use VDM\Joomla\Gitea\Utilities\Uri;
 use VDM\Joomla\Gitea\Utilities\Response;
 
@@ -35,11 +36,31 @@ class Utilities implements ServiceProviderInterface
 	 */
 	public function register(Container $container)
 	{
+		$container->alias(Client::class, 'Gitea.Client')
+			->share('Gitea.Client', [$this, 'getClient'], true);
+
 		$container->alias(Uri::class, 'Gitea.Utilities.Uri')
 			->share('Gitea.Utilities.Uri', [$this, 'getUri'], true);
 
 		$container->alias(Response::class, 'Gitea.Utilities.Response')
 			->share('Gitea.Utilities.Response', [$this, 'getResponse'], true);
+	}
+
+	/**
+	 * Get the schema-backed Gitea client.
+	 *
+	 * @param   Container  $container  The DI container.
+	 *
+	 * @return  Client
+	 * @since   3.2.0
+	 */
+	public function getClient(Container $container): Client
+	{
+		return new Client(
+			$container->get('Gitea.Utilities.Http'),
+			$container->get('Gitea.Dynamic.Uri'),
+			$container->get('Gitea.Utilities.Response')
+		);
 	}
 
 	/**

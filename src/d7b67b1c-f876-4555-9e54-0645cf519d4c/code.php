@@ -47,7 +47,7 @@ class Times extends Api
 	): ?array
 	{
 		// Build the request path.
-		$path = "/repos/{$ownerName}/{$repoName}/times";
+		$path = '/repos/' . $this->segment($ownerName) . '/' . $this->segment($repoName) . '/times';
 
 		// Set the query parameters.
 		$uri = $this->uri->get($path);

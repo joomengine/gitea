@@ -30,7 +30,7 @@
 	 * @param   string|null   $theme                  Optional. The theme to update.
 	 * @param   string|null   $website                Optional. The website to update.
 	 *
-	 * @return  array|null
+	 * @return  object|null
 	 * @since   3.2.0
 	 **/
 	public function update(
@@ -43,7 +43,7 @@
 		?string $location = null,
 		?string $theme = null,
 		?string $website = null
-	): ?array
+	): ?object
 	{
 		// Prepare settings data
 		$settings = [];
@@ -91,7 +91,7 @@
 		return $this->response->get(
 			$this->http->patch(
 				$this->uri->get($path),
-				json_encode($settings)
+				$this->encode((object) $settings)
 			)
 		);
 	}

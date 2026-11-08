@@ -56,13 +56,13 @@ class Emails extends Api
 
 		// Create the request body.
 		$body = new \stdClass();
-		$body->emails = $emails;
+		$body->emails = array_values($emails);
 
 		// Send the post request.
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($body)
+				$this->encode($body)
 			), 201
 		);
 	}
@@ -70,7 +70,7 @@ class Emails extends Api
 	/**
 	 * Delete email addresses for the authenticated user.
 	 *
-	 * @param   array   $$emails   An array of email addresses to delete.
+	 * @param   array   $emails   An array of email addresses to delete.
 	 *
 	 * @return  string
 	 * @since   3.2.0
@@ -82,11 +82,10 @@ class Emails extends Api
 
 		// Build the URI.
 		$uri = $this->uri->get($path);
-		$uri->setVar('emails', json_encode($emails));
 
 		// Send the delete request.
 		return $this->response->get(
-			$this->http->delete($uri), 204, 'success'
+			$this->http->delete($uri, [], null, $this->encode(['emails' => array_values($emails)])), 204, 'success'
 		);
 	}
 

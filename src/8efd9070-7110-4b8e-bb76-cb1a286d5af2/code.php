@@ -30,7 +30,10 @@ class Organization extends Api
 	 * @param   string   $email      Required. The email of the organization.
 	 * @param   string   $description Optional. The description of the organization.
 	 * @param   bool     $repoAdmin  Optional. Whether the user has repository admin access.
-	 * @param   bool     $teamAdmin  Optional. Whether the user has team admin access.
+	 * @param   bool     $teamAdmin  Legacy argument retained for compatibility; ignored by Gitea.
+	 * @param   string|null $location   Organization location.
+	 * @param   string|null $website    Organization website.
+	 * @param   string|null $visibility Organization visibility (public, limited, private).
 	 *
 	 * @return  object|null
 	 * @since   3.2.0
@@ -41,7 +44,10 @@ class Organization extends Api
 		string $email,
 		string $description = '',
 		bool $repoAdmin = false,
-		bool $teamAdmin = false
+		bool $teamAdmin = false,
+		?string $location = null,
+		?string $website = null,
+		?string $visibility = null
 	): ?object
 	{
 		// Set the lines data
@@ -51,7 +57,20 @@ class Organization extends Api
 		$data->email = $email;
 		$data->description = $description;
 		$data->repo_admin_change_team_access = $repoAdmin;
-		$data->team_admin_change_team_access = $teamAdmin;
+		if ($location !== null)
+		{
+			$data->location = $location;
+		}
+
+		if ($website !== null)
+		{
+			$data->website = $website;
+		}
+
+		if ($visibility !== null)
+		{
+			$data->visibility = $visibility;
+		}
 
 		// Build the request path.
 		$path = '/orgs';
@@ -60,7 +79,7 @@ class Organization extends Api
 		return $this->response->get(
 			$this->http->post(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			), 201
 		);
 	}
@@ -76,6 +95,7 @@ class Organization extends Api
 	public function get(string $org): ?object
 	{
 		// Build the request path.
+		$org = $this->segment($org);
 		$path = "/orgs/{$org}";
 
 		// Send the get request.
@@ -125,6 +145,7 @@ class Organization extends Api
 	public function delete(string $org): string
 	{
 		// Build the request path.
+		$org = $this->segment($org);
 		$path = "/orgs/{$org}";
 
 		// Send the delete request.
@@ -140,6 +161,7 @@ class Organization extends Api
 	 *
 	 * @param   string   $org          The organization name.
 	 * @param   string   $fullName     Optional. The full name of the organization.
+	 * @param   string   $email        Optional. The email address; empty string clears it.
 	 * @param   string   $location     Optional. The location of the organization.
 	 * @param   string   $description  Optional. The description of the organization.
 	 * @param   bool     $repoAdmin    Optional. Whether the user has repository admin access.
@@ -168,6 +190,11 @@ class Organization extends Api
 			$data->full_name = $fullName;
 		}
 
+		if ($email !== null)
+		{
+			$data->email = $email;
+		}
+
 		if ($location !== null) 
 		{
 			$data->location = $location;
@@ -194,13 +221,14 @@ class Organization extends Api
 		}
 
 		// Build the request path.
+		$org = $this->segment($org);
 		$path = "/orgs/{$org}";
 
 		// Send the patch request.
 		return $this->response->get(
 			$this->http->patch(
 				$this->uri->get($path),
-				json_encode($data)
+				$this->encode($data)
 			)
 		);
 	}

@@ -54,7 +54,7 @@ class Settings extends Api
 	 * @param   string|null   $theme                  Optional. The theme to update.
 	 * @param   string|null   $website                Optional. The website to update.
 	 *
-	 * @return  array|null
+	 * @return  object|null
 	 * @since   3.2.0
 	 **/
 	public function update(
@@ -67,7 +67,7 @@ class Settings extends Api
 		?string $location = null,
 		?string $theme = null,
 		?string $website = null
-	): ?array
+	): ?object
 	{
 		// Prepare settings data
 		$settings = [];
@@ -115,7 +115,7 @@ class Settings extends Api
 		return $this->response->get(
 			$this->http->patch(
 				$this->uri->get($path),
-				json_encode($settings)
+				$this->encode((object) $settings)
 			)
 		);
 	}

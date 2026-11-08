@@ -34,13 +34,11 @@ class Mirror extends Api
 	public function sync(string $owner, string $repo): string
 	{
 		// Build the request path.
-		$path = "/repos/{$owner}/{$repo}/mirror-sync";
+		$path = '/repos/' . $this->segment($owner) . '/' . $this->segment($repo) . '/mirror-sync';
 
 		// Send the POST request.
 		return $this->response->get(
-			$this->http->post(
-				$this->uri->get($path)
-			), 200, 'success'
+			$this->http->post($this->uri->get($path), ''), 200, 'success'
 		);
 	}
 
